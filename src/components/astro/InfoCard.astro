@@ -1,0 +1,18 @@
+---
+interface Props {
+  color?: 'yellow' | 'green' | 'lilac' | 'pink';
+  class?: string;
+}
+
+const { color = 'yellow', class: className = '' } = Astro.props;
+
+const colors = {
+  yellow: 'bg-[var(--color-buttercream)]',
+  green: 'bg-[var(--color-mint-wash)]',
+  lilac: 'bg-[var(--color-lilac-mist)]',
+  pink: 'bg-[var(--color-bubblegum)]'
+};
+---
+<div class={`border border-[var(--color-carbon-black)] rounded-[var(--radius-xl)] p-[24px] shadow-[var(--shadow-subtle)] ${colors[color]} ${className}`}>
+  <slot />
+</div>

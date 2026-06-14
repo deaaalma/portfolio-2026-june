@@ -1,0 +1,23 @@
+---
+interface Props {
+  variant?: 'primary' | 'secondary';
+  href?: string;
+  class?: string;
+}
+
+const { variant = 'primary', href, class: className = '' } = Astro.props;
+
+// No hover state needed — the shadow offset stays static to preserve the sticker feel.
+const baseClasses = "inline-flex items-center justify-center border border-[var(--color-carbon-black)] rounded-[var(--radius-buttons)] px-[24px] py-[10px] text-[var(--text-body)] font-medium text-[var(--color-carbon-black)] shadow-[var(--shadow-subtle)] focus:outline-none";
+
+const variantClasses = {
+  primary: "bg-[var(--color-lime-pulse)]",
+  secondary: "bg-[var(--color-paper-white)]"
+};
+
+const Element = href ? 'a' : 'button';
+---
+
+<Element href={href} class={`${baseClasses} ${variantClasses[variant]} ${className}`}>
+  <slot />
+</Element>

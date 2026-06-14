@@ -1,0 +1,40 @@
+---
+import Button from './Button.astro';
+---
+<header class="fixed top-[24px] left-1/2 -translate-x-1/2 w-[calc(100%-48px)] max-w-[1200px] z-50 transition-all duration-300">
+  <nav class="flex items-center justify-between bg-[var(--color-paper-white)] border-[1.5px] border-[var(--color-carbon-black)] rounded-full px-[16px] py-[12px] shadow-[4px_4px_0_#000]">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-[8px] pl-[12px]">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--color-lime-pulse)" stroke="var(--color-carbon-black)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 12v-3a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"></path>
+        <path d="M20 12v3a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-3"></path>
+        <circle cx="12" cy="12" r="3"></circle>
+      </svg>
+      <span class="text-[20px] font-bold text-[var(--color-carbon-black)] tracking-tight">Brainfish</span>
+    </a>
+    
+    <!-- Links -->
+    <div class="hidden md:flex items-center gap-[36px]">
+      <a href="#" class="text-[15px] font-medium text-[var(--color-carbon-black)] hover:opacity-70 transition-opacity">Why Brainfish</a>
+      <a href="#" class="flex items-center gap-[4px] text-[15px] font-medium text-[var(--color-carbon-black)] hover:opacity-70 transition-opacity">
+        Product
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </a>
+      <a href="#" class="text-[15px] font-medium text-[var(--color-carbon-black)] hover:opacity-70 transition-opacity">Customers</a>
+      <a href="#" class="flex items-center gap-[4px] text-[15px] font-medium text-[var(--color-carbon-black)] hover:opacity-70 transition-opacity">
+        Resources
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </a>
+      <a href="#" class="text-[15px] font-medium text-[var(--color-carbon-black)] hover:opacity-70 transition-opacity">Pricing</a>
+    </div>
+
+    <!-- CTAs -->
+    <div class="flex items-center gap-[12px]">
+      <a href="#" class="text-[15px] font-bold text-[var(--color-carbon-black)] border-[1.5px] border-[var(--color-carbon-black)] rounded-full px-[20px] py-[8px] bg-[var(--color-paper-white)] shadow-[2px_2px_0_#000] hover:bg-gray-50 transition-colors">Sign in</a>
+      <a href="#" class="flex items-center gap-[8px] text-[15px] font-bold text-[var(--color-carbon-black)] border-[1.5px] border-[var(--color-carbon-black)] rounded-full px-[20px] py-[8px] bg-[var(--color-lime-pulse)] shadow-[2px_2px_0_#000] hover:brightness-95 transition-all">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+        Book Demo
+      </a>
+    </div>
+  </nav>
+</header>
