@@ -15,15 +15,15 @@ import Button from './Button.astro';
        <span>000000</span>
     </div>
     <div class="flex flex-col items-center hidden md:flex">
-       <span class="text-[#fbd000]">EXPERIENCE</span>
+       <span>EXPERIENCE</span>
        <span>LEVEL 3</span>
     </div>
     <div class="flex flex-col items-center">
-       <span class="text-[#43b047]">PROJECTS</span>
-       <span>12</span>
+       <span>PROJECTS</span>
+       <span>6</span>
     </div>
     <div class="flex flex-col items-center">
-       <span class="text-[#e52521]">TIME</span>
+       <span>TIME</span>
        <span>♾️</span>
     </div>
   </div>
@@ -184,6 +184,11 @@ import Button from './Button.astro';
       <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,115.9,188.94,99.73,235.17,86.85,280.4,70.93,321.39,56.44Z" fill="var(--color-paper-white)"></path>
     </svg>
   </div>
+
+  <!-- CRT Overlay -->
+  <div id="crt-overlay" class="fixed inset-0 bg-black z-50 flex items-center justify-center pointer-events-none opacity-0">
+    <div id="crt-line" class="w-full h-full bg-white opacity-0 origin-center"></div>
+  </div>
 </section>
 
 <script>
@@ -199,6 +204,8 @@ import Button from './Button.astro';
   const bgm = document.getElementById('bgm') as HTMLAudioElement;
   const mainContent = document.getElementById('main-content');
   const divider = document.getElementById('hero-divider');
+  const crtOverlay = document.getElementById('crt-overlay');
+  const crtLine = document.getElementById('crt-line');
 
   if (startBtn) {
     startBtn.addEventListener('click', () => {
@@ -208,38 +215,61 @@ import Button from './Button.astro';
          bgm.play().catch(e => console.log("Audio play blocked by browser:", e));
        }
        
-       // 2. Hide Start Button and HUD
-       startBtn.classList.add('opacity-0', 'scale-90', 'pointer-events-none');
-       setTimeout(() => startBtn.classList.add('hidden'), 500); // Remove from layout after fade
-
-       if (hud) {
-         hud.classList.add('opacity-0', '-translate-y-full');
-       }
+       // 2. Fast blink the start button
+       startBtn.classList.add('fast-blink');
        
-       // 3. Show Widget
-       if (widget) {
-         widget.classList.remove('opacity-0', 'translate-y-[50px]', 'pointer-events-none', 'absolute', 'top-[160px]', 'md:top-[220px]');
-         widget.classList.add('opacity-100', 'translate-y-0', 'relative', 'mt-[80px]');
-       }
-       
-       // 4. Show Navbar
-       if(navbar) {
-         navbar.classList.remove('opacity-0', '-translate-y-[150%]', 'pointer-events-none');
-         navbar.classList.add('opacity-100', 'translate-y-0');
-       }
+       setTimeout(() => {
+           // 3. Turn OFF CRT (Screen goes black with white line shrinking)
+           if (crtOverlay && crtLine) {
+               crtOverlay.classList.remove('opacity-0');
+               crtOverlay.classList.add('opacity-100');
+               crtLine.classList.remove('opacity-0');
+               crtLine.classList.add('animate-crt-off');
+           }
 
-       // 5. Show rest of content below Hero
-       if (mainContent) {
-         mainContent.classList.remove('hidden');
-         setTimeout(() => mainContent.classList.remove('opacity-0'), 50);
-       }
+           setTimeout(() => {
+               // 4. While screen is pitch black, arrange the new layout behind it
+               startBtn.classList.remove('fast-blink');
+               startBtn.classList.add('hidden');
+               if (hud) hud.classList.add('hidden');
+               
+               if (widget) {
+                 widget.classList.remove('opacity-0', 'translate-y-[50px]', 'pointer-events-none', 'absolute', 'top-[160px]', 'md:top-[220px]');
+                 widget.classList.add('opacity-100', 'translate-y-0', 'relative', 'mt-[80px]');
+               }
+               
+               if(navbar) {
+                 navbar.classList.remove('opacity-0', '-translate-y-[150%]', 'pointer-events-none');
+                 navbar.classList.add('opacity-100', 'translate-y-0');
+               }
 
-       if (divider) {
-         divider.classList.remove('opacity-0');
-       }
-       
-       // 6. Enable scroll so user can view the rest of the portfolio
-       document.body.style.overflow = 'auto';
+               if (mainContent) {
+                 mainContent.classList.remove('hidden', 'opacity-0');
+               }
+
+               if (divider) {
+                 divider.classList.remove('opacity-0');
+               }
+
+               // 5. Turn ON CRT (White line expands to reveal new screen)
+               if (crtOverlay && crtLine) {
+                   crtLine.classList.remove('animate-crt-off');
+                   crtLine.classList.add('animate-crt-on');
+                   
+                   // After turn on animation finishes, hide the overlay line
+                   setTimeout(() => {
+                       crtLine.classList.remove('animate-crt-on');
+                       crtLine.classList.add('opacity-0');
+                       crtOverlay.classList.remove('opacity-100');
+                       crtOverlay.classList.add('opacity-0', 'pointer-events-none');
+                       document.body.style.overflow = 'auto'; // Enable scroll
+                   }, 500);
+               } else {
+                   document.body.style.overflow = 'auto';
+               }
+
+           }, 400); // Duration of crt-off animation
+       }, 600); // Duration of fast blink before turning off
     });
   }
 </script>
