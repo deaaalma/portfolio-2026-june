@@ -3,69 +3,125 @@ import Badge from './Badge.astro';
 import Button from './Button.astro';
 ---
 
-<section class="relative w-full bg-gradient-to-b from-[#7dd3fc] via-[#bae6fd] to-[#e0f2fe] pt-[180px] pb-[120px] overflow-visible">
-  <!-- Wavy Divider Bottom (if any, but image doesn't show bottom edge, assuming standard wavy) -->
-  <div class="absolute bottom-[-1px] left-0 w-full overflow-hidden leading-[0] z-20">
-    <svg class="relative block w-[calc(100%+1.3px)] h-[80px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-      <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,115.9,188.94,99.73,235.17,86.85,280.4,70.93,321.39,56.44Z" fill="var(--color-paper-white)"></path>
-    </svg>
+<section class="relative w-full min-h-screen bg-gradient-to-b from-[#7dd3fc] via-[#bae6fd] to-[#e0f2fe] pt-[140px] md:pt-[180px] pb-[160px] overflow-hidden flex flex-col items-center">
+  
+  <!-- BGM Audio (Royalty Free Placeholder) -->
+  <audio id="bgm" src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=8-bit-music-retro-arcade-game-116832.mp3" loop preload="auto"></audio>
+
+  <!-- Retro HUD (Initially Visible) -->
+  <div id="retro-hud" class="absolute top-[24px] left-0 w-full px-[24px] md:px-[48px] flex justify-between text-white text-[16px] md:text-[24px] z-40 transition-all duration-700" style="font-family: 'Mario', sans-serif; -webkit-text-stroke: 2px black; text-shadow: 4px 4px 0 #000;">
+    <div class="flex flex-col items-center">
+       <span>DEA</span>
+       <span>000000</span>
+    </div>
+    <div class="flex flex-col items-center hidden md:flex">
+       <span class="text-[#fbd000]">EXPERIENCE</span>
+       <span>LEVEL 3</span>
+    </div>
+    <div class="flex flex-col items-center">
+       <span class="text-[#43b047]">PROJECTS</span>
+       <span>12</span>
+    </div>
+    <div class="flex flex-col items-center">
+       <span class="text-[#e52521]">TIME</span>
+       <span>♾️</span>
+    </div>
   </div>
 
-  <!-- Decorative Clouds with White Fill -->
-  <svg class="absolute top-[20%] left-[8%] w-[120px] h-[80px] -rotate-2" viewBox="0 0 100 60" fill="var(--color-paper-white)" stroke="var(--color-carbon-black)" stroke-width="1.5">
-    <path d="M25 45 C15 45 10 38 12 30 C15 20 25 15 35 18 C40 8 60 5 70 15 C82 12 90 20 88 32 C95 38 90 45 80 45 Z" />
-  </svg>
-  <svg class="absolute top-[40%] left-[15%] w-[80px] h-[50px] rotate-3" viewBox="0 0 100 60" fill="var(--color-paper-white)" stroke="var(--color-carbon-black)" stroke-width="1.5">
-    <path d="M25 45 C15 45 10 38 12 30 C15 20 25 15 35 18 C40 8 60 5 70 15 C82 12 90 20 88 32 C95 38 90 45 80 45 Z" />
-  </svg>
-  <svg class="absolute top-[18%] right-[10%] w-[150px] h-[90px] rotate-1" viewBox="0 0 100 60" fill="var(--color-paper-white)" stroke="var(--color-carbon-black)" stroke-width="1.5">
-    <path d="M25 45 C15 45 10 38 12 30 C15 20 25 15 35 18 C40 8 60 5 70 15 C82 12 90 20 88 32 C95 38 90 45 80 45 Z" />
-  </svg>
-  <svg class="absolute top-[35%] right-[12%] w-[100px] h-[60px] -rotate-3" viewBox="0 0 100 60" fill="var(--color-paper-white)" stroke="var(--color-carbon-black)" stroke-width="1.5">
-    <path d="M25 45 C15 45 10 38 12 30 C15 20 25 15 35 18 C40 8 60 5 70 15 C82 12 90 20 88 32 C95 38 90 45 80 45 Z" />
-  </svg>
+  <!-- Pixel Clouds (Evenly Distributed) -->
+  <!-- Top Row -->
+  <div class="absolute top-[5%] left-[5%] opacity-80 animate-pulse z-20" style="animation-duration: 3s;">
+    <svg class="w-[90px] h-auto cursor-pointer hover:scale-125 hover:brightness-110 transition-all duration-300" viewBox="0 0 24 16" fill="white" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;"><path d="M7 2h6v2h4v2h2v2h2v6H3v-4H1V8h2V6h2V4h2V2z" /></svg>
+  </div>
+  <div class="absolute top-[12%] left-[25%] opacity-65 z-20" style="animation-duration: 5s;">
+    <svg class="w-[130px] h-auto cursor-pointer hover:scale-125 hover:brightness-110 transition-all duration-300" viewBox="0 0 24 16" fill="white" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;"><path d="M7 2h6v2h4v2h2v2h2v6H3v-4H1V8h2V6h2V4h2V2z" /></svg>
+  </div>
+  <div class="absolute top-[8%] right-[15%] opacity-90 animate-bounce z-20" style="animation-duration: 4s;">
+    <svg class="w-[150px] h-auto cursor-pointer hover:scale-125 hover:brightness-110 transition-all duration-300" viewBox="0 0 24 16" fill="white" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;"><path d="M7 2h6v2h4v2h2v2h2v6H3v-4H1V8h2V6h2V4h2V2z" /></svg>
+  </div>
+  <div class="absolute top-[20%] right-[40%] opacity-75 z-20">
+    <svg class="w-[100px] h-auto cursor-pointer hover:scale-125 hover:brightness-110 transition-all duration-300" viewBox="0 0 24 16" fill="white" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;"><path d="M7 2h6v2h4v2h2v2h2v6H3v-4H1V8h2V6h2V4h2V2z" /></svg>
+  </div>
 
-  <div class="relative max-w-[1200px] mx-auto px-[24px] flex flex-col items-center text-center z-10">
-    <Badge class="mb-[24px]">
-      <span class="mr-[6px] flex items-center gap-[4px]">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--color-lime-pulse)" stroke="var(--color-carbon-black)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 12v-3a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"></path>
-            <path d="M20 12v3a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-3"></path>
-        </svg>
-        The Knowledge Layer for AI
-      </span>
-    </Badge>
+  <!-- Middle Row -->
+  <div class="absolute top-[35%] left-[8%] opacity-85 z-20" style="animation-duration: 6s;">
+    <svg class="w-[160px] h-auto cursor-pointer hover:scale-125 hover:brightness-110 transition-all duration-300" viewBox="0 0 24 16" fill="white" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;"><path d="M7 2h6v2h4v2h2v2h2v6H3v-4H1V8h2V6h2V4h2V2z" /></svg>
+  </div>
+  <div class="absolute top-[40%] right-[5%] opacity-70 animate-pulse z-20" style="animation-duration: 4s;">
+    <svg class="w-[120px] h-auto cursor-pointer hover:scale-125 hover:brightness-110 transition-all duration-300" viewBox="0 0 24 16" fill="white" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;"><path d="M7 2h6v2h4v2h2v2h2v6H3v-4H1V8h2V6h2V4h2V2z" /></svg>
+  </div>
+  <div class="absolute top-[55%] left-[30%] opacity-90 z-20">
+    <svg class="w-[110px] h-auto cursor-pointer hover:scale-125 hover:brightness-110 transition-all duration-300" viewBox="0 0 24 16" fill="white" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;"><path d="M7 2h6v2h4v2h2v2h2v6H3v-4H1V8h2V6h2V4h2V2z" /></svg>
+  </div>
+  <div class="absolute top-[50%] right-[25%] opacity-80 animate-bounce z-20" style="animation-duration: 5s;">
+    <svg class="w-[140px] h-auto cursor-pointer hover:scale-125 hover:brightness-110 transition-all duration-300" viewBox="0 0 24 16" fill="white" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;"><path d="M7 2h6v2h4v2h2v2h2v6H3v-4H1V8h2V6h2V4h2V2z" /></svg>
+  </div>
+
+  <!-- Bottom Row -->
+  <div class="absolute top-[75%] left-[5%] opacity-75 animate-pulse z-20" style="animation-duration: 3s;">
+    <svg class="w-[120px] h-auto cursor-pointer hover:scale-125 hover:brightness-110 transition-all duration-300" viewBox="0 0 24 16" fill="white" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;"><path d="M7 2h6v2h4v2h2v2h2v6H3v-4H1V8h2V6h2V4h2V2z" /></svg>
+  </div>
+  <div class="absolute top-[85%] right-[10%] opacity-65 z-20">
+    <svg class="w-[90px] h-auto cursor-pointer hover:scale-125 hover:brightness-110 transition-all duration-300" viewBox="0 0 24 16" fill="white" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;"><path d="M7 2h6v2h4v2h2v2h2v6H3v-4H1V8h2V6h2V4h2V2z" /></svg>
+  </div>
+  <div class="absolute top-[80%] left-[45%] opacity-85 z-20" style="animation-duration: 6s;">
+    <svg class="w-[150px] h-auto cursor-pointer hover:scale-125 hover:brightness-110 transition-all duration-300" viewBox="0 0 24 16" fill="white" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;"><path d="M7 2h6v2h4v2h2v2h2v6H3v-4H1V8h2V6h2V4h2V2z" /></svg>
+  </div>
+  <div class="absolute top-[70%] right-[40%] opacity-90 animate-pulse z-20" style="animation-duration: 4s;">
+    <svg class="w-[130px] h-auto cursor-pointer hover:scale-125 hover:brightness-110 transition-all duration-300" viewBox="0 0 24 16" fill="white" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;"><path d="M7 2h6v2h4v2h2v2h2v6H3v-4H1V8h2V6h2V4h2V2z" /></svg>
+  </div>
+
+  <!-- Main Content Container -->
+  <div class="relative max-w-[1200px] w-full mx-auto px-[24px] z-30 flex flex-col items-center mt-[100px] md:mt-[180px]">
     
-    <h1 class="text-[var(--text-display-xl)] font-bold leading-[var(--leading-display-xl)] tracking-[var(--tracking-display-xl)] max-w-[900px] mb-[24px]">
-      Your AI isn't up to date on your product.<br/>Brainfish fixes that.
+    <!-- Giant HELLO WORLD Mario Style -->
+    <h1 class="text-center text-[70px] md:text-[140px] leading-[1.1] uppercase drop-shadow-[4px_4px_0_#000] flex flex-wrap justify-center gap-x-2 md:gap-x-4 mb-[40px] md:mb-[80px]" style="font-family: 'Mario', sans-serif; -webkit-text-stroke: 10px black; paint-order: stroke fill;">
+      <div class="flex">
+        <span class="text-[#E52521] hover:-translate-y-4 transition-transform cursor-pointer">H</span>
+        <span class="text-[#049CD8] hover:-translate-y-4 transition-transform cursor-pointer">E</span>
+        <span class="text-[#FBD000] hover:-translate-y-4 transition-transform cursor-pointer">L</span>
+        <span class="text-[#43B047] hover:-translate-y-4 transition-transform cursor-pointer">L</span>
+        <span class="text-[#E52521] hover:-translate-y-4 transition-transform cursor-pointer">O</span>
+      </div>
+      <div class="flex ml-[16px] md:ml-[32px]">
+        <span class="text-[#049CD8] hover:-translate-y-4 transition-transform cursor-pointer">W</span>
+        <span class="text-[#FBD000] hover:-translate-y-4 transition-transform cursor-pointer">O</span>
+        <span class="text-[#43B047] hover:-translate-y-4 transition-transform cursor-pointer">R</span>
+        <span class="text-[#E52521] hover:-translate-y-4 transition-transform cursor-pointer">L</span>
+        <span class="text-[#049CD8] hover:-translate-y-4 transition-transform cursor-pointer">D</span>
+        <span class="text-[#E52521] hover:-translate-y-4 transition-transform cursor-pointer">!</span>
+      </div>
     </h1>
-    
-    <p class="text-[var(--text-subheading)] leading-[var(--leading-subheading)] text-[var(--color-carbon-black)] font-medium max-w-[650px] mb-[40px]">
-      Brainfish builds living product knowledge, delivered personally to every customer and agent. Most tools forget what you ship. Brainfish doesn't.
-    </p>
-    
-    <div class="flex flex-wrap justify-center gap-[16px] mb-[80px]">
-      <Button variant="primary" class="gap-[8px]">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
-        Book Demo
-      </Button>
-      <a href="#" class="inline-flex items-center justify-center border border-[var(--color-carbon-black)] bg-[var(--color-paper-white)] rounded-[var(--radius-buttons)] px-[24px] py-[10px] text-[var(--text-body)] font-medium text-[var(--color-carbon-black)] shadow-[var(--shadow-subtle)] gap-[8px]">
-        Join Webinar
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
-      </a>
+
+    <!-- PRESS START BUTTON (Initially Visible) -->
+    <div id="press-start-btn" class="flex flex-col items-center justify-center cursor-pointer hover:scale-110 transition-all duration-300 z-40 mt-[20px] md:mt-[40px]">
+      <div class="text-white text-[20px] md:text-[32px] font-bold animate-pulse drop-shadow-[2px_2px_0_#000]" style="font-family: 'Mario', sans-serif; -webkit-text-stroke: 1px black;">
+        &gt; PRESS START TO PLAY &lt;
+      </div>
     </div>
 
-    <!-- Product Mockup Card -->
-    <div class="relative w-full max-w-[960px] h-[500px] bg-[var(--color-fog)] border border-[var(--color-carbon-black)] rounded-[var(--radius-cards-lg)] shadow-[var(--shadow-subtle-4)] overflow-hidden flex flex-col mx-auto z-10 text-left">
+    <!-- Restored Widget (Mockup Card) adapted for Portfolio (Initially Hidden) -->
+    <div id="hero-widget" class="absolute top-[160px] md:top-[220px] opacity-0 translate-y-[50px] pointer-events-none transition-all duration-1000 w-full max-w-[960px] h-[500px] bg-[var(--color-fog)] border-[2px] border-[var(--color-carbon-black)] rounded-[var(--radius-cards-lg)] shadow-[var(--shadow-subtle-4)] overflow-visible flex flex-col mx-auto z-10 text-left">
+      
+      <!-- Floating PNG Face Image -->
+      <img src="/images/face.png" alt="Dea Alma" class="absolute bottom-[-20px] right-[-40px] w-[280px] h-auto object-contain z-50 drop-shadow-[4px_4px_0_#000] hover:-translate-y-4 transition-transform duration-300" style="image-rendering: pixelated;" />
+
+      <!-- Widget Header -->
+      <div class="absolute top-[-24px] left-[-4px] bg-[#FBD000] border-[4px] border-black px-[16px] py-[4px] shadow-[4px_4px_0_#000]">
+        <span class="text-[16px] tracking-wider" style="font-family: 'Mario', sans-serif;">ABOUT ME</span>
+      </div>
+
       <!-- Browser Chrome / Top Bar -->
       <div class="flex items-center justify-between px-[16px] py-[12px] border-b border-[var(--color-carbon-black)] bg-[var(--color-paper-white)]">
         <div class="flex items-center gap-[8px]">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--color-lime-pulse)" stroke="var(--color-carbon-black)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/></svg>
-            <span class="font-bold text-[14px]">Brainfish</span>
+            <span class="w-[12px] h-[12px] rounded-full bg-[#E52521] border border-black"></span>
+            <span class="w-[12px] h-[12px] rounded-full bg-[#FBD000] border border-black"></span>
+            <span class="w-[12px] h-[12px] rounded-full bg-[#43B047] border border-black"></span>
+            <span class="font-bold text-[14px] ml-[8px]">DeaOS v1.0</span>
         </div>
         <div class="flex items-center gap-[12px]">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-carbon-black)" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-            <div class="w-[24px] h-[24px] bg-[var(--color-slate)] rounded-full border border-[var(--color-carbon-black)]"></div>
+            <div class="w-[24px] h-[24px] bg-[var(--color-lime-pulse)] rounded-full border border-[var(--color-carbon-black)]"></div>
         </div>
       </div>
 
@@ -74,68 +130,116 @@ import Button from './Button.astro';
         <div class="w-[240px] border-r border-[var(--color-carbon-black)] bg-[var(--color-paper-white)] flex flex-col p-[16px]">
           <div class="flex flex-col gap-[8px] mb-[24px]">
             <div class="flex items-center gap-[8px] bg-[var(--color-lime-pulse)] px-[12px] py-[8px] rounded-[var(--radius-md)] border border-[var(--color-carbon-black)] font-bold text-[14px]">
-                Knowledge
+                About Me
             </div>
-            <div class="flex items-center gap-[8px] px-[12px] py-[8px] text-[var(--color-slate)] font-medium text-[14px]">
-                Distribution
+            <div class="flex items-center gap-[8px] px-[12px] py-[8px] text-[var(--color-slate)] font-medium text-[14px] hover:bg-gray-100 rounded-md cursor-pointer transition-colors">
+                My Skills
             </div>
-            <div class="flex items-center gap-[8px] px-[12px] py-[8px] text-[var(--color-slate)] font-medium text-[14px]">
-                Analytics
+            <div class="flex items-center gap-[8px] px-[12px] py-[8px] text-[var(--color-slate)] font-medium text-[14px] hover:bg-gray-100 rounded-md cursor-pointer transition-colors">
+                Experience
             </div>
           </div>
           
           <div class="relative mb-[16px]">
-            <input type="text" placeholder="Find an Article" class="w-full border border-[var(--color-carbon-black)] rounded-[var(--radius-md)] px-[12px] py-[6px] text-[12px] bg-[var(--color-paper-white)]" disabled />
+            <input type="text" placeholder="Search my portfolio..." class="w-full border border-[var(--color-carbon-black)] rounded-[var(--radius-md)] px-[12px] py-[6px] text-[12px] bg-[var(--color-fog)]" disabled />
           </div>
 
           <div class="flex flex-col gap-[4px] text-[12px] font-medium text-[var(--color-carbon-black)]">
-            <div class="px-[8px] py-[4px] text-[var(--color-slate)]">Marketing Blog Posts</div>
-            <div class="px-[8px] py-[4px] bg-[var(--color-lime-pulse)] border border-[var(--color-carbon-black)] rounded-[4px] opacity-20">Getting Started</div>
-            <div class="px-[8px] py-[4px]">Onboarding</div>
+            <div class="px-[8px] py-[4px] text-[var(--color-slate)]">Featured Projects</div>
+            <div class="px-[8px] py-[4px] border border-[var(--color-carbon-black)] rounded-[4px] opacity-50 bg-white">Web App Redesign</div>
+            <div class="px-[8px] py-[4px] border border-[var(--color-carbon-black)] rounded-[4px] opacity-50 bg-white">Pixel Art Game</div>
           </div>
         </div>
 
         <!-- Main Content -->
         <div class="flex-1 bg-[var(--color-fog)] p-[32px] relative overflow-hidden">
             <div class="flex items-center justify-between mb-[24px]">
-                <h2 class="text-[24px] font-bold">Getting Started</h2>
+                <h2 class="text-[28px] font-bold">Hello! I'm Dea Alma</h2>
                 <div class="flex items-center gap-[8px]">
-                    <span class="text-[12px] text-[var(--color-slate)]">4h ago</span>
-                    <button class="border border-[var(--color-carbon-black)] px-[8px] py-[4px] rounded-[4px] text-[12px] bg-[var(--color-paper-white)] shadow-[var(--shadow-subtle-3)]">Edit</button>
-                    <button class="border border-[var(--color-carbon-black)] px-[8px] py-[4px] rounded-[4px] text-[12px] bg-[var(--color-lime-pulse)] shadow-[var(--shadow-subtle-3)] font-medium">Upload Knowledge</button>
+                    <span class="text-[12px] text-[var(--color-slate)]">Active Now</span>
+                    <button class="border border-[var(--color-carbon-black)] px-[12px] py-[6px] rounded-[4px] text-[12px] bg-[var(--color-lime-pulse)] shadow-[var(--shadow-subtle-3)] font-bold hover:brightness-95">Hire Me</button>
                 </div>
             </div>
             
-            <h3 class="text-[18px] font-bold mb-[12px]">Introduction</h3>
-            <p class="text-[14px] leading-relaxed mb-[24px] text-[var(--color-slate)] max-w-[500px]">
-                Brainfish is an AI platform for the full product lifecycle that can onboard, train, engage, and support users using artificial intelligence. In this article, we will walk you through some of the key features of Brainfish and how to get started with it.
+            <h3 class="text-[18px] font-bold mb-[12px] text-[#049CD8]">Frontend Developer & Designer</h3>
+            <p class="text-[15px] leading-relaxed mb-[24px] text-[var(--color-slate)] max-w-[500px]">
+                I specialize in creating engaging, interactive, and highly aesthetic web applications. From neo-brutalism to retro 8-bit styles, I love bringing creative concepts to life on the screen.
             </p>
 
-            <h3 class="text-[18px] font-bold mb-[12px]">Features</h3>
-            <p class="text-[14px] leading-relaxed mb-[24px] text-[var(--color-slate)] max-w-[500px]">
-                1. AI-Powered Knowledge Base<br/>
-                2. Automated User Onboarding
-            </p>
-            
-            <!-- Modal Overlay -->
-            <div class="absolute inset-0 bg-black/5 flex items-center justify-center p-[24px]">
-                <div class="bg-[var(--color-paper-white)] border border-[var(--color-carbon-black)] rounded-[var(--radius-lg)] p-[24px] shadow-[var(--shadow-subtle-2)] w-full max-w-[400px] mt-[100px]">
-                    <div class="flex items-center justify-between mb-[16px] border-b border-[var(--color-carbon-black)] pb-[12px]">
-                        <div class="flex gap-[16px] text-[14px] font-bold">
-                            <span class="text-[var(--color-carbon-black)] flex items-center gap-[4px]"><span class="w-[8px] h-[8px] rounded-full bg-[var(--color-lime-pulse)] border border-[var(--color-carbon-black)]"></span> File upload</span>
-                            <span class="text-[var(--color-slate)]">Weblink</span>
-                            <span class="text-[var(--color-slate)]">Record</span>
-                        </div>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                    </div>
-                    <div class="border border-dashed border-[var(--color-carbon-black)] rounded-[4px] p-[32px] text-center text-[12px] text-[var(--color-slate)]">
-                        Drag and drop your file here<br/>
-                        or click to browse
-                    </div>
-                </div>
-            </div>
+            <h3 class="text-[18px] font-bold mb-[12px] text-[#E52521]">What I Can Do</h3>
+            <ul class="text-[15px] leading-relaxed mb-[24px] text-[var(--color-slate)] max-w-[500px] list-disc list-inside">
+                <li>UI/UX Design & Prototyping</li>
+                <li>Frontend Development (React, Astro)</li>
+                <li>Pixel Art & Illustration</li>
+                <li>Interactive Web Animations</li>
+            </ul>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Wavy Divider Bottom -->
+  <div id="hero-divider" class="absolute bottom-[-1px] left-0 w-full overflow-hidden leading-[0] z-20 opacity-0 transition-opacity duration-1000">
+    <svg class="relative block w-[calc(100%+1.3px)] h-[80px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,115.9,188.94,99.73,235.17,86.85,280.4,70.93,321.39,56.44Z" fill="var(--color-paper-white)"></path>
+    </svg>
+  </div>
 </section>
+
+<script>
+  // Lock scroll initially to force user to stay on the Title Screen
+  if (typeof window !== 'undefined') {
+    document.body.style.overflow = 'hidden';
+  }
+
+  const startBtn = document.getElementById('press-start-btn');
+  const widget = document.getElementById('hero-widget');
+  const navbar = document.getElementById('main-navbar');
+  const hud = document.getElementById('retro-hud');
+  const bgm = document.getElementById('bgm') as HTMLAudioElement;
+  const mainContent = document.getElementById('main-content');
+  const divider = document.getElementById('hero-divider');
+
+  if (startBtn) {
+    startBtn.addEventListener('click', () => {
+       // 1. Play Audio
+       if (bgm) {
+         bgm.volume = 0.5;
+         bgm.play().catch(e => console.log("Audio play blocked by browser:", e));
+       }
+       
+       // 2. Hide Start Button and HUD
+       startBtn.classList.add('opacity-0', 'scale-90', 'pointer-events-none');
+       setTimeout(() => startBtn.classList.add('hidden'), 500); // Remove from layout after fade
+
+       if (hud) {
+         hud.classList.add('opacity-0', '-translate-y-full');
+       }
+       
+       // 3. Show Widget
+       if (widget) {
+         widget.classList.remove('opacity-0', 'translate-y-[50px]', 'pointer-events-none', 'absolute', 'top-[160px]', 'md:top-[220px]');
+         widget.classList.add('opacity-100', 'translate-y-0', 'relative', 'mt-[80px]');
+       }
+       
+       // 4. Show Navbar
+       if(navbar) {
+         navbar.classList.remove('opacity-0', '-translate-y-[150%]', 'pointer-events-none');
+         navbar.classList.add('opacity-100', 'translate-y-0');
+       }
+
+       // 5. Show rest of content below Hero
+       if (mainContent) {
+         mainContent.classList.remove('hidden');
+         setTimeout(() => mainContent.classList.remove('opacity-0'), 50);
+       }
+
+       if (divider) {
+         divider.classList.remove('opacity-0');
+       }
+       
+       // 6. Enable scroll so user can view the rest of the portfolio
+       document.body.style.overflow = 'auto';
+    });
+  }
+</script>
