@@ -161,7 +161,7 @@ import Button from './Button.astro';
                 <h2 class="text-[36px] font-bold tracking-tight" style="font-family: 'Chalkboard', cursive;">Hello! I'm Dea Alma</h2>
                 <div class="flex items-center gap-[12px] mr-[24px] relative z-20">
                     <span class="text-[12px] font-bold text-[var(--color-slate)] animate-pulse">● ONLINE</span>
-                    <button class="border-[2px] border-[var(--color-carbon-black)] px-[16px] py-[8px] rounded-none text-[14px] bg-[var(--color-lime-pulse)] shadow-[3px_3px_0_#000] font-bold hover:translate-y-[2px] hover:shadow-[1px_1px_0_#000] transition-all active:brightness-90">Hire Me</button>
+                    <button id="hire-me-btn" onclick="document.getElementById('hire-me-modal').classList.remove('hidden'); document.getElementById('hire-me-modal').classList.add('flex');" class="border-[2px] border-[var(--color-carbon-black)] px-[16px] py-[8px] rounded-none text-[14px] bg-[var(--color-lime-pulse)] shadow-[3px_3px_0_#000] font-bold hover:translate-y-[2px] hover:shadow-[1px_1px_0_#000] transition-all active:brightness-90">Hire Me</button>
                 </div>
             </div>
             
@@ -208,6 +208,48 @@ import Button from './Button.astro';
   <div id="crt-overlay" class="fixed inset-0 bg-black z-50 flex items-center justify-center pointer-events-none opacity-0">
     <div id="crt-line" class="w-full h-full bg-white opacity-0 origin-center"></div>
   </div>
+  <!-- Hire Me Modal -->
+  <div id="hire-me-modal" class="fixed inset-0 z-[100] hidden flex-col items-center justify-center">
+      <!-- Backdrop -->
+      <div id="hire-me-backdrop" onclick="document.getElementById('hire-me-modal').classList.add('hidden'); document.getElementById('hire-me-modal').classList.remove('flex');" class="absolute inset-0 bg-black/40 backdrop-blur-[2px] cursor-pointer"></div>
+      
+      <!-- Modal Window -->
+      <div class="relative bg-[var(--color-fog)] w-[90%] max-w-[360px] border-[3px] border-black shadow-[8px_8px_0_#000] flex flex-col z-10 animate-[float_0.5s_ease-out_forwards]">
+          <!-- Modal Header -->
+          <div class="bg-[var(--color-paper-white)] border-b-[3px] border-black px-[16px] py-[10px] flex justify-between items-center">
+              <div class="flex items-center gap-[8px]">
+                  <span class="w-[12px] h-[12px] rounded-full bg-[#E52521] border-[1.5px] border-black"></span>
+                  <span class="w-[12px] h-[12px] rounded-full bg-[#FBD000] border-[1.5px] border-black"></span>
+                  <span class="w-[12px] h-[12px] rounded-full bg-[#00C853] border-[1.5px] border-black"></span>
+              </div>
+              <button id="close-modal-btn" onclick="document.getElementById('hire-me-modal').classList.add('hidden'); document.getElementById('hire-me-modal').classList.remove('flex');" class="w-[24px] h-[24px] bg-[#E52521] border-[2px] border-black flex items-center justify-center hover:brightness-110 active:translate-y-[2px] active:shadow-none shadow-[2px_2px_0_#000] transition-all">
+                  <span class="text-white font-bold text-[12px] leading-none mb-[2px]">x</span>
+              </button>
+          </div>
+          
+          <!-- Modal Body -->
+          <div class="p-[24px] flex flex-col items-center gap-[8px]">
+              <p class="text-[14px] font-medium text-[var(--color-slate)] text-center">Let's build something awesome together! Reach out to me via:</p>
+              
+              <div class="flex flex-row gap-[16px] justify-center mt-0">
+                  <!-- Email -->
+                  <a href="mailto:putuayudeanisa@gmail.com" class="hover:-translate-y-2 transition-transform cursor-pointer group">
+                      <img src="/images/gmail-pixel.png" alt="Email Logo" class="w-[96px] h-[96px] object-contain group-hover:scale-110 transition-transform drop-shadow-[4px_4px_0_rgba(0,0,0,0.15)]" style="image-rendering: pixelated;" />
+                  </a>
+                  
+                  <!-- LinkedIn -->
+                  <a href="https://linkedin.com/" target="_blank" class="hover:-translate-y-2 transition-transform cursor-pointer group">
+                      <img src="/images/linkedin-pixel.png" alt="LinkedIn Logo" class="w-[96px] h-[96px] object-contain group-hover:scale-110 transition-transform drop-shadow-[4px_4px_0_rgba(0,0,0,0.15)]" style="image-rendering: pixelated;" />
+                  </a>
+                  
+                  <!-- WhatsApp -->
+                  <a href="https://wa.me/" target="_blank" class="hover:-translate-y-2 transition-transform cursor-pointer group">
+                      <img src="/images/whatsapp-pixel.png" alt="WhatsApp Logo" class="w-[96px] h-[96px] object-contain group-hover:scale-110 transition-transform drop-shadow-[4px_4px_0_rgba(0,0,0,0.15)]" style="image-rendering: pixelated;" />
+                  </a>
+              </div>
+          </div>
+      </div>
+  </div>
 </section>
 
 <script>
@@ -228,75 +270,76 @@ import Button from './Button.astro';
   const helloWorldTitle = document.getElementById('hello-world-title');
   const heroMainContainer = document.getElementById('hero-main-container');
 
-  if (startBtn) {
-    startBtn.addEventListener('click', () => {
-       // 1. Play Audio
-       if (bgm) {
-         bgm.volume = 0.5;
-         bgm.play().catch(e => console.log("Audio play blocked by browser:", e));
-       }
-       
-       // 2. Fast blink the start button
-       startBtn.classList.add('fast-blink');
-       
-       setTimeout(() => {
-           // 3. Turn OFF CRT (Screen goes black with white line shrinking)
-           if (crtOverlay && crtLine) {
-               crtOverlay.classList.remove('opacity-0');
-               crtOverlay.classList.add('opacity-100');
-               crtLine.classList.remove('opacity-0');
-               crtLine.classList.add('animate-crt-off');
-           }
+   if (startBtn) {
+     startBtn.addEventListener('click', () => {
+        // 1. Play Audio
+        if (bgm) {
+          bgm.volume = 0.5;
+          bgm.play().catch(e => console.log("Audio play blocked by browser:", e));
+        }
+        
+        // 2. Fast blink the start button
+        startBtn.classList.add('fast-blink');
+        
+        setTimeout(() => {
+            // 3. Turn OFF CRT (Screen goes black with white line shrinking)
+            if (crtOverlay && crtLine) {
+                crtOverlay.classList.remove('opacity-0');
+                crtOverlay.classList.add('opacity-100');
+                crtLine.classList.remove('opacity-0');
+                crtLine.classList.add('animate-crt-off');
+            }
 
-           setTimeout(() => {
-               // 4. While screen is pitch black, arrange the new layout behind it
-               startBtn.classList.remove('fast-blink');
-               startBtn.classList.add('hidden');
-               if (hud) hud.classList.add('hidden');
-               if (helloWorldTitle) helloWorldTitle.classList.add('hidden');
-               
-               if (heroMainContainer) {
-                 heroMainContainer.classList.remove('mt-[100px]', 'md:mt-[180px]');
-                 heroMainContainer.classList.add('mt-0');
-               }
-               
-               if (widget) {
-                 widget.classList.remove('opacity-0', 'translate-y-[50px]', 'pointer-events-none', 'absolute', 'top-[160px]', 'md:top-[220px]');
-                 widget.classList.add('opacity-100', 'translate-y-0', 'relative', 'mt-[20px]', 'md:mt-[40px]');
-               }
-               
-               if(navbar) {
-                 navbar.classList.remove('opacity-0', '-translate-y-[150%]', 'pointer-events-none');
-                 navbar.classList.add('opacity-100', 'translate-y-0');
-               }
+            setTimeout(() => {
+                // 4. While screen is pitch black, arrange the new layout behind it
+                startBtn.classList.remove('fast-blink');
+                startBtn.classList.add('hidden');
+                if (hud) hud.classList.add('hidden');
+                if (helloWorldTitle) helloWorldTitle.classList.add('hidden');
+                
+                if (heroMainContainer) {
+                  heroMainContainer.classList.remove('mt-[100px]', 'md:mt-[180px]');
+                  heroMainContainer.classList.add('mt-0');
+                }
+                
+                if (widget) {
+                  widget.classList.remove('opacity-0', 'translate-y-[50px]', 'pointer-events-none', 'absolute', 'top-[160px]', 'md:top-[220px]');
+                  widget.classList.add('opacity-100', 'translate-y-0', 'relative', 'mt-[20px]', 'md:mt-[40px]');
+                }
+                
+                if(navbar) {
+                  navbar.classList.remove('opacity-0', '-translate-y-[150%]', 'pointer-events-none');
+                  navbar.classList.add('opacity-100', 'translate-y-0');
+                }
 
-               if (mainContent) {
-                 mainContent.classList.remove('hidden', 'opacity-0');
-               }
+                if (mainContent) {
+                  mainContent.classList.remove('hidden', 'opacity-0');
+                }
 
-               if (divider) {
-                 divider.classList.remove('opacity-0');
-               }
+                if (divider) {
+                  divider.classList.remove('opacity-0');
+                }
 
-               // 5. Turn ON CRT (White line expands to reveal new screen)
-               if (crtOverlay && crtLine) {
-                   crtLine.classList.remove('animate-crt-off');
-                   crtLine.classList.add('animate-crt-on');
-                   
-                   // After turn on animation finishes, hide the overlay line
-                   setTimeout(() => {
-                       crtLine.classList.remove('animate-crt-on');
-                       crtLine.classList.add('opacity-0');
-                       crtOverlay.classList.remove('opacity-100');
-                       crtOverlay.classList.add('opacity-0', 'pointer-events-none');
-                       document.body.style.overflow = 'auto'; // Enable scroll
-                   }, 500);
-               } else {
-                   document.body.style.overflow = 'auto';
-               }
+                // 5. Turn ON CRT (White line expands to reveal new screen)
+                if (crtOverlay && crtLine) {
+                    crtLine.classList.remove('animate-crt-off');
+                    crtLine.classList.add('animate-crt-on');
+                    
+                    // After turn on animation finishes, hide the overlay line
+                    setTimeout(() => {
+                        crtLine.classList.remove('animate-crt-on');
+                        crtLine.classList.add('opacity-0');
+                        crtOverlay.classList.remove('opacity-100');
+                        crtOverlay.classList.add('opacity-0', 'pointer-events-none');
+                        document.body.style.overflow = 'auto'; // Enable scroll
+                    }, 500);
+                } else {
+                    document.body.style.overflow = 'auto';
+                }
 
-           }, 400); // Duration of crt-off animation
-       }, 600); // Duration of fast blink before turning off
-    });
-  }
+            }, 400); // Duration of crt-off animation
+        }, 600); // Duration of fast blink before turning off
+     });
+   }
+
 </script>
