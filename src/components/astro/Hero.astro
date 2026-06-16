@@ -118,7 +118,7 @@ import Button from './Button.astro';
 
       <!-- Widget Header (Floating Tag) -->
       <div class="absolute top-[-38px] left-[-3px] bg-[#FBD000] border-[3px] border-black px-[16px] py-[4px] shadow-[4px_4px_0_#000] z-50 hover:-translate-y-1 transition-transform cursor-pointer">
-        <span class="text-[16px] tracking-wider text-black" style="font-family: 'Mario', sans-serif;">ABOUT ME</span>
+        <span class="text-[18px] tracking-wider text-black" style="font-family: 'Poppin', sans-serif;">ABOUT ME</span>
       </div>
 
       <!-- Browser Chrome / Top Bar -->
@@ -158,25 +158,40 @@ import Button from './Button.astro';
         <!-- Main Content -->
         <div class="flex-1 bg-[var(--color-fog)] p-[40px] relative overflow-hidden">
             <div class="flex items-center justify-between mb-[32px]">
-                <h2 class="text-[32px] font-bold tracking-tighter" style="font-family: 'Mario', sans-serif;">Hello! I'm Dea Alma</h2>
+                <h2 class="text-[36px] font-bold tracking-tight" style="font-family: 'Chalkboard', cursive;">Hello! I'm Dea Alma</h2>
                 <div class="flex items-center gap-[12px] mr-[24px] relative z-20">
                     <span class="text-[12px] font-bold text-[var(--color-slate)] animate-pulse">● ONLINE</span>
                     <button class="border-[2px] border-[var(--color-carbon-black)] px-[16px] py-[8px] rounded-none text-[14px] bg-[var(--color-lime-pulse)] shadow-[3px_3px_0_#000] font-bold hover:translate-y-[2px] hover:shadow-[1px_1px_0_#000] transition-all active:brightness-90">Hire Me</button>
                 </div>
             </div>
             
-            <h3 class="text-[18px] font-bold mb-[16px] text-[#049CD8]">Business Systems & IT Undergraduate</h3>
-            <p class="text-[15px] leading-relaxed mb-[32px] text-[var(--color-slate)] max-w-[500px] font-medium">
-                I'm a 6th-semester Information Technology student with experience in business systems and web applications. I am familiar with ERP environments and highly interested in how technology improves business processes and customer operations.
-            </p>
-
-            <h3 class="text-[18px] font-bold mb-[16px] text-[#E52521]">Technical Skills</h3>
-            <ul class="text-[15px] leading-relaxed mb-[24px] text-[var(--color-slate)] max-w-[500px] space-y-[8px] font-medium">
-                <li class="flex items-start gap-[8px]"><span class="text-[#E52521] font-bold">></span> System Analysis & API Testing</li>
-                <li class="flex items-start gap-[8px]"><span class="text-[#E52521] font-bold">></span> Manual Testing & Data Validation</li>
-                <li class="flex items-start gap-[8px]"><span class="text-[#E52521] font-bold">></span> Odoo ERP & Laravel Framework</li>
-                <li class="flex items-start gap-[8px]"><span class="text-[#E52521] font-bold">></span> Web & Android Development Basics</li>
-            </ul>
+            <div class="flex flex-col gap-[32px] max-w-[540px] relative z-20">
+                <!-- Bio Text (No Box) -->
+                <div>
+                    <p class="text-[16px] leading-[1.7] text-[var(--color-slate)] font-medium">
+                        6th-semester Information Technology student with experience in business systems and web applications. Familiar with ERP environments through Odoo system support and interested in how technology improves business processes and customer operations.
+                    </p>
+                </div>
+                
+                <!-- Details Row -->
+                <div class="grid grid-cols-3 gap-[20px]">
+                    <!-- Current GPA -->
+                    <div class="border-[3px] border-black bg-[var(--color-amber-spark)] p-[16px] shadow-[4px_4px_0_#000] flex flex-col justify-center">
+                        <span class="text-[11px] font-bold text-gray-800 mb-[6px] font-mono uppercase tracking-widest">Current GPA</span>
+                        <span class="text-[16px] font-bold tracking-tight">3.83 / 4.00</span>
+                    </div>
+                    <!-- Location -->
+                    <div class="border-[3px] border-black bg-[#fae9ff] p-[16px] shadow-[4px_4px_0_#000] flex flex-col justify-center">
+                        <span class="text-[11px] font-bold text-gray-600 mb-[6px] font-mono uppercase tracking-widest">Location</span>
+                        <span class="text-[16px] font-bold tracking-tight">Bali, Indonesia</span>
+                    </div>
+                    <!-- Education -->
+                    <div class="border-[3px] border-black bg-[#d2fae5] p-[16px] shadow-[4px_4px_0_#000] flex flex-col justify-center">
+                        <span class="text-[11px] font-bold text-gray-600 mb-[6px] font-mono uppercase tracking-widest">Education</span>
+                        <span class="text-[16px] font-bold tracking-tight">Udayana University</span>
+                    </div>
+                </div>
+            </div>
         </div>
       </div>
     </div>
