@@ -72,10 +72,10 @@ import Button from './Button.astro';
   </div>
 
   <!-- Main Content Container -->
-  <div class="relative max-w-[1200px] w-full mx-auto px-[24px] z-30 flex flex-col items-center mt-[100px] md:mt-[180px]">
+  <div id="hero-main-container" class="relative max-w-[1200px] w-full mx-auto px-[24px] z-30 flex flex-col items-center mt-[100px] md:mt-[180px]">
     
     <!-- Giant HELLO WORLD Mario Style -->
-    <h1 class="text-center text-[70px] md:text-[140px] leading-[1.1] uppercase drop-shadow-[4px_4px_0_#000] flex flex-wrap justify-center gap-x-2 md:gap-x-4 mb-[40px] md:mb-[80px]" style="font-family: 'Mario', sans-serif; -webkit-text-stroke: 10px black; paint-order: stroke fill;">
+    <h1 id="hello-world-title" class="text-center text-[70px] md:text-[140px] leading-[1.1] uppercase drop-shadow-[4px_4px_0_#000] flex flex-wrap justify-center gap-x-2 md:gap-x-4 mb-[40px] md:mb-[80px]" style="font-family: 'Mario', sans-serif; -webkit-text-stroke: 10px black; paint-order: stroke fill;">
       <div class="flex">
         <span class="text-[#E52521] hover:-translate-y-4 transition-transform cursor-pointer">H</span>
         <span class="text-[#049CD8] hover:-translate-y-4 transition-transform cursor-pointer">E</span>
@@ -206,6 +206,8 @@ import Button from './Button.astro';
   const divider = document.getElementById('hero-divider');
   const crtOverlay = document.getElementById('crt-overlay');
   const crtLine = document.getElementById('crt-line');
+  const helloWorldTitle = document.getElementById('hello-world-title');
+  const heroMainContainer = document.getElementById('hero-main-container');
 
   if (startBtn) {
     startBtn.addEventListener('click', () => {
@@ -232,10 +234,16 @@ import Button from './Button.astro';
                startBtn.classList.remove('fast-blink');
                startBtn.classList.add('hidden');
                if (hud) hud.classList.add('hidden');
+               if (helloWorldTitle) helloWorldTitle.classList.add('hidden');
+               
+               if (heroMainContainer) {
+                 heroMainContainer.classList.remove('mt-[100px]', 'md:mt-[180px]');
+                 heroMainContainer.classList.add('mt-0');
+               }
                
                if (widget) {
                  widget.classList.remove('opacity-0', 'translate-y-[50px]', 'pointer-events-none', 'absolute', 'top-[160px]', 'md:top-[220px]');
-                 widget.classList.add('opacity-100', 'translate-y-0', 'relative', 'mt-[80px]');
+                 widget.classList.add('opacity-100', 'translate-y-0', 'relative', 'mt-[20px]', 'md:mt-[40px]');
                }
                
                if(navbar) {
