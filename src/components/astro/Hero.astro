@@ -164,7 +164,7 @@ import Button from './Button.astro';
           <!-- Panel: About Me -->
           <div id="panel-about" class="content-panel flex flex-col h-fit w-full">
             <div class="flex items-center justify-between mb-[16px]">
-                <h2 class="text-[36px] font-bold tracking-tight" style="font-family: 'Chalkboard', cursive;">Hello! I'm Dea Alma</h2>
+                <h2 class="text-[36px] font-bold tracking-tight type-target" style="font-family: 'Chalkboard', cursive;">Hello! I'm Dea Alma</h2>
                 <div class="flex items-center gap-[12px] mr-[24px] relative z-20">
                     <span class="text-[12px] font-bold text-[var(--color-slate)] animate-pulse">● ONLINE</span>
                     <button id="hire-me-btn" onclick="document.getElementById('hire-me-modal').classList.remove('hidden'); document.getElementById('hire-me-modal').classList.add('flex');" class="border-[2px] border-[var(--color-carbon-black)] px-[16px] py-[8px] rounded-none text-[14px] bg-[var(--color-lime-pulse)] shadow-[3px_3px_0_#000] font-bold hover:translate-y-[2px] hover:shadow-[1px_1px_0_#000] transition-all active:brightness-90">Hire Me</button>
@@ -174,7 +174,7 @@ import Button from './Button.astro';
             <div class="flex flex-col gap-[32px] max-w-[540px] relative z-20">
                 <!-- Bio Text (No Box) -->
                 <div>
-                    <p class="text-[16px] leading-[1.7] text-[var(--color-slate)] font-medium">
+                    <p class="text-[16px] leading-[1.7] text-[var(--color-slate)] font-medium type-target">
                         6th-semester Information Technology student with experience in business systems and web applications. Familiar with ERP environments through Odoo system support and interested in how technology improves business processes and customer operations.
                     </p>
                 </div>
@@ -203,7 +203,7 @@ import Button from './Button.astro';
           <!-- Panel: My Skills -->
           <div id="panel-skills" class="content-panel hidden flex flex-col h-fit w-full">
              <div class="flex items-center justify-between mb-[24px]">
-                <h2 class="text-[36px] font-bold tracking-tight" style="font-family: 'Chalkboard', cursive;">My Skills</h2>
+                <h2 class="text-[36px] font-bold tracking-tight type-target" style="font-family: 'Chalkboard', cursive;">My Skills</h2>
              </div>
              
              <!-- Grid of Retro Folders -->
@@ -299,7 +299,7 @@ import Button from './Button.astro';
           <!-- Panel: Education & Organizations -->
           <div id="panel-education" class="content-panel hidden flex flex-col h-fit w-full pb-[20px]">
              <div class="flex items-center justify-between mb-[24px]">
-                <h2 class="text-[36px] font-bold tracking-tight" style="font-family: 'Chalkboard', cursive;">Education & Organizations</h2>
+                <h2 class="text-[36px] font-bold tracking-tight type-target" style="font-family: 'Chalkboard', cursive;">Education & Organizations</h2>
              </div>
              
              <!-- Timeline Container -->
@@ -687,9 +687,61 @@ import Button from './Button.astro';
      setInterval(updateClock, 1000);
    }
 
+   // Typing Effect Logic
+   const runPanelTypingEffect = (panelId) => {
+       const panel = document.getElementById(panelId);
+       // Check if already typed so it only happens once
+       if (!panel || panel.hasAttribute('data-typed')) return;
+       
+       panel.setAttribute('data-typed', 'true');
+       const targets = panel.querySelectorAll('.type-target');
+       
+       targets.forEach((target, index) => {
+           const text = target.innerText;
+           target.innerText = ''; // Clear text immediately so it doesn't flash
+           
+           // Animation Config
+           const TYPE_SPEED = 35; // 35ms per character (slower, more natural)
+           const INITIAL_DELAY = 1500; // 1.5 seconds wait before the very first element starts
+           const PAUSE_BETWEEN = 500; // 500ms pause between different paragraphs
+           
+           // Calculate delay based on previous elements length
+           let delayMs = 0;
+           for(let j = 0; j < index; j++) {
+               delayMs += targets[j].innerText.length * TYPE_SPEED + PAUSE_BETWEEN; 
+           }
+           delayMs += INITIAL_DELAY; // Add the initial delay to all elements
+           
+           setTimeout(() => {
+               let i = 0;
+               const typeInterval = setInterval(() => {
+                   // Use innerHTML to append a solid block cursor span
+                   target.innerHTML = text.substring(0, i + 1) + '<span class="inline-block w-[10px] h-[0.8em] bg-black translate-y-[1px] ml-[4px] animate-pulse"></span>';
+                   i++;
+                   if (i >= text.length) {
+                       clearInterval(typeInterval);
+                       // Remove cursor when done
+                       target.innerHTML = text;
+                   }
+               }, TYPE_SPEED);
+           }, delayMs);
+       });
+   };
+
+   // Run typing effect for the default open panel on initial page load
+   runPanelTypingEffect('panel-about');
+
 </script>
 
 <style is:global>
+  /* Custom Vector OS Cursors (Scaled Original Art) */
+  body {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 32 32'%3E%3Cimage href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABFklEQVRYR9WXURLDIAhE6/0PbSdOtUpcd1Gnpv1KGpTHBpCE1/cXq+vrMph7dGvXZTtpfW10DCA5jrH1H0Jhs5E0hnZdCR+vb5S8Nn8mQCeS9BdSalYJqMBjAGzq59xAESN7VFVUgV8AZB/dZBR7QTFDCqGquvUBVVoEtgIwpQRzmANSFHgWQKExHdIrPeuMvQNDarXe6nC/AutgV3JW+6bgqQLeV8FekRtgV+ToDKEKnACYKsfZjjkam7a0ZpYTytwmgainpC3HvwBocgKOxqRjehoR9DFKNFYtOwCGYCszobeCbl26N6yyQ6g8X/Wex/rBPsNEV6qAMaJPMynIHQCoSqS9JSMmwef51LflTgCRszU7DvAGiV6mHWfsaVUAAAAASUVORK5CYII=' width='32' height='32' style='image-rendering:pixelated'/%3E%3C/svg%3E") 0 0, auto;
+  }
+  a, button, .cursor-pointer, .sidebar-btn, .skill-folder {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 32 32'%3E%3Cimage href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAzElEQVRYR+2X0Q6AIAhF5f8/2jYXZkwEjNSVvVUjDpcrGgT7FUkI2D9xRfQETwNIiWO85wfINfQUEyxBG2ArsLwC0jioGt5zFcwF4OYDPi/mBYKm4t0U8ATgRm3ThFoAqkhNgWkA0jJLvaOVSs7j3qMnSgXWBMiWPXe94QqMBMBc1VZIvaTu5u5pQewq0EqNZvIEMCmxAawK0DNkay9QmfFNAJUXfgGgUkLaE7j/h8fnASkxHTz0DGIBMCnBeeM7AArpUd3mz2x3C7wADglA8BcWMZhZAAAAAElFTkSuQmCC' width='32' height='32' style='image-rendering:pixelated'/%3E%3C/svg%3E") 10 1, pointer !important;
+  }
+
   /* Custom Retro Scrollbar */
   .custom-scrollbar::-webkit-scrollbar {
     width: 12px;
