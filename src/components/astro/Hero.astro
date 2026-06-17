@@ -5,9 +5,6 @@ import Button from './Button.astro';
 
 <section class="relative w-full min-h-screen bg-gradient-to-b from-[#7dd3fc] via-[#bae6fd] to-[#e0f2fe] pt-[140px] md:pt-[180px] pb-[160px] overflow-hidden flex flex-col items-center">
   
-  <!-- BGM Audio (Mario Ground Theme) -->
-  <audio id="bgm" src="/music/ground-theme.mp3" loop preload="auto"></audio>
-
   <!-- Retro HUD (Initially Visible) -->
   <div id="retro-hud" class="absolute top-[24px] left-0 w-full px-[24px] md:px-[48px] flex justify-between text-white text-[16px] md:text-[24px] z-40 transition-all duration-700" style="font-family: 'Mario', sans-serif; -webkit-text-stroke: 2px black; text-shadow: 4px 4px 0 #000;">
     <div class="flex flex-col items-center">
@@ -464,7 +461,6 @@ import Button from './Button.astro';
   const widget = document.getElementById('hero-widget');
   const navbar = document.getElementById('main-navbar');
   const hud = document.getElementById('retro-hud');
-  const bgm = document.getElementById('bgm') as HTMLAudioElement;
   const mainContent = document.getElementById('main-content');
   const divider = document.getElementById('hero-divider');
   const crtOverlay = document.getElementById('crt-overlay');
@@ -474,11 +470,6 @@ import Button from './Button.astro';
 
    if (startBtn) {
      startBtn.addEventListener('click', () => {
-        // 1. Play Audio
-        if (bgm) {
-          bgm.volume = 0.5;
-          bgm.play().catch(e => console.log("Audio play blocked by browser:", e));
-        }
         
         // 2. Fast blink the start button
         startBtn.classList.add('fast-blink');

@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import BgmPlayer from '../components/astro/BgmPlayer.astro';
 
 interface Props {
 	title: string;
@@ -20,6 +21,8 @@ const { title } = Astro.props;
 	</head>
 	<body>
 		<slot />
+		
+		<BgmPlayer />
 		
 		<script>
 			import Lenis from '@studio-freight/lenis';
