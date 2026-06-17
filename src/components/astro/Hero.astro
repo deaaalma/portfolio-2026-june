@@ -731,6 +731,55 @@ import Button from './Button.astro';
    // Run typing effect for the default open panel on initial page load
    runPanelTypingEffect('panel-about');
 
+   // Retro Sound Effects (Synthesized)
+   const setupRetroSFX = () => {
+       let audioCtx = null;
+       
+       const initAudio = () => {
+           if (!audioCtx) {
+               audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+           }
+           if (audioCtx.state === 'suspended') {
+               audioCtx.resume();
+           }
+       };
+
+       const playTone = (freq, type, duration, vol) => {
+           if (!audioCtx) return;
+           const oscillator = audioCtx.createOscillator();
+           const gainNode = audioCtx.createGain();
+           
+           oscillator.type = type;
+           oscillator.frequency.setValueAtTime(freq, audioCtx.currentTime);
+           
+           // Quick fade out for a percussive sound
+           gainNode.gain.setValueAtTime(vol, audioCtx.currentTime);
+           gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + duration);
+           
+           oscillator.connect(gainNode);
+           gainNode.connect(audioCtx.destination);
+           
+           oscillator.start();
+           oscillator.stop(audioCtx.currentTime + duration);
+       };
+
+       const playClick = () => {
+           initAudio();
+           // Retro Select Sound (two fast ascending tones)
+           playTone(440, 'square', 0.1, 0.05); 
+           setTimeout(() => playTone(880, 'square', 0.15, 0.05), 50); 
+       };
+
+       // Attach listeners to all interactive elements
+       const interactables = document.querySelectorAll('a, button, .cursor-pointer, .sidebar-btn, .skill-folder');
+       
+       interactables.forEach(el => {
+           el.addEventListener('click', playClick);
+       });
+   };
+
+   setupRetroSFX();
+
 </script>
 
 <style is:global>
