@@ -141,12 +141,15 @@ import Button from './Button.astro';
       <div class="flex flex-1 overflow-hidden font-mono text-[var(--color-carbon-black)]">
         <!-- Sidebar -->
         <div class="w-[240px] border-r-[3px] border-[var(--color-carbon-black)] bg-[var(--color-paper-white)] flex flex-col p-[16px]">
-          <div class="flex flex-col gap-[12px] mb-[32px]">
-            <div class="flex items-center gap-[8px] bg-[var(--color-lime-pulse)] px-[12px] py-[8px] rounded-none border-2 border-black font-bold text-[14px] shadow-[2px_2px_0_#000] cursor-pointer">
-                > About Me
+          <div class="flex flex-col gap-[12px] mb-[32px]" id="sidebar-nav">
+            <div id="nav-about" class="sidebar-btn active flex items-center gap-[8px] bg-[var(--color-lime-pulse)] px-[12px] py-[8px] rounded-none border-2 border-black font-bold text-[14px] shadow-[2px_2px_0_#000] cursor-pointer text-black transition-all" data-target="panel-about">
+                <span class="nav-indicator">></span> <span class="nav-text">About Me</span>
             </div>
-            <div class="flex items-center gap-[8px] px-[12px] py-[8px] text-[var(--color-slate)] font-bold text-[14px] hover:bg-white hover:border-2 hover:border-black hover:shadow-[2px_2px_0_#000] border-2 border-transparent rounded-none cursor-pointer transition-all">
-                My Skills
+            <div id="nav-skills" class="sidebar-btn inactive flex items-center gap-[8px] px-[12px] py-[8px] text-[var(--color-slate)] font-bold text-[14px] hover:bg-white hover:border-2 hover:border-black hover:shadow-[2px_2px_0_#000] hover:text-black border-2 border-transparent rounded-none cursor-pointer transition-all" data-target="panel-skills">
+                <span class="nav-indicator opacity-0">></span> <span class="nav-text">My Skills</span>
+            </div>
+            <div id="nav-education" class="sidebar-btn inactive flex items-center gap-[8px] px-[12px] py-[8px] text-[var(--color-slate)] font-bold text-[14px] hover:bg-white hover:border-2 hover:border-black hover:shadow-[2px_2px_0_#000] hover:text-black border-2 border-transparent rounded-none cursor-pointer transition-all" data-target="panel-education">
+                <span class="nav-indicator opacity-0">></span> <span class="nav-text">Education</span>
             </div>
           </div>
           
@@ -157,6 +160,8 @@ import Button from './Button.astro';
 
         <!-- Main Content -->
         <div class="flex-1 bg-[var(--color-fog)] p-[40px] relative overflow-hidden">
+          <!-- Panel: About Me -->
+          <div id="panel-about" class="content-panel flex flex-col h-full w-full">
             <div class="flex items-center justify-between mb-[16px]">
                 <h2 class="text-[36px] font-bold tracking-tight" style="font-family: 'Chalkboard', cursive;">Hello! I'm Dea Alma</h2>
                 <div class="flex items-center gap-[12px] mr-[24px] relative z-20">
@@ -192,6 +197,115 @@ import Button from './Button.astro';
                     </div>
                 </div>
             </div>
+          </div>
+
+          <!-- Panel: My Skills (Placeholder) -->
+          <div id="panel-skills" class="content-panel hidden flex flex-col h-full w-full">
+             <div class="flex items-center justify-between mb-[24px]">
+                <h2 class="text-[36px] font-bold tracking-tight" style="font-family: 'Chalkboard', cursive;">My Skills</h2>
+             </div>
+             
+             <!-- Grid of Retro Folders -->
+             <div class="grid grid-cols-3 gap-y-[32px] gap-x-[16px] max-w-[540px] relative z-20 mt-[8px]">
+                
+                <!-- Frontend -->
+                <div class="skill-folder flex flex-col items-center gap-2 w-full group cursor-pointer" data-title="Frontend" data-skills="React, Astro, TypeScript, JavaScript, HTML, CSS">
+                    <div class="relative w-[80px] h-[60px] group-hover:-translate-y-2 transition-transform drop-shadow-[4px_4px_0_#000]">
+                        <div class="absolute top-[-8px] left-[-2px] w-[30px] h-[12px] bg-[#ECA243] border-t-[3px] border-l-[3px] border-r-[3px] border-black"></div>
+                        <div class="absolute bottom-0 left-0 w-[80px] h-[60px] bg-[#ECA243] border-[3px] border-black"></div>
+                        <!-- Paper sticking out -->
+                        <div class="absolute bottom-[4px] left-[10px] w-[54px] h-[50px] bg-white border-[3px] border-black group-hover:translate-y-[-24px] group-hover:-rotate-6 transition-all duration-300 z-10 p-[4px] overflow-hidden">
+                            <p class="text-[7px] leading-[1.2] font-bold text-black font-mono">React<br/>Astro<br/>TS/JS<br/>HTML/CSS</p>
+                        </div>
+                        <div class="absolute bottom-0 left-0 w-[80px] h-[45px] bg-[#F4B85E] border-[3px] border-black z-20 shadow-[inset_2px_2px_0_rgba(255,255,255,0.4)]"></div>
+                    </div>
+                    <span class="font-mono text-[13px] font-bold text-black tracking-tighter mt-1 px-[4px] border-[2px] border-transparent group-hover:bg-blue-600 group-hover:text-white group-hover:border-dotted group-hover:border-white">Frontend</span>
+                </div>
+
+                <!-- Backend -->
+                <div class="skill-folder flex flex-col items-center gap-2 w-full group cursor-pointer" data-title="Backend" data-skills="PHP, Laravel, Express">
+                    <div class="relative w-[80px] h-[60px] group-hover:-translate-y-2 transition-transform drop-shadow-[4px_4px_0_#000]">
+                        <div class="absolute top-[-8px] left-[-2px] w-[30px] h-[12px] bg-[#ECA243] border-t-[3px] border-l-[3px] border-r-[3px] border-black"></div>
+                        <div class="absolute bottom-0 left-0 w-[80px] h-[60px] bg-[#ECA243] border-[3px] border-black"></div>
+                        <!-- Paper sticking out -->
+                        <div class="absolute bottom-[4px] left-[10px] w-[54px] h-[50px] bg-white border-[3px] border-black group-hover:translate-y-[-24px] group-hover:-rotate-6 transition-all duration-300 z-10 p-[4px] overflow-hidden">
+                            <p class="text-[7px] leading-[1.2] font-bold text-black font-mono">Laravel<br/>Express<br/>PHP</p>
+                        </div>
+                        <div class="absolute bottom-0 left-0 w-[80px] h-[45px] bg-[#F4B85E] border-[3px] border-black z-20 shadow-[inset_2px_2px_0_rgba(255,255,255,0.4)]"></div>
+                    </div>
+                    <span class="font-mono text-[13px] font-bold text-black tracking-tighter mt-1 px-[4px] border-[2px] border-transparent group-hover:bg-blue-600 group-hover:text-white group-hover:border-dotted group-hover:border-white">Backend</span>
+                </div>
+
+                <!-- Mobile -->
+                <div class="skill-folder flex flex-col items-center gap-2 w-full group cursor-pointer" data-title="Mobile" data-skills="Kotlin, Java, Flutter">
+                    <div class="relative w-[80px] h-[60px] group-hover:-translate-y-2 transition-transform drop-shadow-[4px_4px_0_#000]">
+                        <div class="absolute top-[-8px] left-[-2px] w-[30px] h-[12px] bg-[#ECA243] border-t-[3px] border-l-[3px] border-r-[3px] border-black"></div>
+                        <div class="absolute bottom-0 left-0 w-[80px] h-[60px] bg-[#ECA243] border-[3px] border-black"></div>
+                        <!-- Paper sticking out -->
+                        <div class="absolute bottom-[4px] left-[10px] w-[54px] h-[50px] bg-white border-[3px] border-black group-hover:translate-y-[-24px] group-hover:-rotate-6 transition-all duration-300 z-10 p-[4px] overflow-hidden">
+                            <p class="text-[7px] leading-[1.2] font-bold text-black font-mono">Flutter<br/>Kotlin<br/>Java</p>
+                        </div>
+                        <div class="absolute bottom-0 left-0 w-[80px] h-[45px] bg-[#F4B85E] border-[3px] border-black z-20 shadow-[inset_2px_2px_0_rgba(255,255,255,0.4)]"></div>
+                    </div>
+                    <span class="font-mono text-[13px] font-bold text-black tracking-tighter mt-1 px-[4px] border-[2px] border-transparent group-hover:bg-blue-600 group-hover:text-white group-hover:border-dotted group-hover:border-white">Mobile</span>
+                </div>
+                
+                <!-- Databases -->
+                <div class="skill-folder flex flex-col items-center gap-2 w-full group cursor-pointer" data-title="Databases" data-skills="MySQL, PostgreSQL, MongoDB">
+                    <div class="relative w-[80px] h-[60px] group-hover:-translate-y-2 transition-transform drop-shadow-[4px_4px_0_#000]">
+                        <div class="absolute top-[-8px] left-[-2px] w-[30px] h-[12px] bg-[#ECA243] border-t-[3px] border-l-[3px] border-r-[3px] border-black"></div>
+                        <div class="absolute bottom-0 left-0 w-[80px] h-[60px] bg-[#ECA243] border-[3px] border-black"></div>
+                        <!-- Paper sticking out -->
+                        <div class="absolute bottom-[4px] left-[10px] w-[54px] h-[50px] bg-white border-[3px] border-black group-hover:translate-y-[-24px] group-hover:-rotate-6 transition-all duration-300 z-10 p-[4px] overflow-hidden">
+                            <p class="text-[7px] leading-[1.2] font-bold text-black font-mono">PostgreSQL<br/>MySQL<br/>MongoDB</p>
+                        </div>
+                        <div class="absolute bottom-0 left-0 w-[80px] h-[45px] bg-[#F4B85E] border-[3px] border-black z-20 shadow-[inset_2px_2px_0_rgba(255,255,255,0.4)]"></div>
+                    </div>
+                    <span class="font-mono text-[13px] font-bold text-black tracking-tighter mt-1 px-[4px] border-[2px] border-transparent group-hover:bg-blue-600 group-hover:text-white group-hover:border-dotted group-hover:border-white">Databases</span>
+                </div>
+
+                <!-- Data -->
+                <div class="skill-folder flex flex-col items-center gap-2 w-full group cursor-pointer" data-title="Data Science" data-skills="Python">
+                    <div class="relative w-[80px] h-[60px] group-hover:-translate-y-2 transition-transform drop-shadow-[4px_4px_0_#000]">
+                        <div class="absolute top-[-8px] left-[-2px] w-[30px] h-[12px] bg-[#ECA243] border-t-[3px] border-l-[3px] border-r-[3px] border-black"></div>
+                        <div class="absolute bottom-0 left-0 w-[80px] h-[60px] bg-[#ECA243] border-[3px] border-black"></div>
+                        <!-- Paper sticking out -->
+                        <div class="absolute bottom-[4px] left-[10px] w-[54px] h-[50px] bg-white border-[3px] border-black group-hover:translate-y-[-24px] group-hover:-rotate-6 transition-all duration-300 z-10 p-[4px] overflow-hidden">
+                            <p class="text-[7px] leading-[1.2] font-bold text-black font-mono">Python<br/>Data<br/>Analysis</p>
+                        </div>
+                        <div class="absolute bottom-0 left-0 w-[80px] h-[45px] bg-[#F4B85E] border-[3px] border-black z-20 shadow-[inset_2px_2px_0_rgba(255,255,255,0.4)]"></div>
+                    </div>
+                    <span class="font-mono text-[13px] font-bold text-black tracking-tighter mt-1 px-[4px] border-[2px] border-transparent group-hover:bg-blue-600 group-hover:text-white group-hover:border-dotted group-hover:border-white">Data</span>
+                </div>
+
+                <!-- Tools -->
+                <div class="skill-folder flex flex-col items-center gap-2 w-full group cursor-pointer" data-title="Development Tools" data-skills="VSCode, Git, GitHub, Laragon">
+                    <div class="relative w-[80px] h-[60px] group-hover:-translate-y-2 transition-transform drop-shadow-[4px_4px_0_#000]">
+                        <div class="absolute top-[-8px] left-[-2px] w-[30px] h-[12px] bg-[#ECA243] border-t-[3px] border-l-[3px] border-r-[3px] border-black"></div>
+                        <div class="absolute bottom-0 left-0 w-[80px] h-[60px] bg-[#ECA243] border-[3px] border-black"></div>
+                        <!-- Paper sticking out -->
+                        <div class="absolute bottom-[4px] left-[10px] w-[54px] h-[50px] bg-white border-[3px] border-black group-hover:translate-y-[-24px] group-hover:-rotate-6 transition-all duration-300 z-10 p-[4px] overflow-hidden">
+                            <p class="text-[7px] leading-[1.2] font-bold text-black font-mono">Git/GitHub<br/>VSCode<br/>Laragon</p>
+                        </div>
+                        <div class="absolute bottom-0 left-0 w-[80px] h-[45px] bg-[#F4B85E] border-[3px] border-black z-20 shadow-[inset_2px_2px_0_rgba(255,255,255,0.4)]"></div>
+                    </div>
+                    <span class="font-mono text-[13px] font-bold text-black tracking-tighter mt-1 px-[4px] border-[2px] border-transparent group-hover:bg-blue-600 group-hover:text-white group-hover:border-dotted group-hover:border-white">Tools</span>
+                </div>
+
+             </div>
+          </div>
+
+          <!-- Panel: Education (Placeholder) -->
+          <div id="panel-education" class="content-panel hidden flex flex-col h-full w-full">
+             <div class="flex items-center justify-between mb-[16px]">
+                <h2 class="text-[36px] font-bold tracking-tight" style="font-family: 'Chalkboard', cursive;">Education</h2>
+             </div>
+             <div class="flex flex-col gap-[32px] max-w-[540px] relative z-20">
+                <p class="text-[16px] leading-[1.7] text-[var(--color-slate)] font-medium">
+                    Content for Education will go here...
+                </p>
+             </div>
+          </div>
         </div>
       </div>
     </div>
@@ -251,6 +365,37 @@ import Button from './Button.astro';
                   <a href="https://github.com/deaaalma" target="_blank" class="hover:-translate-y-2 transition-transform cursor-pointer group">
                       <img src="/images/github-pixel.png" alt="GitHub Logo" class="w-[96px] h-[96px] object-contain group-hover:scale-110 transition-transform drop-shadow-[4px_4px_0_rgba(0,0,0,0.15)]" style="image-rendering: pixelated;" />
                   </a>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Skill Modal -->
+  <div id="skill-modal" class="fixed inset-0 z-[100] hidden flex-col items-center justify-center">
+      <!-- Backdrop -->
+      <div id="skill-modal-backdrop" onclick="document.getElementById('skill-modal').classList.add('hidden'); document.getElementById('skill-modal').classList.remove('flex');" class="absolute inset-0 bg-black/40 backdrop-blur-[2px] cursor-pointer"></div>
+      
+      <!-- Modal Window -->
+      <div class="relative bg-[var(--color-fog)] w-[90%] max-w-[400px] border-[3px] border-black shadow-[8px_8px_0_#000] flex flex-col z-10 animate-[float_0.5s_ease-out_forwards]">
+          <!-- Modal Header -->
+          <div class="bg-[var(--color-paper-white)] border-b-[3px] border-black px-[16px] py-[10px] flex justify-between items-center">
+              <div class="flex items-center gap-[8px]">
+                  <span class="w-[12px] h-[12px] rounded-full bg-[#E52521] border-[1.5px] border-black"></span>
+                  <span class="w-[12px] h-[12px] rounded-full bg-[#FBD000] border-[1.5px] border-black"></span>
+                  <span class="w-[12px] h-[12px] rounded-full bg-[#00C853] border-[1.5px] border-black"></span>
+              </div>
+              <div id="skill-modal-title" class="font-bold text-[14px] font-mono tracking-tighter">Skills.exe</div>
+              <button id="close-skill-modal-btn" onclick="document.getElementById('skill-modal').classList.add('hidden'); document.getElementById('skill-modal').classList.remove('flex');" class="w-[24px] h-[24px] bg-[#E52521] border-[2px] border-black flex items-center justify-center hover:brightness-110 active:translate-y-[2px] active:shadow-none shadow-[2px_2px_0_#000] transition-all">
+                  <span class="text-white font-bold text-[12px] leading-none mb-[2px]">x</span>
+              </button>
+          </div>
+          
+          <!-- Modal Body -->
+          <div class="p-[24px] flex flex-col items-center gap-[16px]">
+              <p class="text-[14px] font-medium text-[var(--color-slate)] text-center">Included technologies:</p>
+              
+              <div id="skill-modal-body" class="flex flex-row flex-wrap gap-[12px] justify-center mt-0">
+                  <!-- Badges will be injected here via JS -->
               </div>
           </div>
       </div>
@@ -346,5 +491,102 @@ import Button from './Button.astro';
         }, 600); // Duration of fast blink before turning off
      });
    }
+
+   // Sidebar Navigation Logic
+   const sidebarBtns = document.querySelectorAll('.sidebar-btn');
+   const contentPanels = document.querySelectorAll('.content-panel');
+
+   const activeClasses = ['bg-[var(--color-lime-pulse)]', 'border-black', 'shadow-[2px_2px_0_#000]', 'text-black', 'active'];
+   const inactiveClasses = ['text-[var(--color-slate)]', 'hover:bg-white', 'hover:border-black', 'hover:shadow-[2px_2px_0_#000]', 'hover:text-black', 'border-transparent', 'inactive'];
+
+   sidebarBtns.forEach(btn => {
+       btn.addEventListener('click', () => {
+           // Reset all buttons
+           sidebarBtns.forEach(b => {
+               b.classList.remove(...activeClasses);
+               b.classList.add(...inactiveClasses);
+               const indicator = b.querySelector('.nav-indicator');
+               if(indicator) indicator.classList.add('opacity-0');
+           });
+
+           // Set clicked to active
+           btn.classList.remove(...inactiveClasses);
+           btn.classList.add(...activeClasses);
+           const activeIndicator = btn.querySelector('.nav-indicator');
+           if(activeIndicator) activeIndicator.classList.remove('opacity-0');
+
+           // Hide all panels
+           contentPanels.forEach(p => p.classList.add('hidden'));
+
+           // Show target panel
+           const targetId = btn.getAttribute('data-target');
+           if(targetId) {
+             const targetPanel = document.getElementById(targetId);
+             if(targetPanel) targetPanel.classList.remove('hidden');
+           }
+       });
+   });
+
+   // Skill Folder Modal Logic
+   const skillFolders = document.querySelectorAll('.skill-folder');
+   
+   const skillIcons = {
+       'React': 'https://cdn.simpleicons.org/react',
+       'Astro': 'https://cdn.simpleicons.org/astro',
+       'TypeScript': 'https://cdn.simpleicons.org/typescript',
+       'JavaScript': 'https://cdn.simpleicons.org/javascript',
+       'HTML': 'https://cdn.simpleicons.org/html5',
+       'CSS': 'https://cdn.simpleicons.org/css3',
+       'PHP': 'https://cdn.simpleicons.org/php',
+       'Laravel': 'https://cdn.simpleicons.org/laravel',
+       'Express': 'https://cdn.simpleicons.org/express',
+       'Kotlin': 'https://cdn.simpleicons.org/kotlin',
+       'Java': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg',
+       'Flutter': 'https://cdn.simpleicons.org/flutter',
+       'MySQL': 'https://cdn.simpleicons.org/mysql',
+       'PostgreSQL': 'https://cdn.simpleicons.org/postgresql',
+       'MongoDB': 'https://cdn.simpleicons.org/mongodb',
+       'Python': 'https://cdn.simpleicons.org/python',
+       'VSCode': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg',
+       'Git': 'https://cdn.simpleicons.org/git',
+       'GitHub': 'https://cdn.simpleicons.org/github',
+       'Laragon': 'https://cdn.simpleicons.org/laragon'
+   };
+
+   skillFolders.forEach(folder => {
+       folder.addEventListener('click', () => {
+           const title = folder.getAttribute('data-title');
+           const skills = folder.getAttribute('data-skills').split(', ');
+           
+           document.getElementById('skill-modal-title').innerText = title + '.exe';
+           
+           const body = document.getElementById('skill-modal-body');
+           body.innerHTML = ''; // Clear previous badges
+           
+           skills.forEach(skill => {
+               const badge = document.createElement('div');
+               badge.className = 'flex items-center gap-[8px] border-[2px] border-black bg-white px-[12px] py-[6px] shadow-[2px_2px_0_#000] font-bold text-[14px] hover:-translate-y-1 hover:shadow-[4px_4px_0_var(--color-lime-pulse)] transition-all cursor-default';
+               
+               const iconUrl = skillIcons[skill];
+               if (iconUrl) {
+                   const img = document.createElement('img');
+                   img.src = iconUrl;
+                   img.className = 'w-[16px] h-[16px] object-contain';
+                   img.alt = skill + ' logo';
+                   img.onerror = () => { img.style.display = 'none'; }; // Hide if icon fails to load
+                   badge.appendChild(img);
+               }
+
+               const text = document.createElement('span');
+               text.innerText = skill;
+               badge.appendChild(text);
+
+               body.appendChild(badge);
+           });
+           
+           document.getElementById('skill-modal').classList.remove('hidden');
+           document.getElementById('skill-modal').classList.add('flex');
+       });
+   });
 
 </script>
