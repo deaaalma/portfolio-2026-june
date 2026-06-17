@@ -102,7 +102,7 @@ import Button from './Button.astro';
 
     <!-- Restored Widget (Mockup Card) adapted for Portfolio (Initially Hidden) -->
     <!-- Restored Widget (Mockup Card) adapted for Portfolio (Initially Hidden) -->
-    <div id="hero-widget" class="absolute top-[160px] md:top-[220px] opacity-0 translate-y-[50px] pointer-events-none transition-all duration-1000 w-full max-w-[1200px] h-[500px] bg-[var(--color-fog)] border-[3px] border-[var(--color-carbon-black)] rounded-none shadow-[8px_8px_0_#000] overflow-visible flex flex-col mx-auto z-10 text-left">
+    <div id="hero-widget" class="absolute top-[160px] md:top-[220px] opacity-0 translate-y-[50px] pointer-events-none transition-all duration-1000 w-full max-w-[1200px] min-h-[500px] h-auto bg-[var(--color-fog)] border-[3px] border-[var(--color-carbon-black)] rounded-none shadow-[8px_8px_0_#000] overflow-visible flex flex-col mx-auto z-10 text-left">
       
       <!-- Floating PNG Face Image with Tooltip -->
       <a href="/cv_putu_ayu_deanisa.pdf" target="_blank" class="absolute bottom-[-40px] right-[20px] z-50 animate-float group block cursor-pointer">
@@ -132,6 +132,7 @@ import Button from './Button.astro';
             </div>
         </div>
         <div class="flex items-center gap-[12px]">
+            <div id="retro-clock" class="text-[13px] font-bold font-mono tracking-widest text-black mt-[1px]">12:00 AM</div>
             <div class="w-[24px] h-[24px] bg-[var(--color-lime-pulse)] border-2 border-black flex items-center justify-center shadow-[2px_2px_0_#000]">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
             </div>
@@ -159,9 +160,9 @@ import Button from './Button.astro';
         </div>
 
         <!-- Main Content -->
-        <div class="flex-1 bg-[var(--color-fog)] p-[40px] relative overflow-hidden">
+        <div class="flex-1 bg-[var(--color-fog)] p-[40px] relative overflow-x-hidden">
           <!-- Panel: About Me -->
-          <div id="panel-about" class="content-panel flex flex-col h-full w-full">
+          <div id="panel-about" class="content-panel flex flex-col h-fit w-full">
             <div class="flex items-center justify-between mb-[16px]">
                 <h2 class="text-[36px] font-bold tracking-tight" style="font-family: 'Chalkboard', cursive;">Hello! I'm Dea Alma</h2>
                 <div class="flex items-center gap-[12px] mr-[24px] relative z-20">
@@ -199,8 +200,8 @@ import Button from './Button.astro';
             </div>
           </div>
 
-          <!-- Panel: My Skills (Placeholder) -->
-          <div id="panel-skills" class="content-panel hidden flex flex-col h-full w-full">
+          <!-- Panel: My Skills -->
+          <div id="panel-skills" class="content-panel hidden flex flex-col h-fit w-full">
              <div class="flex items-center justify-between mb-[24px]">
                 <h2 class="text-[36px] font-bold tracking-tight" style="font-family: 'Chalkboard', cursive;">My Skills</h2>
              </div>
@@ -295,15 +296,66 @@ import Button from './Button.astro';
              </div>
           </div>
 
-          <!-- Panel: Education (Placeholder) -->
-          <div id="panel-education" class="content-panel hidden flex flex-col h-full w-full">
-             <div class="flex items-center justify-between mb-[16px]">
-                <h2 class="text-[36px] font-bold tracking-tight" style="font-family: 'Chalkboard', cursive;">Education</h2>
+          <!-- Panel: Education & Organizations -->
+          <div id="panel-education" class="content-panel hidden flex flex-col h-fit w-full pb-[20px]">
+             <div class="flex items-center justify-between mb-[24px]">
+                <h2 class="text-[36px] font-bold tracking-tight" style="font-family: 'Chalkboard', cursive;">Education & Organizations</h2>
              </div>
-             <div class="flex flex-col gap-[32px] max-w-[540px] relative z-20">
-                <p class="text-[16px] leading-[1.7] text-[var(--color-slate)] font-medium">
-                    Content for Education will go here...
-                </p>
+             
+             <!-- Timeline Container -->
+             <div class="relative border-l-[3px] border-[var(--color-carbon-black)] ml-[12px] z-20 flex flex-col gap-[20px] max-w-[440px]">
+                
+                <!-- Education Item -->
+                <div class="relative ml-[24px] group cursor-default">
+                    <!-- Timeline Dot -->
+                    <div class="absolute w-[12px] h-[12px] bg-[#FBD000] border-[2px] border-black rounded-full -left-[31.5px] top-[4px] group-hover:bg-[var(--color-lime-pulse)] group-hover:scale-150 transition-all duration-300"></div>
+                    <!-- Content -->
+                    <div class="group-hover:translate-x-1 transition-transform duration-300">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-bold text-[16px] text-black leading-tight">Bachelor of Information Technology</h3>
+                            <span class="text-black font-mono text-[11px] font-bold whitespace-nowrap ml-[8px]">Sept '23 - Now</span>
+                        </div>
+                        <p class="text-[12px] font-bold text-gray-500 font-mono mb-[4px] uppercase tracking-wider">Udayana University | GPA: 3.83/4.00</p>
+                        <p class="text-[13px] text-gray-800 leading-[1.5] max-w-[380px]">
+                            <span class="font-bold text-black">Relevant Coursework:</span> Software Engineering, CRM/ERP Development, Blockchain, Digital Economy, Database Systems.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Organization Item 1 -->
+                <div class="relative ml-[24px] group cursor-default">
+                    <!-- Timeline Dot -->
+                    <div class="absolute w-[12px] h-[12px] bg-[#049CD8] border-[2px] border-black rounded-full -left-[31.5px] top-[4px] group-hover:bg-[var(--color-lime-pulse)] group-hover:scale-150 transition-all duration-300"></div>
+                    <!-- Content -->
+                    <div class="group-hover:translate-x-1 transition-transform duration-300">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-bold text-[16px] text-black leading-tight">Technology Artisan</h3>
+                            <span class="text-black font-mono text-[11px] font-bold whitespace-nowrap ml-[8px]">Jan '25 - Dec '25</span>
+                        </div>
+                        <p class="text-[12px] font-bold text-gray-500 font-mono mb-[4px] uppercase tracking-wider">Business & Technology Staff</p>
+                        <p class="text-[13px] text-gray-800 leading-[1.5] max-w-[380px]">
+                            Responsible for analyzing tech-business strategies and supporting operational planning.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Organization Item 2 -->
+                <div class="relative ml-[24px] group cursor-default">
+                    <!-- Timeline Dot -->
+                    <div class="absolute w-[12px] h-[12px] bg-[#E52521] border-[2px] border-black rounded-full -left-[31.5px] top-[4px] group-hover:bg-[var(--color-lime-pulse)] group-hover:scale-150 transition-all duration-300"></div>
+                    <!-- Content -->
+                    <div class="group-hover:translate-x-1 transition-transform duration-300">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-bold text-[16px] text-black leading-tight">IT Student Association</h3>
+                            <span class="text-black font-mono text-[11px] font-bold whitespace-nowrap ml-[8px]">Jan '25 - Dec '25</span>
+                        </div>
+                        <p class="text-[12px] font-bold text-gray-500 font-mono mb-[4px] uppercase tracking-wider">Practicum Division Staff</p>
+                        <p class="text-[13px] text-gray-800 leading-[1.5] max-w-[380px]">
+                            Facilitated laboratory activities and supported academic programs for fellow students.
+                        </p>
+                    </div>
+                </div>
+
              </div>
           </div>
         </div>
@@ -494,36 +546,65 @@ import Button from './Button.astro';
 
    // Sidebar Navigation Logic
    const sidebarBtns = document.querySelectorAll('.sidebar-btn');
-   const contentPanels = document.querySelectorAll('.content-panel');
-
-   const activeClasses = ['bg-[var(--color-lime-pulse)]', 'border-black', 'shadow-[2px_2px_0_#000]', 'text-black', 'active'];
-   const inactiveClasses = ['text-[var(--color-slate)]', 'hover:bg-white', 'hover:border-black', 'hover:shadow-[2px_2px_0_#000]', 'hover:text-black', 'border-transparent', 'inactive'];
+   const heroWidget = document.getElementById('hero-widget');
 
    sidebarBtns.forEach(btn => {
        btn.addEventListener('click', () => {
+           // If already active, do nothing
+           if (btn.classList.contains('active')) return;
+
+           // Get current height before changing anything
+           const startHeight = heroWidget.getBoundingClientRect().height;
+
            // Reset all buttons
            sidebarBtns.forEach(b => {
-               b.classList.remove(...activeClasses);
-               b.classList.add(...inactiveClasses);
-               const indicator = b.querySelector('.nav-indicator');
-               if(indicator) indicator.classList.add('opacity-0');
+               b.classList.remove('active', 'bg-[var(--color-lime-pulse)]', 'text-black', 'border-black', 'shadow-[2px_2px_0_#000]');
+               b.classList.add('inactive', 'text-[var(--color-slate)]', 'border-transparent');
+               b.querySelector('.nav-indicator').classList.add('opacity-0');
+               b.style.border = ''; // Remove inline style
            });
-
-           // Set clicked to active
-           btn.classList.remove(...inactiveClasses);
-           btn.classList.add(...activeClasses);
-           const activeIndicator = btn.querySelector('.nav-indicator');
-           if(activeIndicator) activeIndicator.classList.remove('opacity-0');
-
-           // Hide all panels
-           contentPanels.forEach(p => p.classList.add('hidden'));
-
+           
+           // Add active state to clicked
+           btn.classList.remove('inactive', 'text-[var(--color-slate)]', 'hover:bg-white', 'hover:border-black', 'hover:shadow-[2px_2px_0_#000]', 'hover:text-black', 'border-transparent');
+           btn.classList.add('active', 'bg-[var(--color-lime-pulse)]', 'text-black', 'border-black', 'shadow-[2px_2px_0_#000]');
+           btn.querySelector('.nav-indicator').classList.remove('opacity-0');
+           btn.style.border = ''; // Remove inline style
+           
+           // Hide all content panels
+           document.querySelectorAll('.content-panel').forEach(panel => {
+               panel.classList.add('hidden');
+           });
+           
+           // Temporarily fix height to startHeight to avoid jumping
+           heroWidget.style.transition = 'none';
+           heroWidget.style.height = startHeight + 'px';
+           
            // Show target panel
            const targetId = btn.getAttribute('data-target');
            if(targetId) {
              const targetPanel = document.getElementById(targetId);
              if(targetPanel) targetPanel.classList.remove('hidden');
            }
+
+           // Get the new natural height
+           heroWidget.style.height = 'auto';
+           const endHeight = heroWidget.getBoundingClientRect().height;
+           
+           // Revert back to startHeight instantly
+           heroWidget.style.height = startHeight + 'px';
+           
+           // Force browser reflow so it registers the start height before animating
+           void heroWidget.offsetHeight;
+           
+           // Animate to endHeight
+           heroWidget.style.transition = 'height 0.4s cubic-bezier(0.25, 1, 0.5, 1)';
+           heroWidget.style.height = endHeight + 'px';
+           
+           // Clean up inline styles after animation finishes
+           setTimeout(() => {
+               heroWidget.style.height = 'auto';
+               heroWidget.style.transition = ''; // Returns control to Tailwind classes
+           }, 400);
        });
    });
 
@@ -589,4 +670,39 @@ import Button from './Button.astro';
        });
    });
 
+   // Retro Clock Logic
+   const clockEl = document.getElementById('retro-clock');
+   if (clockEl) {
+     const updateClock = () => {
+       const now = new Date();
+       let hours = now.getHours();
+       const minutes = now.getMinutes().toString().padStart(2, '0');
+       const ampm = hours >= 12 ? 'PM' : 'AM';
+       hours = hours % 12;
+       hours = hours ? hours : 12; // the hour '0' should be '12'
+       // Using a blinking colon for retro feel
+       clockEl.innerHTML = `${hours}<span class="opacity-100 animate-[pulse_1s_ease-in-out_infinite]">:</span>${minutes} ${ampm}`;
+     };
+     updateClock(); // Initial call
+     setInterval(updateClock, 1000);
+   }
+
 </script>
+
+<style is:global>
+  /* Custom Retro Scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 12px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: var(--color-fog);
+    border-left: 3px solid black;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: black;
+    border: 2px solid var(--color-fog);
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--color-lime-pulse);
+  }
+</style>
