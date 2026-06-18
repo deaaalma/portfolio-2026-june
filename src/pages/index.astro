@@ -196,13 +196,14 @@ import Button from '../components/astro/Button.astro';
                       <li>Mentored first-year students in understanding network protocols and topology design.</li>
                     </ul>
                     
-                    <div class="w-[160px] h-[180px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105">
-                      <div class="border-b-[2.5px] border-[var(--color-carbon-black)] bg-gray-200 p-[2px] px-[6px] flex justify-between items-center">
-                        <span class="text-[8px] font-mono font-bold uppercase">lab.jpg</span>
-                        <div class="w-[10px] h-[10px] bg-[var(--color-paper-white)] border-[1.5px] border-[var(--color-carbon-black)] rounded-sm flex items-center justify-center"><div class="w-[5px] h-[1.5px] bg-[var(--color-carbon-black)]"></div></div>
+                    <div class="retro-carousel w-[160px] h-[180px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105" data-images='["/images/practicum asistant.jpg"]' data-index="0">
+                      <div class="border-b-[2.5px] border-[var(--color-carbon-black)] bg-gray-200 p-[2px] px-[4px] flex justify-between items-center">
+                        <span class="text-[8px] font-mono border-[1.5px] border-[var(--color-carbon-black)] px-1 bg-[#d8b4fe] hidden sm:block">CLICK</span>
+                        <span class="carousel-title text-[8px] font-mono font-bold uppercase truncate max-w-[70px]">lab.jpg</span>
+                        <div class="w-[10px] h-[10px] bg-[var(--color-paper-white)] border-[1.5px] border-[var(--color-carbon-black)] rounded-sm flex items-center justify-center flex-shrink-0"><div class="w-[5px] h-[1.5px] bg-[var(--color-carbon-black)]"></div></div>
                       </div>
                       <div class="flex-1 bg-gray-100 flex items-center justify-center relative p-[4px] min-h-0">
-                          <img src="/images/practicum asistant.jpg" alt="Network Assistant" class="w-full h-full object-cover border-[1.5px] border-[var(--color-carbon-black)]" />
+                          <img src="/images/practicum asistant.jpg" alt="Network Assistant" class="carousel-img w-full h-full object-cover border-[1.5px] border-[var(--color-carbon-black)] cursor-pointer hover:opacity-80 transition-opacity" />
                       </div>
                     </div>
                   </div>
@@ -253,13 +254,14 @@ import Button from '../components/astro/Button.astro';
                       <li>Assisted senior staff in cross-checking reports to identify discrepancies.</li>
                     </ul>
                     
-                    <div class="w-[160px] h-[180px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105">
-                      <div class="border-b-[2.5px] border-[var(--color-carbon-black)] bg-gray-200 p-[2px] px-[6px] flex justify-between items-center">
-                        <span class="text-[8px] font-mono font-bold uppercase">biasa.jpg</span>
-                        <div class="w-[10px] h-[10px] bg-[var(--color-paper-white)] border-[1.5px] border-[var(--color-carbon-black)] rounded-sm flex items-center justify-center"><div class="w-[5px] h-[1.5px] bg-[var(--color-carbon-black)]"></div></div>
+                    <div class="retro-carousel w-[160px] h-[180px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105" data-images='["/images/assistant staff.png"]' data-index="0">
+                      <div class="border-b-[2.5px] border-[var(--color-carbon-black)] bg-gray-200 p-[2px] px-[4px] flex justify-between items-center">
+                        <span class="text-[8px] font-mono border-[1.5px] border-[var(--color-carbon-black)] px-1 bg-[#d8b4fe] hidden sm:block">CLICK</span>
+                        <span class="carousel-title text-[8px] font-mono font-bold uppercase truncate max-w-[70px]">biasa.jpg</span>
+                        <div class="w-[10px] h-[10px] bg-[var(--color-paper-white)] border-[1.5px] border-[var(--color-carbon-black)] rounded-sm flex items-center justify-center flex-shrink-0"><div class="w-[5px] h-[1.5px] bg-[var(--color-carbon-black)]"></div></div>
                       </div>
                       <div class="flex-1 bg-gray-100 flex items-center justify-center relative p-[4px] min-h-0">
-                          <img src="/images/assistant staff.png" alt="Accounting Staff" class="w-full h-full object-cover border-[1.5px] border-[var(--color-carbon-black)]" />
+                          <img src="/images/assistant staff.png" alt="Accounting Staff" class="carousel-img w-full h-full object-cover border-[1.5px] border-[var(--color-carbon-black)] cursor-pointer hover:opacity-80 transition-opacity" />
                       </div>
                     </div>
                   </div>
@@ -482,6 +484,14 @@ import Button from '../components/astro/Button.astro';
           currentLightboxIndex = startIndex;
           originalImgElement = imgEl;
           originalTitleElement = titleEl;
+          
+          if (images.length <= 1) {
+              btnPrev.style.display = 'none';
+              btnNext.style.display = 'none';
+          } else {
+              btnPrev.style.display = '';
+              btnNext.style.display = '';
+          }
           
           // Clear and inject all images to DOM to force browser decode
           lightboxImgContainer.innerHTML = '';
