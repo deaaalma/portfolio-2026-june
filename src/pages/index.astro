@@ -629,4 +629,80 @@ import Button from '../components/astro/Button.astro';
         document.addEventListener('astro:page-load', initBadgeSFX);
 
 </script>
+
+<script>
+
+        const initBadgeHoverEffect = () => {
+            if (window.__badgeHoverInitialized) return;
+            window.__badgeHoverInitialized = true;
+
+            // Find all cards that contain badges
+            const allCards = Array.from(document.querySelectorAll('div')).filter(el => 
+                el.className.includes('border-[3px]') && 
+                el.querySelector('.flex-wrap.gap-\\[8px\\] span.font-mono')
+            );
+
+            const allBadges = document.querySelectorAll('.flex-wrap.gap-\\[8px\\] span.font-mono');
+
+            allBadges.forEach(badge => {
+                badge.style.cursor = 'pointer';
+                // Add a small hover scale to the badge itself
+                badge.style.transition = 'transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                
+                badge.addEventListener('mouseenter', () => {
+                    badge.style.transform = 'scale(1.1)';
+                    const badgeText = badge.textContent.trim();
+                    
+                    allCards.forEach(card => {
+                        // Check if this card contains the badge
+                        const cardBadges = Array.from(card.querySelectorAll('.flex-wrap.gap-\\[8px\\] span.font-mono'));
+                        const hasBadge = cardBadges.some(b => b.textContent.trim() === badgeText);
+                        
+                        // Override standard hover transforms so it doesn't fight with Tailwind
+                        card.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+                        
+                        if (hasBadge) {
+                            card.style.opacity = '1';
+                            card.style.filter = 'brightness(1.05)';
+                            card.style.transform = 'translateY(-4px)';
+                            card.style.boxShadow = '8px 8px 0 #000';
+                            card.style.zIndex = '10';
+                        } else {
+                            card.style.opacity = '0.3';
+                            card.style.filter = 'grayscale(100%) blur(1px)';
+                            card.style.transform = 'scale(0.98)';
+                            card.style.boxShadow = '2px 2px 0 #000';
+                            card.style.zIndex = '1';
+                        }
+                    });
+                });
+
+                badge.addEventListener('mouseleave', () => {
+                    badge.style.transform = '';
+                    allCards.forEach(card => {
+                        card.style.opacity = '';
+                        card.style.filter = '';
+                        card.style.transform = '';
+                        card.style.boxShadow = '';
+                        card.style.zIndex = '';
+                        
+                        // We need to clear inline styles so Tailwind hover effects work again
+                        setTimeout(() => {
+                           if (!card.style.opacity) {
+                               card.style.transition = '';
+                           }
+                        }, 300);
+                    });
+                });
+            });
+        };
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initBadgeHoverEffect);
+        } else {
+            initBadgeHoverEffect();
+        }
+        document.addEventListener('astro:page-load', initBadgeHoverEffect);
+
+</script>
 </Layout>
