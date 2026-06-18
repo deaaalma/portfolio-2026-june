@@ -275,7 +275,115 @@ import Button from '../components/astro/Button.astro';
           </div>
         </div>
 
-    <!-- Retro Lightbox Modal -->
+    
+    </section>
+
+    <!-- Wavy Divider from White to Green -->
+    <div class="w-full overflow-hidden leading-[0] bg-[var(--color-paper-white)] rotate-180">
+      <svg class="relative block w-[calc(100%+1.3px)] h-[60px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,115.9,188.94,99.73,235.17,86.85,280.4,70.93,321.39,56.44Z" fill="#bbf7d0"></path>
+      </svg>
+    </div>
+
+    <!-- Section 3: Featured Projects (Retro Neo-Brutalism Grid) -->
+    <section id="projects" class="relative w-full bg-[#bbf7d0] py-[120px] px-[24px]">
+      <div class="relative max-w-[1200px] mx-auto z-10">
+        <!-- Section Header -->
+        <div class="flex items-center gap-[16px] mb-[80px] justify-end">
+          <h2 class="text-[40px] md:text-[56px] font-black tracking-tight uppercase text-right" style="-webkit-text-stroke: 1px black; text-shadow: 3px 3px 0 #fca5a5;">My Projects</h2>
+          <div class="w-[48px] h-[48px] bg-[#d8b4fe] border-[3px] border-[var(--color-carbon-black)] shadow-[4px_4px_0_#000] flex items-center justify-center text-[24px]">🚀</div>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-[40px] md:gap-[60px]">
+          
+          <!-- Project Card 1 -->
+          <div class="w-full bg-[var(--color-paper-white)] border-[4px] border-[var(--color-carbon-black)] flex flex-col shadow-[8px_8px_0_#000] hover:-translate-y-2 hover:shadow-[16px_16px_0_#000] transition-all group">
+            <!-- Retro Browser Header -->
+            <div class="w-full border-b-[4px] border-[var(--color-carbon-black)] bg-[#fca5a5] px-[16px] py-[12px] flex items-center gap-[8px]">
+              <div class="w-[16px] h-[16px] rounded-full bg-[var(--color-paper-white)] border-[2px] border-[var(--color-carbon-black)]"></div>
+              <div class="w-[16px] h-[16px] rounded-full bg-[var(--color-paper-white)] border-[2px] border-[var(--color-carbon-black)]"></div>
+              <div class="w-[16px] h-[16px] rounded-full bg-[var(--color-paper-white)] border-[2px] border-[var(--color-carbon-black)]"></div>
+              <div class="ml-auto font-mono text-[12px] font-bold border-[2px] border-[var(--color-carbon-black)] bg-[var(--color-paper-white)] px-[12px] py-[2px]">project_01.exe</div>
+            </div>
+            
+            <!-- Project Image Placeholder -->
+            <div class="w-full aspect-video bg-[#e2e8f0] border-b-[4px] border-[var(--color-carbon-black)] relative overflow-hidden flex items-center justify-center">
+              <span class="font-mono text-gray-500 font-bold">[Image Placeholder: 16:9]</span>
+              <!-- Example of how to add an image later: -->
+              <!-- <img src="/images/project1.jpg" alt="Project 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" /> -->
+            </div>
+
+            <!-- Project Details -->
+            <div class="p-[32px] flex flex-col flex-grow">
+              <h3 class="text-[28px] font-black tracking-tight mb-[12px]">Web Application Name</h3>
+              <p class="text-[16px] font-medium leading-[1.6] text-[var(--color-carbon-black)] mb-[24px] flex-grow">
+                A brief description of the project goes here. Explain the problem you solved, the technologies you used, and the impact it had. Keep it concise but impactful.
+              </p>
+              
+              <!-- Tech Tags -->
+              <div class="flex flex-wrap gap-[8px] mb-[32px]">
+                <span class="bg-[#fef08a] border-[2px] border-[var(--color-carbon-black)] px-[10px] py-[2px] text-[12px] font-bold shadow-[2px_2px_0_#000]">React</span>
+                <span class="bg-[#fef08a] border-[2px] border-[var(--color-carbon-black)] px-[10px] py-[2px] text-[12px] font-bold shadow-[2px_2px_0_#000]">Node.js</span>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="flex gap-[16px] mt-auto">
+                <a href="#" class="flex-1 bg-[var(--color-lime-pulse)] border-[3px] border-[var(--color-carbon-black)] py-[12px] text-center font-bold shadow-[4px_4px_0_#000] hover:translate-y-[2px] hover:shadow-[2px_2px_0_#000] active:translate-y-[4px] active:shadow-none transition-all cursor-pointer">
+                  Live Demo
+                </a>
+                <a href="#" class="w-[48px] h-[48px] bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] flex items-center justify-center shadow-[4px_4px_0_#000] hover:translate-y-[2px] hover:shadow-[2px_2px_0_#000] active:translate-y-[4px] active:shadow-none transition-all cursor-pointer" aria-label="GitHub Repository">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 2 -->
+          <div class="w-full bg-[var(--color-paper-white)] border-[4px] border-[var(--color-carbon-black)] flex flex-col shadow-[8px_8px_0_#000] hover:-translate-y-2 hover:shadow-[16px_16px_0_#000] transition-all group">
+            <div class="w-full border-b-[4px] border-[var(--color-carbon-black)] bg-[#bfdbfe] px-[16px] py-[12px] flex items-center gap-[8px]">
+              <div class="w-[16px] h-[16px] rounded-full bg-[var(--color-paper-white)] border-[2px] border-[var(--color-carbon-black)]"></div>
+              <div class="w-[16px] h-[16px] rounded-full bg-[var(--color-paper-white)] border-[2px] border-[var(--color-carbon-black)]"></div>
+              <div class="w-[16px] h-[16px] rounded-full bg-[var(--color-paper-white)] border-[2px] border-[var(--color-carbon-black)]"></div>
+              <div class="ml-auto font-mono text-[12px] font-bold border-[2px] border-[var(--color-carbon-black)] bg-[var(--color-paper-white)] px-[12px] py-[2px]">project_02.exe</div>
+            </div>
+            
+            <div class="w-full aspect-video bg-[#e2e8f0] border-b-[4px] border-[var(--color-carbon-black)] relative overflow-hidden flex items-center justify-center">
+              <span class="font-mono text-gray-500 font-bold">[Image Placeholder: 16:9]</span>
+            </div>
+
+            <div class="p-[32px] flex flex-col flex-grow">
+              <h3 class="text-[28px] font-black tracking-tight mb-[12px]">Another Awesome Project</h3>
+              <p class="text-[16px] font-medium leading-[1.6] text-[var(--color-carbon-black)] mb-[24px] flex-grow">
+                This shows how multiple projects will align in a grid. The cards have a subtle hover effect that increases the drop shadow to make them feel like physical objects.
+              </p>
+              
+              <div class="flex flex-wrap gap-[8px] mb-[32px]">
+                <span class="bg-[#fef08a] border-[2px] border-[var(--color-carbon-black)] px-[10px] py-[2px] text-[12px] font-bold shadow-[2px_2px_0_#000]">Python</span>
+                <span class="bg-[#fef08a] border-[2px] border-[var(--color-carbon-black)] px-[10px] py-[2px] text-[12px] font-bold shadow-[2px_2px_0_#000]">FastAPI</span>
+              </div>
+
+              <div class="flex gap-[16px] mt-auto">
+                <a href="#" class="flex-1 bg-[#ECA243] border-[3px] border-[var(--color-carbon-black)] py-[12px] text-center font-bold shadow-[4px_4px_0_#000] hover:translate-y-[2px] hover:shadow-[2px_2px_0_#000] active:translate-y-[4px] active:shadow-none transition-all cursor-pointer">
+                  View Case Study
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Simple Footer Placeholder (Until Shut Down screen is built) -->
+    <footer class="w-full bg-[var(--color-carbon-black)] text-[var(--color-paper-white)] py-[60px] flex flex-col items-center justify-center">
+      <div class="font-mono font-bold tracking-widest text-[14px] mb-[16px]">C:\> LOGGING OFF...</div>
+      <p class="text-[16px] opacity-70">© 2026 Dea Alma. All rights reserved.</p>
+    </footer>
+
+    </div>
+  </main>
+<!-- Retro Lightbox Modal -->
     <div id="retro-lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm p-4">
       <div class="w-full max-w-[800px] bg-[var(--color-paper-white)] border-[4px] border-[var(--color-carbon-black)] shadow-[8px_8px_0_#000] flex flex-col">
         
@@ -417,111 +525,4 @@ import Button from '../components/astro/Button.astro';
         });
       });
     </script>
-    </section>
-
-    <!-- Wavy Divider from White to Green -->
-    <div class="w-full overflow-hidden leading-[0] bg-[var(--color-paper-white)] rotate-180">
-      <svg class="relative block w-[calc(100%+1.3px)] h-[60px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,115.9,188.94,99.73,235.17,86.85,280.4,70.93,321.39,56.44Z" fill="#bbf7d0"></path>
-      </svg>
-    </div>
-
-    <!-- Section 3: Featured Projects (Retro Neo-Brutalism Grid) -->
-    <section id="projects" class="relative w-full bg-[#bbf7d0] py-[120px] px-[24px]">
-      <div class="relative max-w-[1200px] mx-auto z-10">
-        <!-- Section Header -->
-        <div class="flex items-center gap-[16px] mb-[80px] justify-end">
-          <h2 class="text-[40px] md:text-[56px] font-black tracking-tight uppercase text-right" style="-webkit-text-stroke: 1px black; text-shadow: 3px 3px 0 #fca5a5;">My Projects</h2>
-          <div class="w-[48px] h-[48px] bg-[#d8b4fe] border-[3px] border-[var(--color-carbon-black)] shadow-[4px_4px_0_#000] flex items-center justify-center text-[24px]">🚀</div>
-        </div>
-
-        <!-- Projects Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-[40px] md:gap-[60px]">
-          
-          <!-- Project Card 1 -->
-          <div class="w-full bg-[var(--color-paper-white)] border-[4px] border-[var(--color-carbon-black)] flex flex-col shadow-[8px_8px_0_#000] hover:-translate-y-2 hover:shadow-[16px_16px_0_#000] transition-all group">
-            <!-- Retro Browser Header -->
-            <div class="w-full border-b-[4px] border-[var(--color-carbon-black)] bg-[#fca5a5] px-[16px] py-[12px] flex items-center gap-[8px]">
-              <div class="w-[16px] h-[16px] rounded-full bg-[var(--color-paper-white)] border-[2px] border-[var(--color-carbon-black)]"></div>
-              <div class="w-[16px] h-[16px] rounded-full bg-[var(--color-paper-white)] border-[2px] border-[var(--color-carbon-black)]"></div>
-              <div class="w-[16px] h-[16px] rounded-full bg-[var(--color-paper-white)] border-[2px] border-[var(--color-carbon-black)]"></div>
-              <div class="ml-auto font-mono text-[12px] font-bold border-[2px] border-[var(--color-carbon-black)] bg-[var(--color-paper-white)] px-[12px] py-[2px]">project_01.exe</div>
-            </div>
-            
-            <!-- Project Image Placeholder -->
-            <div class="w-full aspect-video bg-[#e2e8f0] border-b-[4px] border-[var(--color-carbon-black)] relative overflow-hidden flex items-center justify-center">
-              <span class="font-mono text-gray-500 font-bold">[Image Placeholder: 16:9]</span>
-              <!-- Example of how to add an image later: -->
-              <!-- <img src="/images/project1.jpg" alt="Project 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" /> -->
-            </div>
-
-            <!-- Project Details -->
-            <div class="p-[32px] flex flex-col flex-grow">
-              <h3 class="text-[28px] font-black tracking-tight mb-[12px]">Web Application Name</h3>
-              <p class="text-[16px] font-medium leading-[1.6] text-[var(--color-carbon-black)] mb-[24px] flex-grow">
-                A brief description of the project goes here. Explain the problem you solved, the technologies you used, and the impact it had. Keep it concise but impactful.
-              </p>
-              
-              <!-- Tech Tags -->
-              <div class="flex flex-wrap gap-[8px] mb-[32px]">
-                <span class="bg-[#fef08a] border-[2px] border-[var(--color-carbon-black)] px-[10px] py-[2px] text-[12px] font-bold shadow-[2px_2px_0_#000]">React</span>
-                <span class="bg-[#fef08a] border-[2px] border-[var(--color-carbon-black)] px-[10px] py-[2px] text-[12px] font-bold shadow-[2px_2px_0_#000]">Node.js</span>
-              </div>
-
-              <!-- Action Buttons -->
-              <div class="flex gap-[16px] mt-auto">
-                <a href="#" class="flex-1 bg-[var(--color-lime-pulse)] border-[3px] border-[var(--color-carbon-black)] py-[12px] text-center font-bold shadow-[4px_4px_0_#000] hover:translate-y-[2px] hover:shadow-[2px_2px_0_#000] active:translate-y-[4px] active:shadow-none transition-all cursor-pointer">
-                  Live Demo
-                </a>
-                <a href="#" class="w-[48px] h-[48px] bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] flex items-center justify-center shadow-[4px_4px_0_#000] hover:translate-y-[2px] hover:shadow-[2px_2px_0_#000] active:translate-y-[4px] active:shadow-none transition-all cursor-pointer" aria-label="GitHub Repository">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project Card 2 -->
-          <div class="w-full bg-[var(--color-paper-white)] border-[4px] border-[var(--color-carbon-black)] flex flex-col shadow-[8px_8px_0_#000] hover:-translate-y-2 hover:shadow-[16px_16px_0_#000] transition-all group">
-            <div class="w-full border-b-[4px] border-[var(--color-carbon-black)] bg-[#bfdbfe] px-[16px] py-[12px] flex items-center gap-[8px]">
-              <div class="w-[16px] h-[16px] rounded-full bg-[var(--color-paper-white)] border-[2px] border-[var(--color-carbon-black)]"></div>
-              <div class="w-[16px] h-[16px] rounded-full bg-[var(--color-paper-white)] border-[2px] border-[var(--color-carbon-black)]"></div>
-              <div class="w-[16px] h-[16px] rounded-full bg-[var(--color-paper-white)] border-[2px] border-[var(--color-carbon-black)]"></div>
-              <div class="ml-auto font-mono text-[12px] font-bold border-[2px] border-[var(--color-carbon-black)] bg-[var(--color-paper-white)] px-[12px] py-[2px]">project_02.exe</div>
-            </div>
-            
-            <div class="w-full aspect-video bg-[#e2e8f0] border-b-[4px] border-[var(--color-carbon-black)] relative overflow-hidden flex items-center justify-center">
-              <span class="font-mono text-gray-500 font-bold">[Image Placeholder: 16:9]</span>
-            </div>
-
-            <div class="p-[32px] flex flex-col flex-grow">
-              <h3 class="text-[28px] font-black tracking-tight mb-[12px]">Another Awesome Project</h3>
-              <p class="text-[16px] font-medium leading-[1.6] text-[var(--color-carbon-black)] mb-[24px] flex-grow">
-                This shows how multiple projects will align in a grid. The cards have a subtle hover effect that increases the drop shadow to make them feel like physical objects.
-              </p>
-              
-              <div class="flex flex-wrap gap-[8px] mb-[32px]">
-                <span class="bg-[#fef08a] border-[2px] border-[var(--color-carbon-black)] px-[10px] py-[2px] text-[12px] font-bold shadow-[2px_2px_0_#000]">Python</span>
-                <span class="bg-[#fef08a] border-[2px] border-[var(--color-carbon-black)] px-[10px] py-[2px] text-[12px] font-bold shadow-[2px_2px_0_#000]">FastAPI</span>
-              </div>
-
-              <div class="flex gap-[16px] mt-auto">
-                <a href="#" class="flex-1 bg-[#ECA243] border-[3px] border-[var(--color-carbon-black)] py-[12px] text-center font-bold shadow-[4px_4px_0_#000] hover:translate-y-[2px] hover:shadow-[2px_2px_0_#000] active:translate-y-[4px] active:shadow-none transition-all cursor-pointer">
-                  View Case Study
-                </a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Simple Footer Placeholder (Until Shut Down screen is built) -->
-    <footer class="w-full bg-[var(--color-carbon-black)] text-[var(--color-paper-white)] py-[60px] flex flex-col items-center justify-center">
-      <div class="font-mono font-bold tracking-widest text-[14px] mb-[16px]">C:\> LOGGING OFF...</div>
-      <p class="text-[16px] opacity-70">© 2026 Dea Alma. All rights reserved.</p>
-    </footer>
-
-    </div>
-  </main>
 </Layout>
