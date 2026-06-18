@@ -401,15 +401,15 @@ import Button from '../components/astro/Button.astro';
         <!-- Lightbox Content -->
         <div class="relative w-full h-[50vh] md:h-[65vh] bg-gray-100 flex items-center justify-center p-2">
           <!-- Prev Button -->
-          <button id="lightbox-prev" class="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 w-[40px] h-[40px] md:w-[48px] md:h-[48px] bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex items-center justify-center text-[20px] font-black hover:bg-[#d8b4fe] active:translate-y-1 active:shadow-[1px_1px_0_#000] transition-all z-10">&lt;</button>
+          <button id="lightbox-prev" class="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 w-[40px] h-[40px] md:w-[48px] md:h-[48px] bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex items-center justify-center text-[20px] font-black hover:bg-[#d8b4fe] active:translate-y-1 active:shadow-[1px_1px_0_#000] transition-all z-50">&lt;</button>
           
           <!-- Image -->
-          <div class="w-full h-full border-[3px] border-[var(--color-carbon-black)] relative overflow-hidden bg-white">
-            <img id="lightbox-img" src="" alt="Full Screen Photo" class="w-full h-full object-cover" />
+          <div id="lightbox-img-container" class="w-full h-full border-[3px] border-[var(--color-carbon-black)] relative overflow-hidden bg-white">
+            <!-- Images will be injected here via JS for instant DOM toggling -->
           </div>
 
           <!-- Next Button -->
-          <button id="lightbox-next" class="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 w-[40px] h-[40px] md:w-[48px] md:h-[48px] bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex items-center justify-center text-[20px] font-black hover:bg-[#d8b4fe] active:translate-y-1 active:shadow-[1px_1px_0_#000] transition-all z-10">&gt;</button>
+          <button id="lightbox-next" class="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 w-[40px] h-[40px] md:w-[48px] md:h-[48px] bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex items-center justify-center text-[20px] font-black hover:bg-[#d8b4fe] active:translate-y-1 active:shadow-[1px_1px_0_#000] transition-all z-50">&gt;</button>
         </div>
         
         <!-- Status Bar -->
@@ -424,8 +424,23 @@ import Button from '../components/astro/Button.astro';
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         const carousels = document.querySelectorAll('.retro-carousel');
+        
+        // AGGRESSIVE PRELOADING
+        carousels.forEach(carousel => {
+          const imagesStr = carousel.dataset.images;
+          if (imagesStr) {
+            try {
+              const images = JSON.parse(imagesStr);
+              images.forEach(src => {
+                 const img = new Image();
+                 img.src = src;
+              });
+            } catch(e) {}
+          }
+        });
+
         const lightbox = document.getElementById('retro-lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxImgContainer = document.getElementById('lightbox-img-container');
         const lightboxTitle = document.getElementById('lightbox-title');
         const lightboxCounter = document.getElementById('lightbox-counter');
         const btnClose = document.getElementById('lightbox-close');
@@ -440,7 +455,13 @@ import Button from '../components/astro/Button.astro';
         const updateLightbox = () => {
           if (currentLightboxImages.length === 0) return;
           const src = currentLightboxImages[currentLightboxIndex];
-          lightboxImg.src = src;
+          
+          // Toggle opacity for 0ms delay DOM swap
+          Array.from(lightboxImgContainer.children).forEach((img, idx) => {
+             img.style.opacity = idx === currentLightboxIndex ? '1' : '0';
+             img.style.zIndex = idx === currentLightboxIndex ? '10' : '0';
+          });
+
           const filename = src.split('/').pop();
           lightboxTitle.textContent = filename;
           lightboxCounter.textContent = `${currentLightboxIndex + 1} of ${currentLightboxImages.length}`;
@@ -456,21 +477,27 @@ import Button from '../components/astro/Button.astro';
           document.body.style.overflow = ''; // Restore scroll
         };
 
-                const openLightbox = (images, startIndex, imgEl, titleEl) => {
+        const openLightbox = (images, startIndex, imgEl, titleEl) => {
           currentLightboxImages = images;
           currentLightboxIndex = startIndex;
           originalImgElement = imgEl;
           originalTitleElement = titleEl;
+          
+          // Clear and inject all images to DOM to force browser decode
+          lightboxImgContainer.innerHTML = '';
+          images.forEach((src, idx) => {
+             const img = document.createElement('img');
+             img.src = src;
+             img.className = 'absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-200';
+             img.style.opacity = idx === startIndex ? '1' : '0';
+             img.style.zIndex = idx === startIndex ? '10' : '0';
+             lightboxImgContainer.appendChild(img);
+          });
+
           updateLightbox();
           lightbox.classList.remove('hidden');
           lightbox.classList.add('flex');
           document.body.style.overflow = 'hidden'; // Prevent scroll
-          
-          // Preload images
-          images.forEach(src => {
-             const img = new Image();
-             img.src = src;
-          });
         };
 
         // Attach click handlers to inline thumbnails
@@ -499,21 +526,21 @@ import Button from '../components/astro/Button.astro';
           }
         });
 
-                  btnPrev.addEventListener('click', (e) => {
+        btnPrev.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
             if (currentLightboxImages.length === 0) return;
             currentLightboxIndex = (currentLightboxIndex - 1 + currentLightboxImages.length) % currentLightboxImages.length;
             updateLightbox();
-          });
+        });
 
-                  btnNext.addEventListener('click', (e) => {
+        btnNext.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
             if (currentLightboxImages.length === 0) return;
             currentLightboxIndex = (currentLightboxIndex + 1) % currentLightboxImages.length;
             updateLightbox();
-          });
+        });
         
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
