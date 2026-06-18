@@ -552,4 +552,81 @@ import Button from '../components/astro/Button.astro';
         });
       });
     </script>
+
+<script>
+
+        const initBadgeSFX = () => {
+            if (window.__badgeSfxInitialized) return;
+            window.__badgeSfxInitialized = true;
+
+            const badges = Array.from(document.querySelectorAll('span.font-mono')).filter(el => 
+                el.className.includes('border-') && el.className.includes('shadow-')
+            );
+            
+            let audioCtx = null;
+            let unlocked = false;
+
+            const playPop = () => {
+                if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+
+                const osc = audioCtx.createOscillator();
+                const gainNode = audioCtx.createGain();
+
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(600, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(100, audioCtx.currentTime + 0.05);
+
+                gainNode.gain.setValueAtTime(0.15, audioCtx.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.05);
+
+                osc.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.05);
+            };
+
+            const unlockAudio = () => {
+                if (unlocked) return;
+                if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                
+                // Play silent sound to fully unlock
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                gain.gain.value = 0;
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.01);
+                
+                unlocked = true;
+                document.removeEventListener('click', unlockAudio);
+                document.removeEventListener('keydown', unlockAudio);
+            };
+            document.addEventListener('click', unlockAudio);
+            document.addEventListener('keydown', unlockAudio);
+
+            badges.forEach(badge => {
+                badge.style.cursor = 'default';
+                badge.style.transition = 'transform 0.1s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                badge.addEventListener('mouseenter', () => {
+                    playPop();
+                    badge.style.transform = 'scale(1.05) rotate(-2deg)';
+                });
+                badge.addEventListener('mouseleave', () => {
+                    badge.style.transform = 'scale(1) rotate(0)';
+                });
+            });
+        };
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initBadgeSFX);
+        } else {
+            initBadgeSFX();
+        }
+        document.addEventListener('astro:page-load', initBadgeSFX);
+
+</script>
 </Layout>
