@@ -16,53 +16,269 @@ import Button from '../components/astro/Button.astro';
     <div id="main-content" class="hidden opacity-0 transition-opacity duration-1000">
 
     <!-- Section 2: Experience (Retro Neo-Brutalism) -->
-    <section id="experience" class="relative w-full bg-[var(--color-paper-white)] py-[120px] px-[24px]">
+    <section id="experience" class="relative w-full bg-[var(--color-paper-white)] pt-[16px] pb-[60px] px-[24px]">
       <!-- Subtle Polka Dot Background Pattern -->
       <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#000 2px, transparent 2px); background-size: 24px 24px;"></div>
       
-      <div class="relative max-w-[1000px] mx-auto z-10">
+      <div class="relative max-w-[1400px] mx-auto z-10">
         <!-- Section Header -->
-        <div class="flex items-center gap-[16px] mb-[60px]">
-          <div class="w-[48px] h-[48px] bg-[#fca5a5] border-[3px] border-[var(--color-carbon-black)] shadow-[4px_4px_0_#000] flex items-center justify-center text-[24px]">💼</div>
-          <h2 class="text-[40px] md:text-[56px] font-black tracking-tight uppercase" style="-webkit-text-stroke: 1px black; text-shadow: 3px 3px 0 #ECA243;">Experience</h2>
-        </div>
+        <h2 class="text-[40px] md:text-[56px] tracking-wider uppercase mb-[32px] text-[var(--color-carbon-black)]" style="font-family: 'Poppin', sans-serif;">EXPERIENCE</h2>
 
-        <!-- Timeline Container -->
-        <div class="flex flex-col gap-[40px] relative border-l-[4px] border-[var(--color-carbon-black)] ml-[24px] pl-[40px] md:pl-[60px] py-[24px]">
+        <!-- Snake Timeline Container (Retro OS Theme - Long Lines Fit) -->
+        <div class="relative py-[8px] max-w-[1400px] mx-auto">
+          <!-- Left Spine (Mobile only) -->
+          <div class="block lg:hidden absolute left-[20px] top-[24px] bottom-[24px] w-[6px] bg-[var(--color-carbon-black)] z-0"></div>
+
+          <!-- Grid Container -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-[40px] lg:gap-y-[80px] lg:gap-x-[160px] relative z-10 ml-[48px] lg:ml-0">
           
-          <!-- Experience Card 1 -->
-          <div class="relative w-full bg-[#e0f2fe] border-[4px] border-[var(--color-carbon-black)] p-[32px] md:p-[48px] shadow-[8px_8px_0_#000] hover:-translate-y-1 hover:shadow-[12px_12px_0_#000] transition-all group">
-            <!-- Timeline Node (Pin) -->
-            <div class="absolute left-[-64px] md:left-[-84px] top-[40px] w-[24px] h-[24px] bg-[var(--color-lime-pulse)] border-[3px] border-[var(--color-carbon-black)] rounded-full shadow-[2px_2px_0_#000] z-20 group-hover:bg-[#ECA243] transition-colors"></div>
-            <!-- Connection Line -->
-            <div class="absolute left-[-40px] md:left-[-60px] top-[50px] w-[40px] md:w-[60px] h-[4px] bg-[var(--color-carbon-black)] z-10"></div>
-            
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-[24px] gap-[16px]">
-              <div>
-                <h3 class="text-[28px] font-black tracking-tight mb-[4px]">Odoo System Support</h3>
-                <p class="text-[18px] font-bold text-[#3b82f6]">Internship / Project Based</p>
+            <!-- Card 1: Jan - Mar 2026 (Top Left) -->
+            <div class="relative w-full bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[4px_4px_0_#000] hover:-translate-y-1 hover:shadow-[6px_6px_0_#000] transition-all group flex flex-col order-1 lg:order-1">
+              
+              <!-- Window Title Bar -->
+              <div class="w-full bg-[#e0f2fe] border-b-[3px] border-[var(--color-carbon-black)] px-[12px] py-[8px] flex justify-between items-center">
+                <div class="flex gap-[6px]">
+                  <div class="w-[12px] h-[12px] rounded-full bg-red-500 border-[1.5px] border-[var(--color-carbon-black)]"></div>
+                  <div class="w-[12px] h-[12px] rounded-full bg-yellow-400 border-[1.5px] border-[var(--color-carbon-black)]"></div>
+                  <div class="w-[12px] h-[12px] rounded-full bg-green-500 border-[1.5px] border-[var(--color-carbon-black)]"></div>
+                </div>
+                <div class="font-mono text-[11px] md:text-[12px] font-bold hidden sm:block">viskal_consulting.exe</div>
+                <div class="w-[42px] hidden sm:block"></div> <!-- Spacer for centering -->
               </div>
-              <div class="bg-[var(--color-paper-white)] border-[2px] border-[var(--color-carbon-black)] px-[16px] py-[8px] shadow-[2px_2px_0_#000] font-mono font-bold text-[14px]">
-                2024 - Present
+
+              <div class="p-[20px] flex flex-col justify-between flex-1">
+                <!-- Mobile Pin -->
+                <div class="block lg:hidden absolute left-[-38px] top-[27px] w-[20px] h-[20px] bg-[#e0f2fe] border-[2px] border-[var(--color-carbon-black)] rounded-full shadow-[2px_2px_0_#000] z-20 group-hover:bg-[#ECA243] transition-colors"></div>
+                <div class="block lg:hidden absolute left-[-28px] top-[34px] w-[28px] h-[6px] bg-[var(--color-carbon-black)] z-10"></div>
+                
+                <!-- Desktop Horizontal Connection to Card 2 -->
+                <div class="hidden lg:block absolute right-[-160px] top-[34px] w-[160px] h-[6px] bg-[var(--color-carbon-black)] z-10"></div>
+                <div class="hidden lg:block absolute right-[-90px] top-[27px] w-[20px] h-[20px] bg-[#fca5a5] border-[2.5px] border-[var(--color-carbon-black)] rounded-full shadow-[2px_2px_0_#000] z-20 group-hover:scale-110 transition-transform"></div>
+
+                <div>
+                  <div class="flex flex-col xl:flex-row justify-between items-start mb-[10px] gap-[6px]">
+                    <div>
+                      <h3 class="text-[18px] md:text-[20px] font-black tracking-tight leading-[1.2] mb-[2px]">Odoo & Web App Assistant</h3>
+                      <p class="text-[13px] md:text-[14px] font-bold text-[#3b82f6]">Viskal Consulting</p>
+                    </div>
+                    <div class="bg-[#e0f2fe] border-[2px] border-[var(--color-carbon-black)] px-[8px] py-[2px] shadow-[2px_2px_0_#000] font-mono font-bold text-[11px] whitespace-nowrap self-start">
+                      Jan - Mar 2026
+                    </div>
+                  </div>
+                  
+                  <div class="flex flex-col xl:flex-row gap-[16px] items-center xl:items-start mb-[16px]">
+                    <ul class="list-disc ml-[16px] text-[12px] md:text-[13px] leading-[1.5] font-medium font-mono text-[var(--color-carbon-black)] flex-1 flex flex-col gap-1.5">
+                      <li>Maintained the Odoo ERP system and assisted in configuring HR and Attendance modules.</li>
+                      <li>Managed website updates using WordPress, including publishing content and basic SEO.</li>
+                      <li>Created promotional flyer designs to support marketing activities.</li>
+                    </ul>
+                    
+                    <!-- Retro Image Viewer -->
+                    <div class="w-[120px] h-[130px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105">
+                      <div class="border-b-[2.5px] border-[var(--color-carbon-black)] bg-gray-200 p-[2px] px-[6px] flex justify-between items-center">
+                        <span class="text-[8px] font-mono font-bold uppercase">photo.jpg</span>
+                        <div class="w-[10px] h-[10px] bg-[var(--color-paper-white)] border-[1.5px] border-[var(--color-carbon-black)] rounded-sm flex items-center justify-center"><div class="w-[5px] h-[1.5px] bg-[var(--color-carbon-black)]"></div></div>
+                      </div>
+                      <div class="flex-1 bg-gray-100 flex items-center justify-center relative p-[4px]">
+                          <div class="w-full h-full border-[1.5px] border-dashed border-gray-400 flex items-center justify-center bg-gray-50">
+                            <span class="text-[10px] font-mono font-bold text-gray-500 text-center leading-tight">Photo<br/>(Office)</span>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="flex flex-wrap gap-[8px]">
+                  <span class="bg-[#e0f2fe] border-[1.5px] border-[var(--color-carbon-black)] px-[8px] py-[2px] text-[10px] font-bold shadow-[2px_2px_0_#000] font-mono">Odoo ERP</span>
+                  <span class="bg-[#e0f2fe] border-[1.5px] border-[var(--color-carbon-black)] px-[8px] py-[2px] text-[10px] font-bold shadow-[2px_2px_0_#000] font-mono">WordPress</span>
+                  <span class="bg-[#e0f2fe] border-[1.5px] border-[var(--color-carbon-black)] px-[8px] py-[2px] text-[10px] font-bold shadow-[2px_2px_0_#000] font-mono">SEO</span>
+                </div>
               </div>
             </div>
-            
-            <p class="text-[18px] leading-[1.6] font-medium text-[var(--color-carbon-black)] mb-[24px]">
-              Familiar with ERP environments through hands-on experience providing system support. Assisted in troubleshooting, configuring modules, and ensuring smooth business processes and customer operations within the Odoo ecosystem.
-            </p>
-            
-            <!-- Tech Stack Tags -->
-            <div class="flex flex-wrap gap-[12px]">
-              <span class="bg-[var(--color-paper-white)] border-[2px] border-[var(--color-carbon-black)] px-[12px] py-[4px] text-[14px] font-bold shadow-[2px_2px_0_#000]">Odoo ERP</span>
-              <span class="bg-[var(--color-paper-white)] border-[2px] border-[var(--color-carbon-black)] px-[12px] py-[4px] text-[14px] font-bold shadow-[2px_2px_0_#000]">System Support</span>
-              <span class="bg-[var(--color-paper-white)] border-[2px] border-[var(--color-carbon-black)] px-[12px] py-[4px] text-[14px] font-bold shadow-[2px_2px_0_#000]">Business Processes</span>
+
+            <!-- Card 2: Sep - Dec 2025 (Top Right) -->
+            <div class="relative w-full bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[4px_4px_0_#000] hover:-translate-y-1 hover:shadow-[6px_6px_0_#000] transition-all group flex flex-col order-2 lg:order-2">
+              
+              <!-- Window Title Bar -->
+              <div class="w-full bg-[#fef3c8] border-b-[3px] border-[var(--color-carbon-black)] px-[12px] py-[8px] flex justify-between items-center">
+                <div class="flex gap-[6px]">
+                  <div class="w-[12px] h-[12px] rounded-full bg-red-500 border-[1.5px] border-[var(--color-carbon-black)]"></div>
+                  <div class="w-[12px] h-[12px] rounded-full bg-yellow-400 border-[1.5px] border-[var(--color-carbon-black)]"></div>
+                  <div class="w-[12px] h-[12px] rounded-full bg-green-500 border-[1.5px] border-[var(--color-carbon-black)]"></div>
+                </div>
+                <div class="font-mono text-[11px] md:text-[12px] font-bold hidden sm:block">the_cube_group.exe</div>
+                <div class="w-[42px] hidden sm:block"></div>
+              </div>
+
+              <div class="p-[20px] flex flex-col justify-between flex-1">
+                <!-- Mobile Pin -->
+                <div class="block lg:hidden absolute left-[-38px] top-[27px] w-[20px] h-[20px] bg-[#fef3c8] border-[2px] border-[var(--color-carbon-black)] rounded-full shadow-[2px_2px_0_#000] z-20 group-hover:bg-[#ECA243] transition-colors"></div>
+                <div class="block lg:hidden absolute left-[-28px] top-[34px] w-[28px] h-[6px] bg-[var(--color-carbon-black)] z-10"></div>
+                
+                <!-- Desktop Vertical Connection to Card 3 -->
+                <div class="hidden lg:block absolute left-1/2 bottom-[-80px] w-[6px] h-[80px] bg-[var(--color-carbon-black)] -translate-x-1/2 z-10"></div>
+                <div class="hidden lg:block absolute left-1/2 bottom-[-50px] w-[20px] h-[20px] bg-[#fbbf25] border-[2.5px] border-[var(--color-carbon-black)] rounded-full shadow-[2px_2px_0_#000] -translate-x-1/2 z-20 group-hover:scale-110 transition-transform"></div>
+
+                <div>
+                  <div class="flex flex-col xl:flex-row justify-between items-start mb-[10px] gap-[6px]">
+                    <div>
+                      <h3 class="text-[18px] md:text-[20px] font-black tracking-tight leading-[1.2] mb-[2px]">Coding Mentor</h3>
+                      <p class="text-[13px] md:text-[14px] font-bold text-[#eab308]">The Cube Group (SD 03)</p>
+                    </div>
+                    <div class="bg-[#fef3c8] border-[2px] border-[var(--color-carbon-black)] px-[8px] py-[2px] shadow-[2px_2px_0_#000] font-mono font-bold text-[11px] whitespace-nowrap self-start">
+                      Sep - Dec 2025
+                    </div>
+                  </div>
+                  
+                  <div class="flex flex-col xl:flex-row gap-[16px] items-center xl:items-start mb-[16px]">
+                    <ul class="list-disc ml-[16px] text-[12px] md:text-[13px] leading-[1.5] font-medium font-mono text-[var(--color-carbon-black)] flex-1 flex flex-col gap-1.5">
+                      <li>Designed a structured coding curriculum introducing fundamental algorithms and logical thinking using Scratch.</li>
+                      <li>Evaluated students' code to identify logic errors and guided them through debugging.</li>
+                    </ul>
+                    
+                    <div class="w-[120px] h-[130px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105">
+                      <div class="border-b-[2.5px] border-[var(--color-carbon-black)] bg-gray-200 p-[2px] px-[6px] flex justify-between items-center">
+                        <span class="text-[8px] font-mono font-bold uppercase">teaching.jpg</span>
+                        <div class="w-[10px] h-[10px] bg-[var(--color-paper-white)] border-[1.5px] border-[var(--color-carbon-black)] rounded-sm flex items-center justify-center"><div class="w-[5px] h-[1.5px] bg-[var(--color-carbon-black)]"></div></div>
+                      </div>
+                      <div class="flex-1 bg-gray-100 flex items-center justify-center relative p-[4px]">
+                          <div class="w-full h-full border-[1.5px] border-dashed border-gray-400 flex items-center justify-center bg-gray-50">
+                            <span class="text-[10px] font-mono font-bold text-gray-500 text-center leading-tight">Photo<br/>(Class)</span>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="flex flex-wrap gap-[8px]">
+                  <span class="bg-[#fef3c8] border-[1.5px] border-[var(--color-carbon-black)] px-[8px] py-[2px] text-[10px] font-bold shadow-[2px_2px_0_#000] font-mono">Scratch</span>
+                  <span class="bg-[#fef3c8] border-[1.5px] border-[var(--color-carbon-black)] px-[8px] py-[2px] text-[10px] font-bold shadow-[2px_2px_0_#000] font-mono">Mentoring</span>
+                </div>
+              </div>
             </div>
+
+            <!-- Card 3: Apr - Jun 2025 (Bottom Right) -->
+            <div class="relative w-full bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[4px_4px_0_#000] hover:-translate-y-1 hover:shadow-[6px_6px_0_#000] transition-all group flex flex-col order-3 lg:order-4">
+              
+              <!-- Window Title Bar -->
+              <div class="w-full bg-[#d2fae5] border-b-[3px] border-[var(--color-carbon-black)] px-[12px] py-[8px] flex justify-between items-center">
+                <div class="flex gap-[6px]">
+                  <div class="w-[12px] h-[12px] rounded-full bg-red-500 border-[1.5px] border-[var(--color-carbon-black)]"></div>
+                  <div class="w-[12px] h-[12px] rounded-full bg-yellow-400 border-[1.5px] border-[var(--color-carbon-black)]"></div>
+                  <div class="w-[12px] h-[12px] rounded-full bg-green-500 border-[1.5px] border-[var(--color-carbon-black)]"></div>
+                </div>
+                <div class="font-mono text-[11px] md:text-[12px] font-bold hidden sm:block">udayana_univ.exe</div>
+                <div class="w-[42px] hidden sm:block"></div>
+              </div>
+
+              <div class="p-[20px] flex flex-col justify-between flex-1">
+                <!-- Mobile Pin -->
+                <div class="block lg:hidden absolute left-[-38px] top-[27px] w-[20px] h-[20px] bg-[#d2fae5] border-[2px] border-[var(--color-carbon-black)] rounded-full shadow-[2px_2px_0_#000] z-20 group-hover:bg-[#ECA243] transition-colors"></div>
+                <div class="block lg:hidden absolute left-[-28px] top-[34px] w-[28px] h-[6px] bg-[var(--color-carbon-black)] z-10"></div>
+                
+                <!-- Desktop Horizontal Connection to Card 4 -->
+                <div class="hidden lg:block absolute left-[-160px] top-[34px] w-[160px] h-[6px] bg-[var(--color-carbon-black)] z-10"></div>
+                <div class="hidden lg:block absolute left-[-90px] top-[27px] w-[20px] h-[20px] bg-[#a3e635] border-[2.5px] border-[var(--color-carbon-black)] rounded-full shadow-[2px_2px_0_#000] z-20 group-hover:scale-110 transition-transform"></div>
+
+                <div>
+                  <div class="flex flex-col xl:flex-row justify-between items-start mb-[10px] gap-[6px]">
+                    <div>
+                      <h3 class="text-[18px] md:text-[20px] font-black tracking-tight leading-[1.2] mb-[2px]">Network Assistant</h3>
+                      <p class="text-[13px] md:text-[14px] font-bold text-[#22c55e]">Udayana University</p>
+                    </div>
+                    <div class="bg-[#d2fae5] border-[2px] border-[var(--color-carbon-black)] px-[8px] py-[2px] shadow-[2px_2px_0_#000] font-mono font-bold text-[11px] whitespace-nowrap self-start">
+                      Apr - Jun 2025
+                    </div>
+                  </div>
+                  
+                  <div class="flex flex-col xl:flex-row gap-[16px] items-center xl:items-start mb-[16px]">
+                    <ul class="list-disc ml-[16px] text-[12px] md:text-[13px] leading-[1.5] font-medium font-mono text-[var(--color-carbon-black)] flex-1 flex flex-col gap-1.5">
+                      <li>Facilitated network lab sessions and diagnosed connectivity using Cisco Packet Tracer and Linux.</li>
+                      <li>Mentored first-year students in understanding network protocols and topology.</li>
+                    </ul>
+                    
+                    <div class="w-[120px] h-[130px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105">
+                      <div class="border-b-[2.5px] border-[var(--color-carbon-black)] bg-gray-200 p-[2px] px-[6px] flex justify-between items-center">
+                        <span class="text-[8px] font-mono font-bold uppercase">lab.jpg</span>
+                        <div class="w-[10px] h-[10px] bg-[var(--color-paper-white)] border-[1.5px] border-[var(--color-carbon-black)] rounded-sm flex items-center justify-center"><div class="w-[5px] h-[1.5px] bg-[var(--color-carbon-black)]"></div></div>
+                      </div>
+                      <div class="flex-1 bg-gray-100 flex items-center justify-center relative p-[4px]">
+                          <div class="w-full h-full border-[1.5px] border-dashed border-gray-400 flex items-center justify-center bg-gray-50">
+                            <span class="text-[10px] font-mono font-bold text-gray-500 text-center leading-tight">Photo<br/>(Lab)</span>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="flex flex-wrap gap-[8px]">
+                  <span class="bg-[#d2fae5] border-[1.5px] border-[var(--color-carbon-black)] px-[8px] py-[2px] text-[10px] font-bold shadow-[2px_2px_0_#000] font-mono">Packet Tracer</span>
+                  <span class="bg-[#d2fae5] border-[1.5px] border-[var(--color-carbon-black)] px-[8px] py-[2px] text-[10px] font-bold shadow-[2px_2px_0_#000] font-mono">Linux</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4: Jul - Aug 2023 (Bottom Left) -->
+            <div class="relative w-full bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[4px_4px_0_#000] hover:-translate-y-1 hover:shadow-[6px_6px_0_#000] transition-all group flex flex-col order-4 lg:order-3">
+              
+              <!-- Window Title Bar -->
+              <div class="w-full bg-[#fae9ff] border-b-[3px] border-[var(--color-carbon-black)] px-[12px] py-[8px] flex justify-between items-center">
+                <div class="flex gap-[6px]">
+                  <div class="w-[12px] h-[12px] rounded-full bg-red-500 border-[1.5px] border-[var(--color-carbon-black)]"></div>
+                  <div class="w-[12px] h-[12px] rounded-full bg-yellow-400 border-[1.5px] border-[var(--color-carbon-black)]"></div>
+                  <div class="w-[12px] h-[12px] rounded-full bg-green-500 border-[1.5px] border-[var(--color-carbon-black)]"></div>
+                </div>
+                <div class="font-mono text-[11px] md:text-[12px] font-bold hidden sm:block">biasa_group.exe</div>
+                <div class="w-[42px] hidden sm:block"></div>
+              </div>
+
+              <div class="p-[20px] flex flex-col justify-between flex-1">
+                <!-- Mobile Pin -->
+                <div class="block lg:hidden absolute left-[-38px] top-[27px] w-[20px] h-[20px] bg-[#fae9ff] border-[2px] border-[var(--color-carbon-black)] rounded-full shadow-[2px_2px_0_#000] z-20 group-hover:bg-[#ECA243] transition-colors"></div>
+                <div class="block lg:hidden absolute left-[-28px] top-[34px] w-[28px] h-[6px] bg-[var(--color-carbon-black)] z-10"></div>
+                
+                <!-- No Desktop Pin because it's the end of the snake! -->
+
+                <div>
+                  <div class="flex flex-col xl:flex-row justify-between items-start mb-[10px] gap-[6px]">
+                    <div>
+                      <h3 class="text-[18px] md:text-[20px] font-black tracking-tight leading-[1.2] mb-[2px]">Accounting Staff</h3>
+                      <p class="text-[13px] md:text-[14px] font-bold text-[#d946ef]">BIASA Group</p>
+                    </div>
+                    <div class="bg-[#fae9ff] border-[2px] border-[var(--color-carbon-black)] px-[8px] py-[2px] shadow-[2px_2px_0_#000] font-mono font-bold text-[11px] whitespace-nowrap self-start">
+                      Jul - Aug 2023
+                    </div>
+                  </div>
+                  
+                  <div class="flex flex-col xl:flex-row gap-[16px] items-center xl:items-start mb-[16px]">
+                    <ul class="list-disc ml-[16px] text-[12px] md:text-[13px] leading-[1.5] font-medium font-mono text-[var(--color-carbon-black)] flex-1 flex flex-col gap-1.5">
+                      <li>Conducted rigorous data entry and verification for financial records, ensuring high accuracy.</li>
+                      <li>Assisted senior staff in cross-checking reports to identify discrepancies.</li>
+                    </ul>
+                    
+                    <div class="w-[120px] h-[130px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105">
+                      <div class="border-b-[2.5px] border-[var(--color-carbon-black)] bg-gray-200 p-[2px] px-[6px] flex justify-between items-center">
+                        <span class="text-[8px] font-mono font-bold uppercase">biasa.jpg</span>
+                        <div class="w-[10px] h-[10px] bg-[var(--color-paper-white)] border-[1.5px] border-[var(--color-carbon-black)] rounded-sm flex items-center justify-center"><div class="w-[5px] h-[1.5px] bg-[var(--color-carbon-black)]"></div></div>
+                      </div>
+                      <div class="flex-1 bg-gray-100 flex items-center justify-center relative p-[4px]">
+                          <div class="w-full h-full border-[1.5px] border-dashed border-gray-400 flex items-center justify-center bg-gray-50">
+                            <span class="text-[10px] font-mono font-bold text-gray-500 text-center leading-tight">Photo<br/>(Working)</span>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="flex flex-wrap gap-[8px]">
+                  <span class="bg-[#fae9ff] border-[1.5px] border-[var(--color-carbon-black)] px-[8px] py-[2px] text-[10px] font-bold shadow-[2px_2px_0_#000] font-mono">Data Entry</span>
+                  <span class="bg-[#fae9ff] border-[1.5px] border-[var(--color-carbon-black)] px-[8px] py-[2px] text-[10px] font-bold shadow-[2px_2px_0_#000] font-mono">Accounting</span>
+                </div>
+              </div>
+            </div>
+
           </div>
-
-          <!-- Add more experience cards here if needed -->
-          
         </div>
-      </div>
     </section>
 
     <!-- Wavy Divider from White to Green -->
