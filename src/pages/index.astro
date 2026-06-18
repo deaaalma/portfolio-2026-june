@@ -73,16 +73,15 @@ import Button from '../components/astro/Button.astro';
                       <li>Created promotional flyer designs to support marketing activities.</li>
                     </ul>
                     
-                    <!-- Retro Image Viewer -->
-                    <div class="w-[160px] h-[180px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105">
-                      <div class="border-b-[2.5px] border-[var(--color-carbon-black)] bg-gray-200 p-[2px] px-[6px] flex justify-between items-center">
-                        <span class="text-[8px] font-mono font-bold uppercase">photo.jpg</span>
-                        <div class="w-[10px] h-[10px] bg-[var(--color-paper-white)] border-[1.5px] border-[var(--color-carbon-black)] rounded-sm flex items-center justify-center"><div class="w-[5px] h-[1.5px] bg-[var(--color-carbon-black)]"></div></div>
+                    <!-- Retro Image Viewer (Carousel) -->
+                    <div class="retro-carousel w-[160px] h-[180px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105" data-images='["/images/viskal_1.jpg", "/images/viskal_2.jpg", "/images/viskal_3.jpg"]' data-index="2">
+                      <div class="border-b-[2.5px] border-[var(--color-carbon-black)] bg-gray-200 p-[2px] px-[4px] flex justify-between items-center">
+                        <span class="text-[8px] font-mono border-[1.5px] border-[var(--color-carbon-black)] px-1 bg-[#d8b4fe] hidden sm:block">CLICK</span>
+                        <span class="carousel-title text-[8px] font-mono font-bold uppercase truncate max-w-[70px]">viskal_3.jpg</span>
+                        <div class="w-[10px] h-[10px] bg-[var(--color-paper-white)] border-[1.5px] border-[var(--color-carbon-black)] rounded-sm flex items-center justify-center flex-shrink-0"><div class="w-[5px] h-[1.5px] bg-[var(--color-carbon-black)]"></div></div>
                       </div>
-                      <div class="flex-1 bg-gray-100 flex items-center justify-center relative p-[4px]">
-                          <div class="w-full h-full border-[1.5px] border-dashed border-gray-400 flex items-center justify-center bg-gray-50">
-                            <span class="text-[10px] font-mono font-bold text-gray-500 text-center leading-tight">Photo<br/>(Office)</span>
-                          </div>
+                      <div class="flex-1 bg-gray-100 flex items-center justify-center relative p-[4px] min-h-0">
+                          <img src="/images/viskal_3.jpg" alt="Viskal Consulting" class="carousel-img w-full h-full object-cover border-[1.5px] border-[var(--color-carbon-black)] cursor-pointer hover:opacity-80 transition-opacity" />
                       </div>
                     </div>
                   </div>
@@ -136,15 +135,15 @@ import Button from '../components/astro/Button.astro';
                       <li>Evaluated students' code to identify logic errors and guided them through the debugging process.</li>
                     </ul>
                     
-                    <div class="w-[160px] h-[180px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105">
-                      <div class="border-b-[2.5px] border-[var(--color-carbon-black)] bg-gray-200 p-[2px] px-[6px] flex justify-between items-center">
-                        <span class="text-[8px] font-mono font-bold uppercase">teaching.jpg</span>
-                        <div class="w-[10px] h-[10px] bg-[var(--color-paper-white)] border-[1.5px] border-[var(--color-carbon-black)] rounded-sm flex items-center justify-center"><div class="w-[5px] h-[1.5px] bg-[var(--color-carbon-black)]"></div></div>
+                    <!-- Retro Image Viewer (Carousel) -->
+                    <div class="retro-carousel w-[160px] h-[180px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105" data-images='["/images/coding mentor_1.jpg", "/images/coding_mentor_2.jpg", "/images/coding mentor-3.jpg"]' data-index="2">
+                      <div class="border-b-[2.5px] border-[var(--color-carbon-black)] bg-gray-200 p-[2px] px-[4px] flex justify-between items-center">
+                        <span class="text-[8px] font-mono border-[1.5px] border-[var(--color-carbon-black)] px-1 bg-[#d8b4fe] hidden sm:block">CLICK</span>
+                        <span class="carousel-title text-[8px] font-mono font-bold uppercase truncate max-w-[70px]">coding mentor-3.jpg</span>
+                        <div class="w-[10px] h-[10px] bg-[var(--color-paper-white)] border-[1.5px] border-[var(--color-carbon-black)] rounded-sm flex items-center justify-center flex-shrink-0"><div class="w-[5px] h-[1.5px] bg-[var(--color-carbon-black)]"></div></div>
                       </div>
-                      <div class="flex-1 bg-gray-100 flex items-center justify-center relative p-[4px]">
-                          <div class="w-full h-full border-[1.5px] border-dashed border-gray-400 flex items-center justify-center bg-gray-50">
-                            <span class="text-[10px] font-mono font-bold text-gray-500 text-center leading-tight">Photo<br/>(Class)</span>
-                          </div>
+                      <div class="flex-1 bg-gray-100 flex items-center justify-center relative p-[4px] min-h-0">
+                          <img src="/images/coding mentor-3.jpg" alt="Coding Mentor" class="carousel-img w-full h-full object-cover border-[1.5px] border-[var(--color-carbon-black)] cursor-pointer hover:opacity-80 transition-opacity" />
                       </div>
                     </div>
                   </div>
@@ -202,10 +201,8 @@ import Button from '../components/astro/Button.astro';
                         <span class="text-[8px] font-mono font-bold uppercase">lab.jpg</span>
                         <div class="w-[10px] h-[10px] bg-[var(--color-paper-white)] border-[1.5px] border-[var(--color-carbon-black)] rounded-sm flex items-center justify-center"><div class="w-[5px] h-[1.5px] bg-[var(--color-carbon-black)]"></div></div>
                       </div>
-                      <div class="flex-1 bg-gray-100 flex items-center justify-center relative p-[4px]">
-                          <div class="w-full h-full border-[1.5px] border-dashed border-gray-400 flex items-center justify-center bg-gray-50">
-                            <span class="text-[10px] font-mono font-bold text-gray-500 text-center leading-tight">Photo<br/>(Lab)</span>
-                          </div>
+                      <div class="flex-1 bg-gray-100 flex items-center justify-center relative p-[4px] min-h-0">
+                          <img src="/images/practicum asistant.jpg" alt="Network Assistant" class="w-full h-full object-cover border-[1.5px] border-[var(--color-carbon-black)]" />
                       </div>
                     </div>
                   </div>
@@ -261,10 +258,8 @@ import Button from '../components/astro/Button.astro';
                         <span class="text-[8px] font-mono font-bold uppercase">biasa.jpg</span>
                         <div class="w-[10px] h-[10px] bg-[var(--color-paper-white)] border-[1.5px] border-[var(--color-carbon-black)] rounded-sm flex items-center justify-center"><div class="w-[5px] h-[1.5px] bg-[var(--color-carbon-black)]"></div></div>
                       </div>
-                      <div class="flex-1 bg-gray-100 flex items-center justify-center relative p-[4px]">
-                          <div class="w-full h-full border-[1.5px] border-dashed border-gray-400 flex items-center justify-center bg-gray-50">
-                            <span class="text-[10px] font-mono font-bold text-gray-500 text-center leading-tight">Photo<br/>(Working)</span>
-                          </div>
+                      <div class="flex-1 bg-gray-100 flex items-center justify-center relative p-[4px] min-h-0">
+                          <img src="/images/assistant staff.png" alt="Accounting Staff" class="w-full h-full object-cover border-[1.5px] border-[var(--color-carbon-black)]" />
                       </div>
                     </div>
                   </div>
@@ -279,6 +274,149 @@ import Button from '../components/astro/Button.astro';
 
           </div>
         </div>
+
+    <!-- Retro Lightbox Modal -->
+    <div id="retro-lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+      <div class="w-full max-w-[800px] bg-[var(--color-paper-white)] border-[4px] border-[var(--color-carbon-black)] shadow-[8px_8px_0_#000] flex flex-col">
+        
+        <!-- Lightbox Title Bar -->
+        <div class="w-full bg-[#fca5a5] border-b-[4px] border-[var(--color-carbon-black)] px-3 py-2 flex justify-between items-center">
+          <div class="flex gap-[6px]">
+            <button id="lightbox-close" class="w-[16px] h-[16px] rounded-full bg-red-500 border-[2px] border-[var(--color-carbon-black)] hover:bg-red-400 transition-colors flex items-center justify-center text-[10px] font-bold text-white leading-none pb-[1px]">&times;</button>
+            <div class="w-[16px] h-[16px] rounded-full bg-yellow-400 border-[2px] border-[var(--color-carbon-black)]"></div>
+            <div class="w-[16px] h-[16px] rounded-full bg-green-500 border-[2px] border-[var(--color-carbon-black)]"></div>
+          </div>
+          <div id="lightbox-title" class="font-mono text-[12px] md:text-[14px] font-bold uppercase">photo.jpg</div>
+          <div class="w-[48px]"></div> <!-- Spacer to balance flex-between -->
+        </div>
+
+        <!-- Lightbox Content -->
+        <div class="relative w-full h-[50vh] md:h-[65vh] bg-gray-100 flex items-center justify-center p-2">
+          <!-- Prev Button -->
+          <button id="lightbox-prev" class="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 w-[40px] h-[40px] md:w-[48px] md:h-[48px] bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex items-center justify-center text-[20px] font-black hover:bg-[#d8b4fe] active:translate-y-1 active:shadow-[1px_1px_0_#000] transition-all z-10">&lt;</button>
+          
+          <!-- Image -->
+          <div class="w-full h-full border-[3px] border-[var(--color-carbon-black)] relative overflow-hidden bg-white">
+            <img id="lightbox-img" src="" alt="Full Screen Photo" class="w-full h-full object-cover" />
+          </div>
+
+          <!-- Next Button -->
+          <button id="lightbox-next" class="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 w-[40px] h-[40px] md:w-[48px] md:h-[48px] bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex items-center justify-center text-[20px] font-black hover:bg-[#d8b4fe] active:translate-y-1 active:shadow-[1px_1px_0_#000] transition-all z-10">&gt;</button>
+        </div>
+        
+        <!-- Status Bar -->
+        <div class="w-full border-t-[3px] border-[var(--color-carbon-black)] bg-gray-200 px-3 py-1 flex justify-between items-center font-mono text-[10px] md:text-[12px] font-bold">
+          <span>Image <span id="lightbox-counter">1 of 1</span></span>
+          <span>100% Zoom</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lightbox Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const carousels = document.querySelectorAll('.retro-carousel');
+        const lightbox = document.getElementById('retro-lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxTitle = document.getElementById('lightbox-title');
+        const lightboxCounter = document.getElementById('lightbox-counter');
+        const btnClose = document.getElementById('lightbox-close');
+        const btnPrev = document.getElementById('lightbox-prev');
+        const btnNext = document.getElementById('lightbox-next');
+        
+        let currentLightboxImages = [];
+        let currentLightboxIndex = 0;
+        let originalTitleElement = null;
+        let originalImgElement = null;
+
+        const updateLightbox = () => {
+          if (currentLightboxImages.length === 0) return;
+          const src = currentLightboxImages[currentLightboxIndex];
+          lightboxImg.src = src;
+          const filename = src.split('/').pop();
+          lightboxTitle.textContent = filename;
+          lightboxCounter.textContent = `${currentLightboxIndex + 1} of ${currentLightboxImages.length}`;
+          
+          // Also update the thumbnail view if applicable
+          if (originalTitleElement) originalTitleElement.textContent = filename;
+          if (originalImgElement) originalImgElement.src = src;
+        };
+
+        const closeLightbox = () => {
+          lightbox.classList.add('hidden');
+          lightbox.classList.remove('flex');
+          document.body.style.overflow = ''; // Restore scroll
+        };
+
+                const openLightbox = (images, startIndex, imgEl, titleEl) => {
+          currentLightboxImages = images;
+          currentLightboxIndex = startIndex;
+          originalImgElement = imgEl;
+          originalTitleElement = titleEl;
+          updateLightbox();
+          lightbox.classList.remove('hidden');
+          lightbox.classList.add('flex');
+          document.body.style.overflow = 'hidden'; // Prevent scroll
+          
+          // Preload images
+          images.forEach(src => {
+             const img = new Image();
+             img.src = src;
+          });
+        };
+
+        // Attach click handlers to inline thumbnails
+        carousels.forEach(carousel => {
+          const imagesStr = carousel.dataset.images;
+          if (!imagesStr) return;
+          const images = JSON.parse(imagesStr);
+          if (images.length === 0) return;
+          
+          let startIndex = parseInt(carousel.dataset.index || '0');
+          const imgElement = carousel.querySelector('.carousel-img');
+          const titleElement = carousel.querySelector('.carousel-title');
+          
+          imgElement.addEventListener('click', () => {
+             openLightbox(images, startIndex, imgElement, titleElement);
+          });
+        });
+
+        // Lightbox buttons
+        btnClose.addEventListener('click', closeLightbox);
+        
+        // Close on clicking outside the modal box
+        lightbox.addEventListener('click', (e) => {
+          if (e.target === lightbox) {
+            closeLightbox();
+          }
+        });
+
+                  btnPrev.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            if (currentLightboxImages.length === 0) return;
+            currentLightboxIndex = (currentLightboxIndex - 1 + currentLightboxImages.length) % currentLightboxImages.length;
+            updateLightbox();
+          });
+
+                  btnNext.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            if (currentLightboxImages.length === 0) return;
+            currentLightboxIndex = (currentLightboxIndex + 1) % currentLightboxImages.length;
+            updateLightbox();
+          });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+           if (!lightbox.classList.contains('hidden')) {
+              if (e.key === 'Escape') closeLightbox();
+              if (e.key === 'ArrowLeft') btnPrev.click();
+              if (e.key === 'ArrowRight') btnNext.click();
+           }
+        });
+      });
+    </script>
     </section>
 
     <!-- Wavy Divider from White to Green -->
