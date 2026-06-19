@@ -300,28 +300,28 @@ import Button from '../components/astro/Button.astro';
           <!-- LEFT: Text CTA -->
           <div class="flex-1 flex flex-col items-start gap-[24px]">
 
-            <h2 class="text-[44px] md:text-[64px] font-black text-[var(--color-paper-white)] leading-[1] tracking-tight" style="font-family: 'Poppin', sans-serif; -webkit-text-stroke: 1.5px #000; text-shadow: 4px 4px 0 #fca5a5;">
-              What I've<br/>Built 🔨
-            </h2>
+            <div class="relative inline-block w-full">
+              <!-- Back layer (Thick black stroke + shadow) -->
+              <h2 class="text-[44px] md:text-[64px] font-normal text-[#000] leading-[1] tracking-tight" style="font-family: 'Poppin', sans-serif; -webkit-text-stroke: 6px #000; text-shadow: 4px 4px 0 #000;">
+                What I've<br/>Built
+              </h2>
+              <!-- Front layer (White fill only) -->
+              <h2 class="absolute top-0 left-0 text-[44px] md:text-[64px] font-normal text-[var(--color-paper-white)] leading-[1] tracking-tight pointer-events-none" style="font-family: 'Poppin', sans-serif; -webkit-text-stroke: 2px var(--color-paper-white);">
+                What I've<br/>Built
+              </h2>
+            </div>
 
             <p class="text-[15px] md:text-[17px] font-medium leading-[1.7] text-gray-200 max-w-[400px] font-mono">
-              From web apps to mobile — a collection of real projects I've designed and developed. Each one built with purpose.
+              From web apps to mobile, a collection of real projects I've designed and developed. Each one built with purpose.
             </p>
 
-            <!-- Project counter -->
-            <div class="flex items-center gap-[12px]">
-              <div class="bg-[var(--color-carbon-black)] text-[var(--color-lime-pulse)] font-mono font-black text-[28px] px-[16px] py-[8px] border-[3px] border-[var(--color-carbon-black)] shadow-[4px_4px_0_#a3e635]">
-                6+
-              </div>
-              <span class="font-mono text-[13px] font-bold text-gray-300 leading-[1.4]">projects<br/>completed</span>
-            </div>
 
 
             <!-- Category chips -->
             <div class="flex flex-wrap gap-[8px]">
               <span class="bg-[#bfdbfe] border-[2px] border-[var(--color-carbon-black)] px-[10px] py-[3px] font-mono text-[11px] font-bold shadow-[2px_2px_0_#000]">Web App</span>
               <span class="bg-[#fca5a5] border-[2px] border-[var(--color-carbon-black)] px-[10px] py-[3px] font-mono text-[11px] font-bold shadow-[2px_2px_0_#000]">Mobile</span>
-              <span class="bg-[#fef08a] border-[2px] border-[var(--color-carbon-black)] px-[10px] py-[3px] font-mono text-[11px] font-bold shadow-[2px_2px_0_#000]">+ More</span>
+              <a href="/projects" class="bg-[#fef08a] border-[2px] border-[var(--color-carbon-black)] px-[10px] py-[3px] font-mono text-[11px] font-bold shadow-[2px_2px_0_#000] hover:-translate-y-[2px] hover:shadow-[3px_3px_0_#000] active:translate-y-[1px] active:shadow-[1px_1px_0_#000] transition-all cursor-pointer inline-block text-black text-decoration-none">+ More</a>
             </div>
           </div>
 
