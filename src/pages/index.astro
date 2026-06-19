@@ -18,7 +18,7 @@ import Button from '../components/astro/Button.astro';
     <!-- Section 2: Experience (Retro Neo-Brutalism) -->
     <section id="experience" class="relative w-full bg-[var(--color-paper-white)] pt-[16px] pb-[60px] px-[24px]">
       <!-- Subtle Polka Dot Background Pattern -->
-      <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#000 2px, transparent 2px); background-size: 24px 24px;"></div>
+      <div class="absolute inset-0 opacity-[0.03] pointer-events-none z-0" style="background-image: radial-gradient(#000 2px, transparent 2px); background-size: 24px 24px;"></div>
       
       <div class="relative max-w-[1400px] mx-auto z-10">
         <!-- Section Header -->
@@ -281,17 +281,17 @@ import Button from '../components/astro/Button.astro';
     
     </section>
 
-    <!-- Wavy Divider from White to Green -->
-    <div class="w-full overflow-hidden leading-[0] bg-[var(--color-paper-white)] rotate-180">
-      <svg class="relative block w-[calc(100%+1.3px)] h-[60px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,115.9,188.94,99.73,235.17,86.85,280.4,70.93,321.39,56.44Z" fill="#bbf7d0"></path>
+    <!-- Wavy Divider from White to Dark Blue -->
+    <div class="w-full overflow-hidden leading-[0] bg-[var(--color-paper-white)] -mb-[1px]">
+      <svg class="relative block w-[calc(100%+1.3px)] h-[60px] md:h-[120px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,115.9,188.94,99.73,235.17,86.85,280.4,70.93,321.39,56.44Z" fill="#1e1b4b"></path>
       </svg>
     </div>
 
     <!-- Section 3: Featured Projects Teaser (Stacked Cards) -->
-    <section id="projects" class="relative w-full bg-[#bbf7d0] py-[80px] md:py-[120px] px-[24px] overflow-hidden">
+    <section id="projects" class="relative w-full bg-[#1e1b4b] py-[80px] md:py-[120px] px-[24px] overflow-hidden -mt-[1px]">
       <!-- Subtle dot pattern -->
-      <div class="absolute inset-0 opacity-[0.04] pointer-events-none" style="background-image: radial-gradient(#000 2px, transparent 2px); background-size: 28px 28px;"></div>
+      <div class="absolute inset-0 opacity-[0.04] pointer-events-none z-0" style="background-image: radial-gradient(#000 2px, transparent 2px); background-size: 28px 28px;"></div>
 
       <div class="relative max-w-[1100px] mx-auto z-10">
         <!-- Two column layout: left text, right stack -->
@@ -305,11 +305,11 @@ import Button from '../components/astro/Button.astro';
               Section 03 — My Projects
             </div>
 
-            <h2 class="text-[44px] md:text-[64px] font-black leading-[1] tracking-tight" style="font-family: 'Poppin', sans-serif; -webkit-text-stroke: 1px #000; text-shadow: 4px 4px 0 #fca5a5;">
+            <h2 class="text-[44px] md:text-[64px] font-black text-[var(--color-paper-white)] leading-[1] tracking-tight" style="font-family: 'Poppin', sans-serif; -webkit-text-stroke: 1.5px #000; text-shadow: 4px 4px 0 #fca5a5;">
               What I've<br/>Built 🔨
             </h2>
 
-            <p class="text-[15px] md:text-[17px] font-medium leading-[1.7] text-[#222] max-w-[400px] font-mono">
+            <p class="text-[15px] md:text-[17px] font-medium leading-[1.7] text-gray-200 max-w-[400px] font-mono">
               From web apps to mobile — a collection of real projects I've designed and developed. Each one built with purpose.
             </p>
 
@@ -318,7 +318,7 @@ import Button from '../components/astro/Button.astro';
               <div class="bg-[var(--color-carbon-black)] text-[var(--color-lime-pulse)] font-mono font-black text-[28px] px-[16px] py-[8px] border-[3px] border-[var(--color-carbon-black)] shadow-[4px_4px_0_#a3e635]">
                 6+
               </div>
-              <span class="font-mono text-[13px] font-bold text-[#444] leading-[1.4]">projects<br/>completed</span>
+              <span class="font-mono text-[13px] font-bold text-gray-300 leading-[1.4]">projects<br/>completed</span>
             </div>
 
             <!-- CTA Button -->
