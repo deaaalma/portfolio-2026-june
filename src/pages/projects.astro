@@ -32,44 +32,26 @@ import Layout from '../layouts/Layout.astro';
   <main class="pt-[72px] min-h-screen bg-[var(--color-paper-white)]">
 
     <!-- ========== HERO HEADER ========== -->
-    <section class="relative w-full bg-[var(--color-carbon-black)] py-[60px] md:py-[80px] px-[24px] overflow-hidden border-b-[4px] border-[var(--color-carbon-black)]">
-      <!-- Scanline overlay -->
-      <div class="absolute inset-0 opacity-[0.05] pointer-events-none" style="background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, #fff 2px, #fff 4px);"></div>
-      <!-- Dot grid -->
-      <div class="absolute inset-0 opacity-[0.06] pointer-events-none" style="background-image: radial-gradient(#a3e635 1.5px, transparent 1.5px); background-size: 24px 24px;"></div>
+    <section class="relative w-full bg-[var(--color-paper-white)] py-[60px] md:py-[80px] px-[24px] overflow-hidden border-b-[4px] border-[var(--color-carbon-black)]">
+      <!-- Subtle dot grid -->
+      <div class="absolute inset-0 opacity-[0.03] pointer-events-none z-0" style="background-image: radial-gradient(#000 2px, transparent 2px); background-size: 24px 24px;"></div>
 
       <div class="relative max-w-[1200px] mx-auto z-10 flex flex-col md:flex-row items-start md:items-end justify-between gap-[32px]">
         <div>
           <!-- OS breadcrumb -->
-          <div class="font-mono text-[12px] text-gray-500 mb-[16px] flex items-center gap-[6px]">
-            <a href="/" class="hover:text-[#a3e635] transition-colors">C:\PORTFOLIO</a>
-            <span class="text-gray-600">&gt;</span>
-            <span class="text-[#a3e635]">PROJECTS\</span>
+          <div class="font-mono text-[12px] text-gray-500 mb-[16px] flex items-center gap-[6px] font-bold">
+            <a href="/" class="hover:text-[var(--color-carbon-black)] transition-colors">C:\PORTFOLIO</a>
+            <span class="text-gray-400">&gt;</span>
+            <span class="text-[var(--color-carbon-black)]">PROJECTS\</span>
           </div>
 
-          <h1 class="text-[52px] md:text-[72px] font-black text-[var(--color-paper-white)] leading-[1] tracking-tight mb-[16px]"
-            style="font-family: 'Poppin', sans-serif; -webkit-text-stroke: 1px #a3e635; text-shadow: 4px 4px 0 #a3e635;">
+          <h1 class="text-[52px] md:text-[72px] font-black text-[var(--color-carbon-black)] leading-[1] tracking-tight mb-[16px]"
+            style="font-family: 'Poppin', sans-serif;">
             My Projects
           </h1>
-          <p class="font-mono text-[14px] md:text-[16px] text-gray-400 max-w-[500px] leading-[1.7]">
+          <p class="font-mono text-[14px] md:text-[16px] text-gray-600 max-w-[500px] leading-[1.7]">
             Explore all the projects I've built — from web applications to mobile apps. Real work, real purpose.
           </p>
-        </div>
-
-        <!-- Stats box -->
-        <div class="flex gap-[16px] flex-wrap">
-          <div class="bg-[var(--color-paper-white)] border-[3px] border-[#a3e635] shadow-[4px_4px_0_#a3e635] px-[20px] py-[12px] text-center">
-            <div class="font-black text-[32px] text-[var(--color-carbon-black)]">5</div>
-            <div class="font-mono text-[10px] font-bold text-gray-600 uppercase tracking-widest">Projects</div>
-          </div>
-          <div class="bg-[var(--color-paper-white)] border-[3px] border-[#bfdbfe] shadow-[4px_4px_0_#bfdbfe] px-[20px] py-[12px] text-center">
-            <div class="font-black text-[32px] text-[var(--color-carbon-black)]">4</div>
-            <div class="font-mono text-[10px] font-bold text-gray-600 uppercase tracking-widest">Web App</div>
-          </div>
-          <div class="bg-[var(--color-paper-white)] border-[3px] border-[#fca5a5] shadow-[4px_4px_0_#fca5a5] px-[20px] py-[12px] text-center">
-            <div class="font-black text-[32px] text-[var(--color-carbon-black)]">1</div>
-            <div class="font-mono text-[10px] font-bold text-gray-600 uppercase tracking-widest">Mobile</div>
-          </div>
         </div>
       </div>
     </section>
