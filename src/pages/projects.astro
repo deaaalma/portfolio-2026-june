@@ -29,7 +29,9 @@ import Layout from '../layouts/Layout.astro';
     </nav>
   </header>
 
-  <main class="pt-[72px] min-h-screen bg-[var(--color-paper-white)]">
+  <main class="pt-[72px] min-h-screen bg-[var(--color-paper-white)] relative">
+    <!-- Global Dot Grid Background -->
+    <div class="absolute inset-0 opacity-[0.04] pointer-events-none z-0" style="background-image: radial-gradient(#000 2px, transparent 2px); background-size: 24px 24px;"></div>
 
     <!-- ========== HEADER & FILTERS ========== -->
     <section class="relative w-full pt-[60px] md:pt-[80px] pb-[32px] px-[24px]">
@@ -76,8 +78,6 @@ import Layout from '../layouts/Layout.astro';
 
     <!-- ========== GRID ========== -->
     <section class="relative w-full pb-[80px] px-[24px]">
-      <!-- Subtle dot bg -->
-      <div class="absolute inset-0 opacity-[0.025] pointer-events-none" style="background-image: radial-gradient(#000 2px, transparent 2px); background-size: 28px 28px;"></div>
 
       <div class="relative max-w-[1200px] mx-auto z-10">
 
