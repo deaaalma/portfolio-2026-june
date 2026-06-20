@@ -18,7 +18,7 @@ import Button from '../components/astro/Button.astro';
     <!-- Section 2: Experience (Retro Neo-Brutalism) -->
     <section id="experience" class="relative w-full bg-[var(--color-paper-white)] pt-[16px] pb-[60px] px-[24px]">
       <!-- Subtle Polka Dot Background Pattern -->
-      <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#000 2px, transparent 2px); background-size: 24px 24px;"></div>
+      <div class="absolute inset-0 opacity-[0.03] pointer-events-none z-0" style="background-image: radial-gradient(#000 2px, transparent 2px); background-size: 24px 24px;"></div>
       
       <div class="relative max-w-[1400px] mx-auto z-10">
         <!-- Section Header -->
@@ -281,96 +281,123 @@ import Button from '../components/astro/Button.astro';
     
     </section>
 
-    <!-- Wavy Divider from White to Green -->
-    <div class="w-full overflow-hidden leading-[0] bg-[var(--color-paper-white)] rotate-180">
-      <svg class="relative block w-[calc(100%+1.3px)] h-[60px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,115.9,188.94,99.73,235.17,86.85,280.4,70.93,321.39,56.44Z" fill="#bbf7d0"></path>
+    <!-- Wavy Divider from White to Dark Blue -->
+    <div class="w-full overflow-hidden leading-[0] bg-[var(--color-paper-white)] -mb-[1px]">
+      <svg class="relative block w-[calc(100%+1.3px)] h-[60px] md:h-[120px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,115.9,188.94,99.73,235.17,86.85,280.4,70.93,321.39,56.44Z" fill="#1e1b4b"></path>
       </svg>
     </div>
 
-    <!-- Section 3: Featured Projects (Retro Neo-Brutalism Grid) -->
-    <section id="projects" class="relative w-full bg-[#bbf7d0] py-[120px] px-[24px]">
-      <div class="relative max-w-[1200px] mx-auto z-10">
-        <!-- Section Header -->
-        <div class="flex items-center gap-[16px] mb-[80px] justify-end">
-          <h2 class="text-[40px] md:text-[56px] font-black tracking-tight uppercase text-right" style="-webkit-text-stroke: 1px black; text-shadow: 3px 3px 0 #fca5a5;">My Projects</h2>
-          <div class="w-[48px] h-[48px] bg-[#d8b4fe] border-[3px] border-[var(--color-carbon-black)] shadow-[4px_4px_0_#000] flex items-center justify-center text-[24px]">🚀</div>
-        </div>
+    <!-- Section 3: Featured Projects Teaser (Stacked Cards) -->
+    <section id="projects" class="relative w-full bg-[#1e1b4b] py-[80px] md:py-[120px] px-[24px] overflow-hidden -mt-[1px]">
+      <!-- Subtle dot pattern -->
+      <div class="absolute inset-0 opacity-[0.04] pointer-events-none z-0" style="background-image: radial-gradient(#000 2px, transparent 2px); background-size: 28px 28px;"></div>
 
-        <!-- Projects Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-[40px] md:gap-[60px]">
-          
-          <!-- Project Card 1 -->
-          <div class="w-full bg-[var(--color-paper-white)] border-[4px] border-[var(--color-carbon-black)] flex flex-col shadow-[8px_8px_0_#000] hover:-translate-y-2 hover:shadow-[16px_16px_0_#000] transition-all group">
-            <!-- Retro Browser Header -->
-            <div class="w-full border-b-[4px] border-[var(--color-carbon-black)] bg-[#fca5a5] px-[16px] py-[12px] flex items-center gap-[8px]">
-              <div class="w-[16px] h-[16px] rounded-full bg-[var(--color-paper-white)] border-[2px] border-[var(--color-carbon-black)]"></div>
-              <div class="w-[16px] h-[16px] rounded-full bg-[var(--color-paper-white)] border-[2px] border-[var(--color-carbon-black)]"></div>
-              <div class="w-[16px] h-[16px] rounded-full bg-[var(--color-paper-white)] border-[2px] border-[var(--color-carbon-black)]"></div>
-              <div class="ml-auto font-mono text-[12px] font-bold border-[2px] border-[var(--color-carbon-black)] bg-[var(--color-paper-white)] px-[12px] py-[2px]">project_01.exe</div>
-            </div>
-            
-            <!-- Project Image Placeholder -->
-            <div class="w-full aspect-video bg-[#e2e8f0] border-b-[4px] border-[var(--color-carbon-black)] relative overflow-hidden flex items-center justify-center">
-              <span class="font-mono text-gray-500 font-bold">[Image Placeholder: 16:9]</span>
-              <!-- Example of how to add an image later: -->
-              <!-- <img src="/images/project1.jpg" alt="Project 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" /> -->
+      <div class="relative max-w-[1100px] mx-auto z-10">
+        <!-- Two column layout: left text, right stack -->
+        <div class="flex flex-col lg:flex-row items-center gap-[60px] lg:gap-[80px]">
+
+          <!-- LEFT: Text CTA -->
+          <div class="flex-1 flex flex-col items-start gap-[24px]">
+
+            <div class="relative inline-block w-full">
+              <!-- Back layer (Thick black stroke + shadow) -->
+              <h2 class="text-[44px] md:text-[64px] font-normal text-[#000] leading-[1] tracking-tight" style="font-family: 'Poppin', sans-serif; -webkit-text-stroke: 6px #000; text-shadow: 4px 4px 0 #000;">
+                What I've<br/>Built
+              </h2>
+              <!-- Front layer (White fill only) -->
+              <h2 class="absolute top-0 left-0 text-[44px] md:text-[64px] font-normal text-[var(--color-paper-white)] leading-[1] tracking-tight pointer-events-none" style="font-family: 'Poppin', sans-serif; -webkit-text-stroke: 2px var(--color-paper-white);">
+                What I've<br/>Built
+              </h2>
             </div>
 
-            <!-- Project Details -->
-            <div class="p-[32px] flex flex-col flex-grow">
-              <h3 class="text-[28px] font-black tracking-tight mb-[12px]">Web Application Name</h3>
-              <p class="text-[16px] font-medium leading-[1.6] text-[var(--color-carbon-black)] mb-[24px] flex-grow">
-                A brief description of the project goes here. Explain the problem you solved, the technologies you used, and the impact it had. Keep it concise but impactful.
-              </p>
-              
-              <!-- Tech Tags -->
-              <div class="flex flex-wrap gap-[8px] mb-[32px]">
-                <span class="bg-[#fef08a] border-[2px] border-[var(--color-carbon-black)] px-[10px] py-[2px] text-[12px] font-bold shadow-[2px_2px_0_#000]">React</span>
-                <span class="bg-[#fef08a] border-[2px] border-[var(--color-carbon-black)] px-[10px] py-[2px] text-[12px] font-bold shadow-[2px_2px_0_#000]">Node.js</span>
-              </div>
+            <p class="text-[15px] md:text-[17px] font-medium leading-[1.7] text-gray-200 max-w-[400px] font-mono">
+              From web apps to mobile, a collection of real projects I've designed and developed. Each one built with purpose.
+            </p>
 
-              <!-- Action Buttons -->
-              <div class="flex gap-[16px] mt-auto">
-                <a href="#" class="flex-1 bg-[var(--color-lime-pulse)] border-[3px] border-[var(--color-carbon-black)] py-[12px] text-center font-bold shadow-[4px_4px_0_#000] hover:translate-y-[2px] hover:shadow-[2px_2px_0_#000] active:translate-y-[4px] active:shadow-none transition-all cursor-pointer">
-                  Live Demo
-                </a>
-                <a href="#" class="w-[48px] h-[48px] bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] flex items-center justify-center shadow-[4px_4px_0_#000] hover:translate-y-[2px] hover:shadow-[2px_2px_0_#000] active:translate-y-[4px] active:shadow-none transition-all cursor-pointer" aria-label="GitHub Repository">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                </a>
-              </div>
+
+
+            <!-- Category chips -->
+            <div class="flex flex-wrap gap-[8px]">
+              <span class="bg-[#bfdbfe] border-[2px] border-[var(--color-carbon-black)] px-[10px] py-[3px] font-mono text-[11px] font-bold shadow-[2px_2px_0_#000]">Web App</span>
+              <span class="bg-[#fca5a5] border-[2px] border-[var(--color-carbon-black)] px-[10px] py-[3px] font-mono text-[11px] font-bold shadow-[2px_2px_0_#000]">Mobile</span>
+              <a href="/projects" class="bg-[#fef08a] border-[2px] border-[var(--color-carbon-black)] px-[10px] py-[3px] font-mono text-[11px] font-bold shadow-[2px_2px_0_#000] hover:-translate-y-[2px] hover:shadow-[3px_3px_0_#000] active:translate-y-[1px] active:shadow-[1px_1px_0_#000] transition-all cursor-pointer inline-block text-black text-decoration-none">+ More</a>
             </div>
           </div>
 
-          <!-- Project Card 2 -->
-          <div class="w-full bg-[var(--color-paper-white)] border-[4px] border-[var(--color-carbon-black)] flex flex-col shadow-[8px_8px_0_#000] hover:-translate-y-2 hover:shadow-[16px_16px_0_#000] transition-all group">
-            <div class="w-full border-b-[4px] border-[var(--color-carbon-black)] bg-[#bfdbfe] px-[16px] py-[12px] flex items-center gap-[8px]">
-              <div class="w-[16px] h-[16px] rounded-full bg-[var(--color-paper-white)] border-[2px] border-[var(--color-carbon-black)]"></div>
-              <div class="w-[16px] h-[16px] rounded-full bg-[var(--color-paper-white)] border-[2px] border-[var(--color-carbon-black)]"></div>
-              <div class="w-[16px] h-[16px] rounded-full bg-[var(--color-paper-white)] border-[2px] border-[var(--color-carbon-black)]"></div>
-              <div class="ml-auto font-mono text-[12px] font-bold border-[2px] border-[var(--color-carbon-black)] bg-[var(--color-paper-white)] px-[12px] py-[2px]">project_02.exe</div>
-            </div>
-            
-            <div class="w-full aspect-video bg-[#e2e8f0] border-b-[4px] border-[var(--color-carbon-black)] relative overflow-hidden flex items-center justify-center">
-              <span class="font-mono text-gray-500 font-bold">[Image Placeholder: 16:9]</span>
-            </div>
+          <!-- RIGHT: Stacked Book-Pile Cards -->
+          <div class="flex-1 flex items-center justify-center w-full">
+            <div class="relative w-full max-w-[420px] h-[340px] md:h-[380px]">
 
-            <div class="p-[32px] flex flex-col flex-grow">
-              <h3 class="text-[28px] font-black tracking-tight mb-[12px]">Another Awesome Project</h3>
-              <p class="text-[16px] font-medium leading-[1.6] text-[var(--color-carbon-black)] mb-[24px] flex-grow">
-                This shows how multiple projects will align in a grid. The cards have a subtle hover effect that increases the drop shadow to make them feel like physical objects.
-              </p>
-              
-              <div class="flex flex-wrap gap-[8px] mb-[32px]">
-                <span class="bg-[#fef08a] border-[2px] border-[var(--color-carbon-black)] px-[10px] py-[2px] text-[12px] font-bold shadow-[2px_2px_0_#000]">Python</span>
-                <span class="bg-[#fef08a] border-[2px] border-[var(--color-carbon-black)] px-[10px] py-[2px] text-[12px] font-bold shadow-[2px_2px_0_#000]">FastAPI</span>
+              <!-- Card 3 (back) -->
+              <div class="absolute inset-0"
+                style="transform: rotate(-4deg) translateX(-12px) translateY(10px); z-index: 1;">
+                <div class="w-full h-full bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[5px_5px_0_#000] hover:-translate-x-4 hover:-translate-y-2 hover:shadow-[8px_8px_0_#000] hover:rotate-[-2deg] transition-all duration-300 cursor-pointer flex flex-col" onclick="window.location.href='/projects'">
+                  <div class="w-full bg-[#fca5a5] border-b-[3px] border-[var(--color-carbon-black)] px-[12px] py-[8px] flex items-center gap-[6px]">
+                    <div class="w-[10px] h-[10px] rounded-full bg-red-500 border-[1.5px] border-[var(--color-carbon-black)]"></div>
+                    <div class="w-[10px] h-[10px] rounded-full bg-yellow-400 border-[1.5px] border-[var(--color-carbon-black)]"></div>
+                    <div class="w-[10px] h-[10px] rounded-full bg-green-500 border-[1.5px] border-[var(--color-carbon-black)]"></div>
+                    <span class="ml-auto font-mono text-[10px] font-bold">project_03.exe</span>
+                  </div>
+                  <div class="p-[16px] flex-1">
+                    <div class="w-full h-[140px] bg-[#fae9ff] border-[2px] border-[var(--color-carbon-black)] flex items-center justify-center mb-[12px]">
+                      <span class="font-mono text-[11px] text-gray-400 font-bold">[ screenshot ]</span>
+                    </div>
+                    <div class="h-[12px] bg-gray-200 border border-gray-300 mb-[6px] w-3/4"></div>
+                    <div class="h-[10px] bg-gray-100 border border-gray-200 w-1/2"></div>
+                  </div>
+                </div>
               </div>
 
-              <div class="flex gap-[16px] mt-auto">
-                <a href="#" class="flex-1 bg-[#ECA243] border-[3px] border-[var(--color-carbon-black)] py-[12px] text-center font-bold shadow-[4px_4px_0_#000] hover:translate-y-[2px] hover:shadow-[2px_2px_0_#000] active:translate-y-[4px] active:shadow-none transition-all cursor-pointer">
-                  View Case Study
-                </a>
+              <!-- Card 2 (middle) -->
+              <div class="absolute inset-0"
+                style="transform: rotate(-2deg) translateX(-5px) translateY(5px); z-index: 2;">
+                <div class="w-full h-full bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[5px_5px_0_#000] hover:-translate-x-3 hover:-translate-y-2 hover:shadow-[8px_8px_0_#000] hover:rotate-[-1deg] transition-all duration-300 cursor-pointer flex flex-col" onclick="window.location.href='/projects'">
+                  <div class="w-full bg-[#bfdbfe] border-b-[3px] border-[var(--color-carbon-black)] px-[12px] py-[8px] flex items-center gap-[6px]">
+                    <div class="w-[10px] h-[10px] rounded-full bg-red-500 border-[1.5px] border-[var(--color-carbon-black)]"></div>
+                    <div class="w-[10px] h-[10px] rounded-full bg-yellow-400 border-[1.5px] border-[var(--color-carbon-black)]"></div>
+                    <div class="w-[10px] h-[10px] rounded-full bg-green-500 border-[1.5px] border-[var(--color-carbon-black)]"></div>
+                    <span class="ml-auto font-mono text-[10px] font-bold">project_02.exe</span>
+                  </div>
+                  <div class="p-[16px] flex-1">
+                    <div class="w-full h-[140px] bg-[#e0f2fe] border-[2px] border-[var(--color-carbon-black)] flex items-center justify-center mb-[12px]">
+                      <span class="font-mono text-[11px] text-gray-400 font-bold">[ screenshot ]</span>
+                    </div>
+                    <div class="h-[12px] bg-gray-200 border border-gray-300 mb-[6px] w-3/4"></div>
+                    <div class="h-[10px] bg-gray-100 border border-gray-200 w-1/2"></div>
+                  </div>
+                </div>
               </div>
+
+              <!-- Card 1 (front / top) — interactive hover -->
+              <div class="absolute inset-0 bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[5px_5px_0_#000] hover:-translate-y-2 hover:shadow-[8px_12px_0_#000] transition-all duration-200 cursor-pointer group/front"
+                style="z-index: 3;" onclick="window.location.href='/projects'">
+                <div class="w-full bg-[#a3e635] border-b-[3px] border-[var(--color-carbon-black)] px-[12px] py-[8px] flex items-center gap-[6px]">
+                  <div class="w-[10px] h-[10px] rounded-full bg-red-500 border-[1.5px] border-[var(--color-carbon-black)]"></div>
+                  <div class="w-[10px] h-[10px] rounded-full bg-yellow-400 border-[1.5px] border-[var(--color-carbon-black)]"></div>
+                  <div class="w-[10px] h-[10px] rounded-full bg-green-500 border-[1.5px] border-[var(--color-carbon-black)]"></div>
+                  <span class="ml-auto font-mono text-[10px] font-bold">project_01.exe ★ FEATURED</span>
+                </div>
+                <div class="p-[16px]">
+                  <div class="w-full h-[140px] bg-[#d2fae5] border-[2px] border-[var(--color-carbon-black)] flex items-center justify-center mb-[12px] relative overflow-hidden">
+                    <span class="font-mono text-[11px] text-gray-500 font-bold">[ screenshot ]</span>
+                    <!-- Hover overlay -->
+                    <div class="absolute inset-0 bg-black/70 flex items-center justify-center opacity-0 group-hover/front:opacity-100 transition-opacity duration-200">
+                      <span class="font-mono text-white text-[12px] font-bold tracking-wider">VIEW ALL PROJECTS →</span>
+                    </div>
+                  </div>
+                  <div class="flex justify-between items-start">
+                    <div>
+                      <div class="font-black text-[16px] mb-[4px]" style="font-family: 'Chalkboard', cursive;">Featured Project</div>
+                      <div class="font-mono text-[11px] text-gray-500">Click to see all →</div>
+                    </div>
+                    <div class="flex gap-[4px]">
+                      <span class="bg-[#bfdbfe] border-[1.5px] border-[var(--color-carbon-black)] px-[6px] py-[1px] text-[9px] font-mono font-bold">Web App</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
 
@@ -381,7 +408,7 @@ import Button from '../components/astro/Button.astro';
     <!-- Simple Footer Placeholder (Until Shut Down screen is built) -->
     <footer class="w-full bg-[var(--color-carbon-black)] text-[var(--color-paper-white)] py-[60px] flex flex-col items-center justify-center">
       <div class="font-mono font-bold tracking-widest text-[14px] mb-[16px]">C:\> LOGGING OFF...</div>
-      <p class="text-[16px] opacity-70">© 2026 Dea Alma. All rights reserved.</p>
+
     </footer>
 
     </div>
@@ -455,20 +482,32 @@ import Button from '../components/astro/Button.astro';
         let originalTitleElement = null;
         let originalImgElement = null;
 
-        const updateLightbox = () => {
+        const updateLightbox = (direction = 0) => {
           if (currentLightboxImages.length === 0) return;
           const src = currentLightboxImages[currentLightboxIndex];
-          
-          // Toggle opacity for 0ms delay DOM swap
+
+          // Instant display swap — no transition delay
           Array.from(lightboxImgContainer.children).forEach((img, idx) => {
-             img.style.opacity = idx === currentLightboxIndex ? '1' : '0';
+             img.style.display = idx === currentLightboxIndex ? 'block' : 'none';
              img.style.zIndex = idx === currentLightboxIndex ? '10' : '0';
           });
+
+          // Slide-in animation for active image
+          if (direction !== 0) {
+            const activeImg = lightboxImgContainer.children[currentLightboxIndex];
+            if (activeImg) {
+              const fromX = direction > 0 ? '40px' : '-40px';
+              activeImg.animate(
+                [{ transform: `translateX(${fromX})`, opacity: 0 }, { transform: 'translateX(0)', opacity: 1 }],
+                { duration: 160, easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)', fill: 'forwards' }
+              );
+            }
+          }
 
           const filename = src.split('/').pop();
           lightboxTitle.textContent = filename;
           lightboxCounter.textContent = `${currentLightboxIndex + 1} of ${currentLightboxImages.length}`;
-          
+
           // Also update the thumbnail view if applicable
           if (originalTitleElement) originalTitleElement.textContent = filename;
           if (originalImgElement) originalImgElement.src = src;
@@ -494,14 +533,16 @@ import Button from '../components/astro/Button.astro';
               btnNext.style.display = '';
           }
           
-          // Clear and inject all images to DOM to force browser decode
+          // Clear and inject all images to DOM, pre-decode for instant nav
           lightboxImgContainer.innerHTML = '';
           images.forEach((src, idx) => {
              const img = document.createElement('img');
              img.src = src;
-             img.className = 'absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-200';
-             img.style.opacity = idx === startIndex ? '1' : '0';
+             img.className = 'absolute top-0 left-0 w-full h-full object-cover';
+             img.style.display = idx === startIndex ? 'block' : 'none';
              img.style.zIndex = idx === startIndex ? '10' : '0';
+             // Pre-decode so it's ready in GPU memory
+             if (img.decode) img.decode().catch(() => {});
              lightboxImgContainer.appendChild(img);
           });
 
@@ -542,7 +583,7 @@ import Button from '../components/astro/Button.astro';
             e.stopPropagation();
             if (currentLightboxImages.length === 0) return;
             currentLightboxIndex = (currentLightboxIndex - 1 + currentLightboxImages.length) % currentLightboxImages.length;
-            updateLightbox();
+            updateLightbox(-1);
         });
 
         btnNext.addEventListener('click', (e) => {
@@ -550,7 +591,7 @@ import Button from '../components/astro/Button.astro';
             e.stopPropagation();
             if (currentLightboxImages.length === 0) return;
             currentLightboxIndex = (currentLightboxIndex + 1) % currentLightboxImages.length;
-            updateLightbox();
+            updateLightbox(1);
         });
         
         // Keyboard navigation
