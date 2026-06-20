@@ -31,53 +31,55 @@ import Layout from '../layouts/Layout.astro';
 
   <main class="pt-[72px] min-h-screen bg-[var(--color-paper-white)]">
 
-    <!-- ========== HERO HEADER ========== -->
-    <section class="relative w-full bg-[var(--color-paper-white)] py-[60px] md:py-[80px] px-[24px] overflow-hidden border-b-[4px] border-[var(--color-carbon-black)]">
-      <!-- Subtle dot grid -->
-      <div class="absolute inset-0 opacity-[0.03] pointer-events-none z-0" style="background-image: radial-gradient(#000 2px, transparent 2px); background-size: 24px 24px;"></div>
+    <!-- ========== HEADER & FILTERS ========== -->
+    <section class="relative w-full pt-[60px] md:pt-[80px] pb-[32px] px-[24px]">
+      <div class="relative max-w-[1200px] mx-auto z-10">
+        
+        <!-- OS breadcrumb -->
+        <div class="font-mono text-[12px] text-gray-500 mb-[24px] flex items-center gap-[6px] font-bold">
+          <a href="/" class="hover:text-[var(--color-carbon-black)] transition-colors">C:\PORTFOLIO</a>
+          <span class="text-gray-400">&gt;</span>
+          <span class="text-[var(--color-carbon-black)]">PROJECTS\</span>
+        </div>
 
-      <div class="relative max-w-[1200px] mx-auto z-10 flex flex-col md:flex-row items-start md:items-end justify-between gap-[32px]">
-        <div>
-          <!-- OS breadcrumb -->
-          <div class="font-mono text-[12px] text-gray-500 mb-[16px] flex items-center gap-[6px] font-bold">
-            <a href="/" class="hover:text-[var(--color-carbon-black)] transition-colors">C:\PORTFOLIO</a>
-            <span class="text-gray-400">&gt;</span>
-            <span class="text-[var(--color-carbon-black)]">PROJECTS\</span>
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-[32px] mb-[48px]">
+          <!-- Left: Title & Subtitle -->
+          <div>
+            <h1 class="text-[52px] md:text-[64px] font-black text-[var(--color-carbon-black)] leading-[1] tracking-tight mb-[12px]"
+              style="font-family: 'Poppin', sans-serif;">
+              My Projects
+            </h1>
+            <p class="font-mono text-[14px] md:text-[15px] text-gray-600 max-w-[500px] leading-[1.7]">
+              Explore all the projects I've built — from web applications to mobile apps. Real work, real purpose.
+            </p>
           </div>
 
-          <h1 class="text-[52px] md:text-[72px] font-black text-[var(--color-carbon-black)] leading-[1] tracking-tight mb-[16px]"
-            style="font-family: 'Poppin', sans-serif;">
-            My Projects
-          </h1>
-          <p class="font-mono text-[14px] md:text-[16px] text-gray-600 max-w-[500px] leading-[1.7]">
-            Explore all the projects I've built — from web applications to mobile apps. Real work, real purpose.
-          </p>
+          <!-- Right: Pill Filters -->
+          <div class="flex flex-wrap items-center gap-[12px]">
+            <button data-filter="all"
+              class="filter-btn active-filter px-[20px] py-[8px] rounded-full font-mono font-bold text-[13px] uppercase tracking-wider border-[2px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] bg-[#a3e635] transition-all hover:translate-y-[2px] hover:shadow-[1px_1px_0_#000]">
+              All
+            </button>
+            <button data-filter="web-app"
+              class="filter-btn px-[20px] py-[8px] rounded-full font-mono font-bold text-[13px] uppercase tracking-wider border-[2px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] bg-white transition-all hover:-translate-y-[2px] hover:shadow-[5px_5px_0_#000] hover:bg-[#bfdbfe]">
+              Web App
+            </button>
+            <button data-filter="mobile"
+              class="filter-btn px-[20px] py-[8px] rounded-full font-mono font-bold text-[13px] uppercase tracking-wider border-[2px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] bg-white transition-all hover:-translate-y-[2px] hover:shadow-[5px_5px_0_#000] hover:bg-[#fca5a5]">
+              Mobile
+            </button>
+          </div>
         </div>
+
       </div>
     </section>
 
-    <!-- ========== FILTER + GRID ========== -->
-    <section class="relative w-full py-[48px] md:py-[64px] px-[24px]">
+    <!-- ========== GRID ========== -->
+    <section class="relative w-full pb-[80px] px-[24px]">
       <!-- Subtle dot bg -->
       <div class="absolute inset-0 opacity-[0.025] pointer-events-none" style="background-image: radial-gradient(#000 2px, transparent 2px); background-size: 28px 28px;"></div>
 
       <div class="relative max-w-[1200px] mx-auto z-10">
-
-        <!-- Filter Tabs -->
-        <div class="flex items-center gap-[0px] mb-[48px] border-[3px] border-[var(--color-carbon-black)] w-fit shadow-[4px_4px_0_#000] overflow-hidden">
-          <button data-filter="all"
-            class="filter-btn active-filter px-[20px] py-[10px] font-mono font-black text-[12px] uppercase tracking-wider border-r-[3px] border-[var(--color-carbon-black)] transition-all hover:bg-[#a3e635]">
-            All (5)
-          </button>
-          <button data-filter="web-app"
-            class="filter-btn px-[20px] py-[10px] font-mono font-black text-[12px] uppercase tracking-wider border-r-[3px] border-[var(--color-carbon-black)] transition-all hover:bg-[#bfdbfe]">
-            Web App (4)
-          </button>
-          <button data-filter="mobile"
-            class="filter-btn px-[20px] py-[10px] font-mono font-black text-[12px] uppercase tracking-wider transition-all hover:bg-[#fca5a5]">
-            Mobile (1)
-          </button>
-        </div>
 
         <!-- Projects Grid -->
         <div id="projects-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-[32px] md:gap-[48px]">
