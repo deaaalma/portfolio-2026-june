@@ -451,15 +451,15 @@ const optAssistant = await getImage({ src: assistant, format: 'webp', width: 100
 
         <!-- Lightbox Content -->
         <div class="relative w-full h-[50vh] md:h-[65vh] bg-gray-100 flex items-center justify-center p-2">
-          <!-- Prev Button -->
-          <button id="lightbox-prev" class="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 w-[40px] h-[40px] md:w-[48px] md:h-[48px] bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex items-center justify-center text-[20px] font-black hover:bg-[#d8b4fe] active:translate-y-1 active:shadow-[1px_1px_0_#000] transition-all z-50">&lt;</button>
-          
           <!-- Image -->
           <div id="lightbox-img-container" class="w-full h-full border-[3px] border-[var(--color-carbon-black)] relative overflow-hidden bg-white">
             <!-- Images will be injected here via JS for instant DOM toggling -->
           </div>
 
-          <!-- Next Button -->
+          <!-- Prev Button (outside img-container so images can't overlap it) -->
+          <button id="lightbox-prev" class="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 w-[40px] h-[40px] md:w-[48px] md:h-[48px] bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex items-center justify-center text-[20px] font-black hover:bg-[#d8b4fe] active:translate-y-1 active:shadow-[1px_1px_0_#000] transition-all z-50">&lt;</button>
+
+          <!-- Next Button (outside img-container so images can't overlap it) -->
           <button id="lightbox-next" class="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 w-[40px] h-[40px] md:w-[48px] md:h-[48px] bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex items-center justify-center text-[20px] font-black hover:bg-[#d8b4fe] active:translate-y-1 active:shadow-[1px_1px_0_#000] transition-all z-50">&gt;</button>
         </div>
         
