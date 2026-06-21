@@ -466,8 +466,41 @@ import githubPixel from '../../assets/images/github-pixel.png';
   const helloWorldTitle = document.getElementById('hello-world-title');
   const heroMainContainer = document.getElementById('hero-main-container');
 
+  // Helper: instantly reveal homepage (no animation)
+  function skipIntroInstantly() {
+    if (startBtn) startBtn.classList.add('hidden');
+    if (hud) hud.classList.add('hidden');
+    if (helloWorldTitle) helloWorldTitle.classList.add('hidden');
+    if (heroMainContainer) {
+      heroMainContainer.classList.remove('mt-[100px]', 'md:mt-[180px]');
+      heroMainContainer.classList.add('mt-0');
+    }
+    if (widget) {
+      widget.classList.remove('opacity-0', 'translate-y-[50px]', 'pointer-events-none', 'absolute', 'top-[160px]', 'md:top-[220px]');
+      widget.classList.add('opacity-100', 'translate-y-0', 'relative', 'mt-[20px]', 'md:mt-[40px]');
+    }
+    if (navbar) {
+      navbar.classList.remove('opacity-0', '-translate-y-[150%]', 'pointer-events-none');
+      navbar.classList.add('opacity-100', 'translate-y-0');
+    }
+    if (mainContent) mainContent.classList.remove('hidden', 'opacity-0');
+    if (divider) divider.classList.remove('opacity-0');
+    if (crtOverlay) {
+      crtOverlay.classList.add('opacity-0', 'pointer-events-none');
+      crtOverlay.classList.remove('opacity-100');
+    }
+    document.body.style.overflow = 'auto';
+  }
+
+  // If user already completed the intro in this session, skip it immediately
+  if (sessionStorage.getItem('portfolio_intro_done') === '1') {
+    skipIntroInstantly();
+  }
+
    if (startBtn) {
      startBtn.addEventListener('click', () => {
+        // Mark intro as done for this session
+        sessionStorage.setItem('portfolio_intro_done', '1');
         
         // 2. Fast blink the start button
         startBtn.classList.add('fast-blink');
