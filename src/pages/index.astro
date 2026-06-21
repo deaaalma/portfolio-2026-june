@@ -525,7 +525,10 @@ const optAssistant = await getImage({ src: assistant, format: 'webp' });
             }
           }
 
-          const filename = src.split('/').pop();
+          let filename = decodeURIComponent(src.split('/').pop());
+          // Remove Astro hash and replace with .jpg (e.g. coding mentor-3.CpHjdBjJ_ZCBegO.webp -> coding mentor-3.jpg)
+          filename = filename.replace(/\.[a-zA-Z0-9_-]+\.webp$/i, '.jpg');
+          
           lightboxTitle.textContent = filename;
           lightboxCounter.textContent = `${currentLightboxIndex + 1} of ${currentLightboxImages.length}`;
 
