@@ -450,8 +450,8 @@ import githubPixel from '../../assets/images/github-pixel.png';
 </section>
 
 <script>
-  // Lock scroll initially to force user to stay on the Title Screen
-  if (typeof window !== 'undefined') {
+  // Lock scroll initially to force user to stay on the Title Screen (skip if intro already done)
+  if (typeof window !== 'undefined' && sessionStorage.getItem('portfolio_intro_done') !== '1') {
     document.body.style.overflow = 'hidden';
   }
 

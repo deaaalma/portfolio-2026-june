@@ -18,6 +18,31 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<!-- Runs synchronously before any HTML renders: skip intro if already seen this session -->
+		<script is:inline>
+			if (typeof sessionStorage !== 'undefined' && sessionStorage.getItem('portfolio_intro_done') === '1') {
+				document.documentElement.classList.add('no-intro');
+			}
+		</script>
+		<style>
+			/* Applied instantly (before JS bundles load) to hide intro elements for returning visitors */
+			html.no-intro #press-start-btn,
+			html.no-intro #hello-world-title,
+			html.no-intro #retro-hud { display: none !important; }
+			html.no-intro #hero-widget {
+				opacity: 1 !important;
+				transform: none !important;
+				pointer-events: auto !important;
+				position: relative !important;
+				top: auto !important;
+				margin-top: 20px;
+			}
+			html.no-intro #hero-main-container { margin-top: 0 !important; }
+			html.no-intro #main-navbar { opacity: 1 !important; transform: none !important; pointer-events: auto !important; }
+			html.no-intro #main-content { display: block !important; opacity: 1 !important; }
+			html.no-intro #hero-divider { opacity: 1 !important; }
+			html.no-intro #crt-overlay { display: none !important; }
+		</style>
 	</head>
 	<body>
 		<slot />
