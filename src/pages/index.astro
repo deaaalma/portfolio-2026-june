@@ -15,16 +15,16 @@ import coding3 from '../assets/images/coding mentor-3.jpg';
 import practicum from '../assets/images/practicum asistant.jpg';
 import assistant from '../assets/images/assistant staff.png';
 
-const optViskal1 = await getImage({ src: viskal1, format: 'webp' });
-const optViskal2 = await getImage({ src: viskal2, format: 'webp' });
-const optViskal3 = await getImage({ src: viskal3, format: 'webp' });
+const optViskal1 = await getImage({ src: viskal1, format: 'webp', width: 1000 });
+const optViskal2 = await getImage({ src: viskal2, format: 'webp', width: 1000 });
+const optViskal3 = await getImage({ src: viskal3, format: 'webp', width: 1000 });
 
-const optCoding1 = await getImage({ src: coding1, format: 'webp' });
-const optCoding2 = await getImage({ src: coding2, format: 'webp' });
-const optCoding3 = await getImage({ src: coding3, format: 'webp' });
+const optCoding1 = await getImage({ src: coding1, format: 'webp', width: 1000 });
+const optCoding2 = await getImage({ src: coding2, format: 'webp', width: 1000 });
+const optCoding3 = await getImage({ src: coding3, format: 'webp', width: 1000 });
 
-const optPracticum = await getImage({ src: practicum, format: 'webp' });
-const optAssistant = await getImage({ src: assistant, format: 'webp' });
+const optPracticum = await getImage({ src: practicum, format: 'webp', width: 1000 });
+const optAssistant = await getImage({ src: assistant, format: 'webp', width: 1000 });
 ---
 
 <Layout title="Brainfish Portfolio">
@@ -96,7 +96,7 @@ const optAssistant = await getImage({ src: assistant, format: 'webp' });
                     </ul>
                     
                     <!-- Retro Image Viewer (Carousel) -->
-                    <div class="retro-carousel w-[160px] h-[180px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105" data-images={JSON.stringify([optViskal1.src, optViskal2.src, optViskal3.src])} data-index="2">
+                    <div class="retro-carousel w-[160px] h-[180px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105" data-images={JSON.stringify([optViskal1.src, optViskal2.src, optViskal3.src])} data-titles={JSON.stringify(["viskal_1.jpg", "viskal_2.jpg", "viskal_3.jpg"])} data-index="2">
                       <div class="border-b-[2.5px] border-[var(--color-carbon-black)] bg-gray-200 p-[2px] px-[4px] flex justify-between items-center">
                         <span class="text-[8px] font-mono border-[1.5px] border-[var(--color-carbon-black)] px-1 bg-[#d8b4fe] hidden sm:block">CLICK</span>
                         <span class="carousel-title text-[8px] font-mono font-bold uppercase truncate max-w-[70px]">viskal_3.jpg</span>
@@ -158,7 +158,7 @@ const optAssistant = await getImage({ src: assistant, format: 'webp' });
                     </ul>
                     
                     <!-- Retro Image Viewer (Carousel) -->
-                    <div class="retro-carousel w-[160px] h-[180px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105" data-images={JSON.stringify([optCoding1.src, optCoding2.src, optCoding3.src])} data-index="2">
+                    <div class="retro-carousel w-[160px] h-[180px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105" data-images={JSON.stringify([optCoding1.src, optCoding2.src, optCoding3.src])} data-titles={JSON.stringify(["coding mentor_1.jpg", "coding_mentor_2.jpg", "coding mentor-3.jpg"])} data-index="2">
                       <div class="border-b-[2.5px] border-[var(--color-carbon-black)] bg-gray-200 p-[2px] px-[4px] flex justify-between items-center">
                         <span class="text-[8px] font-mono border-[1.5px] border-[var(--color-carbon-black)] px-1 bg-[#d8b4fe] hidden sm:block">CLICK</span>
                         <span class="carousel-title text-[8px] font-mono font-bold uppercase truncate max-w-[70px]">coding mentor-3.jpg</span>
@@ -218,7 +218,7 @@ const optAssistant = await getImage({ src: assistant, format: 'webp' });
                       <li>Mentored first-year students in understanding network protocols and topology design.</li>
                     </ul>
                     
-                    <div class="retro-carousel w-[160px] h-[180px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105" data-images={JSON.stringify([optPracticum.src])} data-index="0">
+                    <div class="retro-carousel w-[160px] h-[180px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105" data-images={JSON.stringify([optPracticum.src])} data-titles={JSON.stringify(["lab.jpg"])} data-index="0">
                       <div class="border-b-[2.5px] border-[var(--color-carbon-black)] bg-gray-200 p-[2px] px-[4px] flex justify-between items-center">
                         <span class="text-[8px] font-mono border-[1.5px] border-[var(--color-carbon-black)] px-1 bg-[#d8b4fe] hidden sm:block">CLICK</span>
                         <span class="carousel-title text-[8px] font-mono font-bold uppercase truncate max-w-[70px]">lab.jpg</span>
@@ -276,7 +276,7 @@ const optAssistant = await getImage({ src: assistant, format: 'webp' });
                       <li>Assisted senior staff in cross-checking reports to identify discrepancies.</li>
                     </ul>
                     
-                    <div class="retro-carousel w-[160px] h-[180px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105" data-images={JSON.stringify([optAssistant.src])} data-index="0">
+                    <div class="retro-carousel w-[160px] h-[180px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105" data-images={JSON.stringify([optAssistant.src])} data-titles={JSON.stringify(["biasa.jpg"])} data-index="0">
                       <div class="border-b-[2.5px] border-[var(--color-carbon-black)] bg-gray-200 p-[2px] px-[4px] flex justify-between items-center">
                         <span class="text-[8px] font-mono border-[1.5px] border-[var(--color-carbon-black)] px-1 bg-[#d8b4fe] hidden sm:block">CLICK</span>
                         <span class="carousel-title text-[8px] font-mono font-bold uppercase truncate max-w-[70px]">biasa.jpg</span>
@@ -475,20 +475,6 @@ const optAssistant = await getImage({ src: assistant, format: 'webp' });
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         const carousels = document.querySelectorAll('.retro-carousel');
-        
-        // AGGRESSIVE PRELOADING
-        carousels.forEach(carousel => {
-          const imagesStr = carousel.dataset.images;
-          if (imagesStr) {
-            try {
-              const images = JSON.parse(imagesStr);
-              images.forEach(src => {
-                 const img = new Image();
-                 img.src = src;
-              });
-            } catch(e) {}
-          }
-        });
 
         const lightbox = document.getElementById('retro-lightbox');
         const lightboxImgContainer = document.getElementById('lightbox-img-container');
@@ -499,6 +485,7 @@ const optAssistant = await getImage({ src: assistant, format: 'webp' });
         const btnNext = document.getElementById('lightbox-next');
         
         let currentLightboxImages = [];
+        let currentLightboxTitles = [];
         let currentLightboxIndex = 0;
         let originalTitleElement = null;
         let originalImgElement = null;
@@ -525,9 +512,7 @@ const optAssistant = await getImage({ src: assistant, format: 'webp' });
             }
           }
 
-          let filename = decodeURIComponent(src.split('/').pop());
-          // Remove Astro hash and replace with .jpg (e.g. coding mentor-3.CpHjdBjJ_ZCBegO.webp -> coding mentor-3.jpg)
-          filename = filename.replace(/\.[a-zA-Z0-9_-]+\.webp$/i, '.jpg');
+          let filename = currentLightboxTitles && currentLightboxTitles.length > 0 ? currentLightboxTitles[currentLightboxIndex] : "image.jpg";
           
           lightboxTitle.textContent = filename;
           lightboxCounter.textContent = `${currentLightboxIndex + 1} of ${currentLightboxImages.length}`;
@@ -543,8 +528,9 @@ const optAssistant = await getImage({ src: assistant, format: 'webp' });
           document.body.style.overflow = ''; // Restore scroll
         };
 
-        const openLightbox = (images, startIndex, imgEl, titleEl) => {
+        const openLightbox = (images, titles, startIndex, imgEl, titleEl) => {
           currentLightboxImages = images;
+          currentLightboxTitles = titles;
           currentLightboxIndex = startIndex;
           originalImgElement = imgEl;
           originalTitleElement = titleEl;
@@ -576,11 +562,12 @@ const optAssistant = await getImage({ src: assistant, format: 'webp' });
           document.body.style.overflow = 'hidden'; // Prevent scroll
         };
 
-        // Attach click handlers to inline thumbnails
         carousels.forEach(carousel => {
           const imagesStr = carousel.dataset.images;
+          const titlesStr = carousel.dataset.titles;
           if (!imagesStr) return;
           const images = JSON.parse(imagesStr);
+          const titles = titlesStr ? JSON.parse(titlesStr) : [];
           if (images.length === 0) return;
           
           let startIndex = parseInt(carousel.dataset.index || '0');
@@ -588,7 +575,7 @@ const optAssistant = await getImage({ src: assistant, format: 'webp' });
           const titleElement = carousel.querySelector('.carousel-title');
           
           imgElement.addEventListener('click', () => {
-             openLightbox(images, startIndex, imgElement, titleElement);
+             openLightbox(images, titles, startIndex, imgElement, titleElement);
           });
         });
 
