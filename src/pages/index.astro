@@ -475,6 +475,20 @@ const optAssistant = await getImage({ src: assistant, format: 'webp', width: 100
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         const carousels = document.querySelectorAll('.retro-carousel');
+        
+        // AGGRESSIVE PRELOADING
+        carousels.forEach(carousel => {
+          const imagesStr = carousel.dataset.images;
+          if (imagesStr) {
+            try {
+              const images = JSON.parse(imagesStr);
+              images.forEach(src => {
+                 const img = new Image();
+                 img.src = src;
+              });
+            } catch(e) {}
+          }
+        });
 
         const lightbox = document.getElementById('retro-lightbox');
         const lightboxImgContainer = document.getElementById('lightbox-img-container');
