@@ -4,6 +4,27 @@ import Navbar from '../components/astro/Navbar.astro';
 import Hero from '../components/astro/Hero.astro';
 import Badge from '../components/astro/Badge.astro';
 import Button from '../components/astro/Button.astro';
+
+import { Image, getImage } from 'astro:assets';
+import viskal1 from '../assets/images/viskal_1.jpg';
+import viskal2 from '../assets/images/viskal_2.jpg';
+import viskal3 from '../assets/images/viskal_3.jpg';
+import coding1 from '../assets/images/coding mentor_1.jpg';
+import coding2 from '../assets/images/coding_mentor_2.jpg';
+import coding3 from '../assets/images/coding mentor-3.jpg';
+import practicum from '../assets/images/practicum asistant.jpg';
+import assistant from '../assets/images/assistant staff.png';
+
+const optViskal1 = await getImage({ src: viskal1, format: 'webp' });
+const optViskal2 = await getImage({ src: viskal2, format: 'webp' });
+const optViskal3 = await getImage({ src: viskal3, format: 'webp' });
+
+const optCoding1 = await getImage({ src: coding1, format: 'webp' });
+const optCoding2 = await getImage({ src: coding2, format: 'webp' });
+const optCoding3 = await getImage({ src: coding3, format: 'webp' });
+
+const optPracticum = await getImage({ src: practicum, format: 'webp' });
+const optAssistant = await getImage({ src: assistant, format: 'webp' });
 ---
 
 <Layout title="Brainfish Portfolio">
@@ -75,14 +96,14 @@ import Button from '../components/astro/Button.astro';
                     </ul>
                     
                     <!-- Retro Image Viewer (Carousel) -->
-                    <div class="retro-carousel w-[160px] h-[180px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105" data-images='["/images/viskal_1.jpg", "/images/viskal_2.jpg", "/images/viskal_3.jpg"]' data-index="2">
+                    <div class="retro-carousel w-[160px] h-[180px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105" data-images={JSON.stringify([optViskal1.src, optViskal2.src, optViskal3.src])} data-index="2">
                       <div class="border-b-[2.5px] border-[var(--color-carbon-black)] bg-gray-200 p-[2px] px-[4px] flex justify-between items-center">
                         <span class="text-[8px] font-mono border-[1.5px] border-[var(--color-carbon-black)] px-1 bg-[#d8b4fe] hidden sm:block">CLICK</span>
                         <span class="carousel-title text-[8px] font-mono font-bold uppercase truncate max-w-[70px]">viskal_3.jpg</span>
                         <div class="w-[10px] h-[10px] bg-[var(--color-paper-white)] border-[1.5px] border-[var(--color-carbon-black)] rounded-sm flex items-center justify-center flex-shrink-0"><div class="w-[5px] h-[1.5px] bg-[var(--color-carbon-black)]"></div></div>
                       </div>
                       <div class="flex-1 bg-gray-100 flex items-center justify-center relative p-[4px] min-h-0">
-                          <img src="/images/viskal_3.jpg" alt="Viskal Consulting" class="carousel-img w-full h-full object-cover border-[1.5px] border-[var(--color-carbon-black)] cursor-pointer hover:opacity-80 transition-opacity" />
+                          <Image src={viskal3} alt="Viskal Consulting" width={160} class="carousel-img w-full h-full object-cover border-[1.5px] border-[var(--color-carbon-black)] cursor-pointer hover:opacity-80 transition-opacity" />
                       </div>
                     </div>
                   </div>
@@ -137,14 +158,14 @@ import Button from '../components/astro/Button.astro';
                     </ul>
                     
                     <!-- Retro Image Viewer (Carousel) -->
-                    <div class="retro-carousel w-[160px] h-[180px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105" data-images='["/images/coding mentor_1.jpg", "/images/coding_mentor_2.jpg", "/images/coding mentor-3.jpg"]' data-index="2">
+                    <div class="retro-carousel w-[160px] h-[180px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105" data-images={JSON.stringify([optCoding1.src, optCoding2.src, optCoding3.src])} data-index="2">
                       <div class="border-b-[2.5px] border-[var(--color-carbon-black)] bg-gray-200 p-[2px] px-[4px] flex justify-between items-center">
                         <span class="text-[8px] font-mono border-[1.5px] border-[var(--color-carbon-black)] px-1 bg-[#d8b4fe] hidden sm:block">CLICK</span>
                         <span class="carousel-title text-[8px] font-mono font-bold uppercase truncate max-w-[70px]">coding mentor-3.jpg</span>
                         <div class="w-[10px] h-[10px] bg-[var(--color-paper-white)] border-[1.5px] border-[var(--color-carbon-black)] rounded-sm flex items-center justify-center flex-shrink-0"><div class="w-[5px] h-[1.5px] bg-[var(--color-carbon-black)]"></div></div>
                       </div>
                       <div class="flex-1 bg-gray-100 flex items-center justify-center relative p-[4px] min-h-0">
-                          <img src="/images/coding mentor-3.jpg" alt="Coding Mentor" class="carousel-img w-full h-full object-cover border-[1.5px] border-[var(--color-carbon-black)] cursor-pointer hover:opacity-80 transition-opacity" />
+                          <Image src={coding3} alt="Coding Mentor" width={160} class="carousel-img w-full h-full object-cover border-[1.5px] border-[var(--color-carbon-black)] cursor-pointer hover:opacity-80 transition-opacity" />
                       </div>
                     </div>
                   </div>
@@ -197,14 +218,14 @@ import Button from '../components/astro/Button.astro';
                       <li>Mentored first-year students in understanding network protocols and topology design.</li>
                     </ul>
                     
-                    <div class="retro-carousel w-[160px] h-[180px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105" data-images='["/images/practicum asistant.jpg"]' data-index="0">
+                    <div class="retro-carousel w-[160px] h-[180px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105" data-images={JSON.stringify([optPracticum.src])} data-index="0">
                       <div class="border-b-[2.5px] border-[var(--color-carbon-black)] bg-gray-200 p-[2px] px-[4px] flex justify-between items-center">
                         <span class="text-[8px] font-mono border-[1.5px] border-[var(--color-carbon-black)] px-1 bg-[#d8b4fe] hidden sm:block">CLICK</span>
                         <span class="carousel-title text-[8px] font-mono font-bold uppercase truncate max-w-[70px]">lab.jpg</span>
                         <div class="w-[10px] h-[10px] bg-[var(--color-paper-white)] border-[1.5px] border-[var(--color-carbon-black)] rounded-sm flex items-center justify-center flex-shrink-0"><div class="w-[5px] h-[1.5px] bg-[var(--color-carbon-black)]"></div></div>
                       </div>
                       <div class="flex-1 bg-gray-100 flex items-center justify-center relative p-[4px] min-h-0">
-                          <img src="/images/practicum asistant.jpg" alt="Network Assistant" class="carousel-img w-full h-full object-cover border-[1.5px] border-[var(--color-carbon-black)] cursor-pointer hover:opacity-80 transition-opacity" />
+                          <Image src={practicum} alt="Network Assistant" width={160} class="carousel-img w-full h-full object-cover border-[1.5px] border-[var(--color-carbon-black)] cursor-pointer hover:opacity-80 transition-opacity" />
                       </div>
                     </div>
                   </div>
@@ -255,14 +276,14 @@ import Button from '../components/astro/Button.astro';
                       <li>Assisted senior staff in cross-checking reports to identify discrepancies.</li>
                     </ul>
                     
-                    <div class="retro-carousel w-[160px] h-[180px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105" data-images='["/images/assistant staff.png"]' data-index="0">
+                    <div class="retro-carousel w-[160px] h-[180px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105" data-images={JSON.stringify([optAssistant.src])} data-index="0">
                       <div class="border-b-[2.5px] border-[var(--color-carbon-black)] bg-gray-200 p-[2px] px-[4px] flex justify-between items-center">
                         <span class="text-[8px] font-mono border-[1.5px] border-[var(--color-carbon-black)] px-1 bg-[#d8b4fe] hidden sm:block">CLICK</span>
                         <span class="carousel-title text-[8px] font-mono font-bold uppercase truncate max-w-[70px]">biasa.jpg</span>
                         <div class="w-[10px] h-[10px] bg-[var(--color-paper-white)] border-[1.5px] border-[var(--color-carbon-black)] rounded-sm flex items-center justify-center flex-shrink-0"><div class="w-[5px] h-[1.5px] bg-[var(--color-carbon-black)]"></div></div>
                       </div>
                       <div class="flex-1 bg-gray-100 flex items-center justify-center relative p-[4px] min-h-0">
-                          <img src="/images/assistant staff.png" alt="Accounting Staff" class="carousel-img w-full h-full object-cover border-[1.5px] border-[var(--color-carbon-black)] cursor-pointer hover:opacity-80 transition-opacity" />
+                          <Image src={assistant} alt="Accounting Staff" width={160} class="carousel-img w-full h-full object-cover border-[1.5px] border-[var(--color-carbon-black)] cursor-pointer hover:opacity-80 transition-opacity" />
                       </div>
                     </div>
                   </div>

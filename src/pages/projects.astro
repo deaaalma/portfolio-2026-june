@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import logoHd from '../assets/images/logo-hd.png';
 ---
 
 <Layout title="My Projects — Dea Alma">
@@ -8,7 +10,7 @@ import Layout from '../layouts/Layout.astro';
     <nav class="flex items-center justify-between bg-[var(--color-paper-white)] border-[1.5px] border-[var(--color-carbon-black)] rounded-full px-[16px] py-[12px] shadow-[4px_4px_0_#000]">
       <!-- Logo -->
       <a href="/" class="flex items-center gap-[8px] pl-[12px] hover:opacity-70 transition-opacity">
-        <img src="/images/logo-hd.png" alt="Love Logo HD" class="w-[32px] h-[32px] object-contain drop-shadow-[1px_1px_0_#000]" />
+        <Image src={logoHd} alt="Love Logo HD" width={32} class="w-[32px] h-[32px] object-contain drop-shadow-[1px_1px_0_#000]" />
         <span class="text-[20px] font-bold text-[var(--color-carbon-black)] tracking-tight">Dea Alma</span>
       </a>
       
