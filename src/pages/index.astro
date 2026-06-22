@@ -436,7 +436,7 @@ const optAssistant = await getImage({ src: assistant, format: 'webp', width: 100
       </div>
       
       <!-- Mobile Fan-out Animation Styles -->
-      <style>
+      <style is:global>
         @media (max-width: 1023px) {
           /* When the stack is revealed on mobile, fan the cards out slightly so they fit on screen */
           .group\/stack.is-revealed .proj-card-3 {
@@ -802,7 +802,8 @@ const optAssistant = await getImage({ src: assistant, format: 'webp', width: 100
                     if (entry.isIntersecting) {
                         entry.target.classList.remove('opacity-0', 'translate-y-[60px]');
                         entry.target.classList.add('opacity-100', 'translate-y-0', 'is-revealed');
-                        observer.unobserve(entry.target);
+                    } else {
+                        entry.target.classList.remove('is-revealed');
                     }
                 });
             }, {
