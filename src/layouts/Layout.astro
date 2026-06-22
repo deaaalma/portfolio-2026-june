@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import BgmPlayer from '../components/astro/BgmPlayer.astro';
+
 import { ClientRouter } from 'astro:transitions';
 import { Image } from 'astro:assets';
 import gmailPixel from '../assets/images/gmail-pixel.png';
@@ -42,9 +42,18 @@ const { title } = Astro.props;
 		<title>{title}</title>
 		<!-- Runs synchronously before any HTML renders: skip intro if already seen this session -->
 		<script is:inline>
+			// Runs on initial page load (before any HTML renders)
 			if (typeof sessionStorage !== 'undefined' && sessionStorage.getItem('portfolio_intro_done') === '1') {
 				document.documentElement.classList.add('no-intro');
 			}
+		</script>
+		<script>
+			// Re-apply no-intro class on every ClientRouter navigation
+			document.addEventListener('astro:page-load', () => {
+				if (typeof sessionStorage !== 'undefined' && sessionStorage.getItem('portfolio_intro_done') === '1') {
+					document.documentElement.classList.add('no-intro');
+				}
+			});
 		</script>
 		<style>
 			/* Applied instantly (before JS bundles load) to hide intro elements for returning visitors */
@@ -117,7 +126,6 @@ const { title } = Astro.props;
 			</div>
 		</div>
 
-		<BgmPlayer />
 		
 		<script>
 			import Lenis from '@studio-freight/lenis';
