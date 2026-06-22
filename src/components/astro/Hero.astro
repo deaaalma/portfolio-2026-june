@@ -719,13 +719,8 @@ import githubPixel from '../../assets/images/github-pixel.png';
    };
 
    // Run typing effect for the default open panel on initial page load
-   if (window.innerWidth > 768) {
-       runPanelTypingEffect('panel-about');
-   } else {
-       // On mobile, skip typing effect and show text instantly
-       const panel = document.getElementById('panel-about');
-       if (panel) panel.setAttribute('data-typed', 'true');
-   }
+   runPanelTypingEffect('panel-about');
+
    // Retro Sound Effects (Synthesized)
    const setupRetroSFX = () => {
        let audioCtx = null;
