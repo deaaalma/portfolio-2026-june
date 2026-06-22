@@ -67,44 +67,46 @@ const headerClasses = [
 
 
 <script>
-  // Mobile Menu Logic
-  const menuBtn = document.getElementById('mobile-menu-btn');
-  const dropdown = document.getElementById('mobile-menu-dropdown');
-  const lines = menuBtn?.querySelectorAll('span');
-  const links = document.querySelectorAll('.mobile-link');
+  document.addEventListener('astro:page-load', () => {
+    // Mobile Menu Logic
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const dropdown = document.getElementById('mobile-menu-dropdown');
+    const lines = menuBtn?.querySelectorAll('span');
+    const links = document.querySelectorAll('.mobile-link');
 
-  let isMenuOpen = false;
+    let isMenuOpen = false;
 
-  function toggleMenu() {
-    isMenuOpen = !isMenuOpen;
-    
-    if (isMenuOpen) {
-      dropdown?.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-[-10px]');
-      dropdown?.classList.add('opacity-100', 'translate-y-0');
-      // Animate hamburger to X
-      if(lines && lines.length === 3) {
-          lines[0].style.transform = 'translateY(9px) rotate(45deg)';
-          lines[1].style.opacity = '0';
-          lines[2].style.transform = 'translateY(-9px) rotate(-45deg)';
-      }
-    } else {
-      dropdown?.classList.remove('opacity-100', 'translate-y-0');
-      dropdown?.classList.add('opacity-0', 'pointer-events-none', 'translate-y-[-10px]');
-      // Animate X to hamburger
-      if(lines && lines.length === 3) {
-          lines[0].style.transform = 'none';
-          lines[1].style.opacity = '1';
-          lines[2].style.transform = 'none';
+    function toggleMenu() {
+      isMenuOpen = !isMenuOpen;
+      
+      if (isMenuOpen) {
+        dropdown?.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-[-10px]');
+        dropdown?.classList.add('opacity-100', 'translate-y-0');
+        // Animate hamburger to X
+        if(lines && lines.length === 3) {
+            lines[0].style.transform = 'translateY(9px) rotate(45deg)';
+            lines[1].style.opacity = '0';
+            lines[2].style.transform = 'translateY(-9px) rotate(-45deg)';
+        }
+      } else {
+        dropdown?.classList.remove('opacity-100', 'translate-y-0');
+        dropdown?.classList.add('opacity-0', 'pointer-events-none', 'translate-y-[-10px]');
+        // Animate X to hamburger
+        if(lines && lines.length === 3) {
+            lines[0].style.transform = 'none';
+            lines[1].style.opacity = '1';
+            lines[2].style.transform = 'none';
+        }
       }
     }
-  }
 
-  menuBtn?.addEventListener('click', toggleMenu);
+    menuBtn?.addEventListener('click', toggleMenu);
 
-  // Close menu when a link is clicked
-  links.forEach(link => {
-    link.addEventListener('click', () => {
-      if(isMenuOpen) toggleMenu();
+    // Close menu when a link is clicked
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        if(isMenuOpen) toggleMenu();
+      });
     });
   });
 </script>
