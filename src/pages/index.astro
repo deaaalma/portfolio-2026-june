@@ -47,7 +47,13 @@ const optAssistant = await getImage({ src: assistant, format: 'webp', width: 100
       
       <div class="relative max-w-[1400px] mx-auto z-10">
         <!-- Section Header -->
-        <h2 class="scroll-reveal opacity-0 translate-y-[60px] transition-all duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] text-[40px] md:text-[56px] tracking-wider mb-[32px] text-[var(--color-carbon-black)]" style="font-family: 'Poppin', sans-serif;">Experience</h2>
+        <h2 class="scroll-reveal opacity-0 translate-y-[60px] transition-all duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] text-[40px] md:text-[56px] tracking-wider mb-[8px] text-[var(--color-carbon-black)]" style="font-family: 'Poppin', sans-serif;">Experience</h2>
+
+        <!-- Mobile swipe hint -->
+        <div class="flex lg:hidden items-center gap-[8px] mb-[24px] opacity-60">
+          <span class="text-[13px] font-mono font-bold text-[var(--color-carbon-black)]">← Swipe to see more →</span>
+          <span class="text-[16px] animate-bounce-x">👆</span>
+        </div>
 
 
         <!-- Snake Timeline Container (Retro OS Theme - Side Photo Restored) -->
@@ -56,10 +62,10 @@ const optAssistant = await getImage({ src: assistant, format: 'webp', width: 100
           <div class="hidden absolute left-[20px] top-[24px] bottom-[24px] w-[6px] bg-[var(--color-carbon-black)] z-0"></div>
 
           <!-- Grid Container -->
-          <div class="flex overflow-x-auto snap-x snap-mandatory lg:grid lg:grid-cols-2 gap-[24px] lg:gap-y-[80px] lg:gap-x-[160px] relative z-10 ml-0 -mx-[24px] px-[24px] lg:mx-0 lg:px-0 pb-[24px] lg:pb-0 hide-scrollbar" style="-webkit-overflow-scrolling: touch; scrollbar-width: none;">
+          <div class="flex overflow-x-auto snap-x snap-mandatory lg:grid lg:grid-cols-2 gap-[24px] lg:gap-y-[80px] lg:gap-x-[160px] relative z-10 ml-0 -mx-[24px] px-[24px] lg:mx-0 lg:px-0 pb-[24px] lg:pb-0 hide-scrollbar" style="-webkit-overflow-scrolling: touch; scrollbar-width: none; scroll-snap-type: x mandatory;">
           
             <!-- Card 1: Jan - Mar 2026 (Top Left) -->
-            <div class="scroll-reveal opacity-0 translate-y-[60px] transition-all duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] relative min-w-[85vw] sm:min-w-[400px] lg:min-w-0 w-full snap-center bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[4px_4px_0_#000] hover:-translate-y-1 hover:shadow-[6px_6px_0_#000] transition-all group flex flex-col order-1 lg:order-1">
+            <div class="scroll-reveal opacity-0 translate-y-[60px] transition-all duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] relative min-w-[85vw] sm:min-w-[400px] lg:min-w-0 w-full snap-center bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[4px_4px_0_#000] hover:-translate-y-1 hover:shadow-[6px_6px_0_#000] transition-all group flex flex-col order-1 lg:order-1" style="scroll-snap-stop: always;">
               
               <!-- Window Title Bar -->
               <div class="w-full bg-[#e0f2fe] border-b-[3px] border-[var(--color-carbon-black)] px-[12px] py-[8px] flex justify-between items-center">
@@ -122,7 +128,7 @@ const optAssistant = await getImage({ src: assistant, format: 'webp', width: 100
             </div>
 
             <!-- Card 2: Sep - Dec 2025 (Top Right) -->
-            <div class="scroll-reveal opacity-0 translate-y-[60px] transition-all duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] delay-100 relative min-w-[85vw] sm:min-w-[400px] lg:min-w-0 w-full snap-center bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[4px_4px_0_#000] hover:-translate-y-1 hover:shadow-[6px_6px_0_#000] transition-all group flex flex-col order-2 lg:order-2">
+            <div class="scroll-reveal opacity-0 translate-y-[60px] transition-all duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] delay-100 relative min-w-[85vw] sm:min-w-[400px] lg:min-w-0 w-full snap-center bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[4px_4px_0_#000] hover:-translate-y-1 hover:shadow-[6px_6px_0_#000] transition-all group flex flex-col order-2 lg:order-2" style="scroll-snap-stop: always;">
               
               <!-- Window Title Bar -->
               <div class="w-full bg-[#fef3c8] border-b-[3px] border-[var(--color-carbon-black)] px-[12px] py-[8px] flex justify-between items-center">
@@ -183,7 +189,7 @@ const optAssistant = await getImage({ src: assistant, format: 'webp', width: 100
             </div>
 
             <!-- Card 3: Apr - Jun 2025 (Bottom Right) -->
-            <div class="scroll-reveal opacity-0 translate-y-[60px] transition-all duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] delay-[200ms] relative min-w-[85vw] sm:min-w-[400px] lg:min-w-0 w-full snap-center bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[4px_4px_0_#000] hover:-translate-y-1 hover:shadow-[6px_6px_0_#000] transition-all group flex flex-col order-3 lg:order-4">
+            <div class="scroll-reveal opacity-0 translate-y-[60px] transition-all duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] delay-[200ms] relative min-w-[85vw] sm:min-w-[400px] lg:min-w-0 w-full snap-center bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[4px_4px_0_#000] hover:-translate-y-1 hover:shadow-[6px_6px_0_#000] transition-all group flex flex-col order-3 lg:order-4" style="scroll-snap-stop: always;">
               
               <!-- Window Title Bar -->
               <div class="w-full bg-[#d2fae5] border-b-[3px] border-[var(--color-carbon-black)] px-[12px] py-[8px] flex justify-between items-center">
@@ -243,7 +249,7 @@ const optAssistant = await getImage({ src: assistant, format: 'webp', width: 100
             </div>
 
             <!-- Card 4: Jul - Aug 2023 (Bottom Left) -->
-            <div class="scroll-reveal opacity-0 translate-y-[60px] transition-all duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] delay-[300ms] relative min-w-[85vw] sm:min-w-[400px] lg:min-w-0 w-full snap-center bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[4px_4px_0_#000] hover:-translate-y-1 hover:shadow-[6px_6px_0_#000] transition-all group flex flex-col order-4 lg:order-3">
+            <div class="scroll-reveal opacity-0 translate-y-[60px] transition-all duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] delay-[300ms] relative min-w-[85vw] sm:min-w-[400px] lg:min-w-0 w-full snap-center bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[4px_4px_0_#000] hover:-translate-y-1 hover:shadow-[6px_6px_0_#000] transition-all group flex flex-col order-4 lg:order-3" style="scroll-snap-stop: always;">
               
               <!-- Window Title Bar -->
               <div class="w-full bg-[#fae9ff] border-b-[3px] border-[var(--color-carbon-black)] px-[12px] py-[8px] flex justify-between items-center">
@@ -595,8 +601,21 @@ const optAssistant = await getImage({ src: assistant, format: 'webp', width: 100
           const imgElement = carousel.querySelector('.carousel-img');
           const titleElement = carousel.querySelector('.carousel-title');
           
-          imgElement.addEventListener('click', () => {
-             openLightbox(images, titles, startIndex, imgElement, titleElement);
+          // Use both click and touchend to handle mobile
+          let touchMoved = false;
+          imgElement.addEventListener('touchstart', () => { touchMoved = false; }, { passive: true });
+          imgElement.addEventListener('touchmove', () => { touchMoved = true; }, { passive: true });
+          imgElement.addEventListener('touchend', (e) => {
+            if (!touchMoved) {
+              e.preventDefault();
+              e.stopPropagation();
+              openLightbox(images, titles, startIndex, imgElement, titleElement);
+            }
+          });
+          imgElement.addEventListener('click', (e) => {
+            if (e.pointerType === 'mouse' || e.pointerType === '') {
+              openLightbox(images, titles, startIndex, imgElement, titleElement);
+            }
           });
         });
 
