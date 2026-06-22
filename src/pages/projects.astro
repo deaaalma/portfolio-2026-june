@@ -7,34 +7,12 @@ import imgSecondhandApp from '../assets/images/Mobile App Marketplace Seconhand.
 import imgPortfolioWebsite from '../assets/images/Potrfolio Website.webp';
 import imgTransparas from '../assets/images/Transparas Portfolio.webp';
 import imgHospital from '../assets/images/Hospital Management System.webp';
+import Navbar from '../components/astro/Navbar.astro';
 ---
 
 <Layout title="My Projects">
   <!-- ========== FLOATING PILL NAVBAR ========== -->
-  <header class="fixed top-[24px] left-1/2 -translate-x-1/2 w-[calc(100%-48px)] max-w-[900px] z-50">
-    <nav class="flex items-center justify-between bg-[var(--color-paper-white)] border-[1.5px] border-[var(--color-carbon-black)] rounded-full px-[16px] py-[12px] shadow-[4px_4px_0_#000]">
-      <!-- Logo -->
-      <a href="/" class="flex items-center gap-[8px] pl-[12px] hover:opacity-70 transition-opacity">
-        <Image src={logoHd} alt="Love Logo HD" width={32} class="w-[32px] h-[32px] object-contain drop-shadow-[1px_1px_0_#000]" />
-        <span class="text-[20px] font-bold text-[var(--color-carbon-black)] tracking-tight">Dea Alma</span>
-      </a>
-      
-      <!-- Right Side -->
-      <div class="flex items-center gap-[36px]">
-        <div class="hidden md:flex items-center gap-[36px]">
-          <a href="/#about" class="text-[15px] font-medium text-[var(--color-carbon-black)] hover:opacity-70 transition-opacity">About</a>
-          <a href="/#what-i-do" class="text-[15px] font-medium text-[var(--color-carbon-black)] hover:opacity-70 transition-opacity">What I Do</a>
-          <a href="/#my-work" class="text-[15px] font-medium text-[var(--color-carbon-black)] hover:opacity-70 transition-opacity">My Work</a>
-        </div>
-        <div class="flex items-center gap-[12px]">
-          <a href="/#contact" class="flex items-center gap-[8px] text-[15px] font-bold text-[var(--color-carbon-black)] border-[1.5px] border-[var(--color-carbon-black)] rounded-full px-[20px] py-[8px] bg-[var(--color-lime-pulse)] shadow-[2px_2px_0_#000] hover:brightness-95 transition-all">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            Let's Talk
-          </a>
-        </div>
-      </div>
-    </nav>
-  </header>
+  <Navbar />
 
   <main class="pt-[72px] min-h-screen bg-[#f3e8ff] relative">
     <!-- Global Dot Grid Background -->

@@ -32,7 +32,7 @@ const optAssistant = await getImage({ src: assistant, format: 'webp', width: 100
 ---
 
 <Layout title="Putu Ayu Deanisa Alma Putri's Portfolio">
-  <Navbar />
+  <Navbar hiddenOnLoad={true} />
   
   <main>
     <Hero />
@@ -432,7 +432,7 @@ const optAssistant = await getImage({ src: assistant, format: 'webp', width: 100
     </section>
 
     <!-- Simple Footer Placeholder (Until Shut Down screen is built) -->
-    <footer class="w-full bg-[var(--color-carbon-black)] text-[var(--color-paper-white)] py-[60px] flex flex-col items-center justify-center">
+    <footer id="contact" class="w-full bg-[var(--color-carbon-black)] text-[var(--color-paper-white)] py-[60px] flex flex-col items-center justify-center">
       <div class="font-mono font-bold tracking-widest text-[14px] mb-[16px]">C:\> LOGGING OFF...</div>
 
     </footer>
