@@ -125,7 +125,7 @@ import githubPixel from '../../assets/images/github-pixel.png';
       </div>
 
       <!-- Browser Chrome / Top Bar -->
-      <div class="flex items-center justify-between px-[16px] py-[8px] border-b-[3px] border-black bg-[var(--color-paper-white)] rounded-none">
+      <div id="widget-drag-handle" class="flex items-center justify-between px-[16px] py-[8px] border-b-[3px] border-black bg-[var(--color-paper-white)] rounded-none cursor-move select-none">
         <div class="flex items-center gap-[16px]">
             <!-- Mac-style Window Controls -->
             <div class="flex items-center gap-[8px]">
@@ -799,6 +799,53 @@ import githubPixel from '../../assets/images/github-pixel.png';
            el.addEventListener('click', playClick);
        });
    };
+   // Draggable Widget Logic
+   const dragHandle = document.getElementById('widget-drag-handle');
+   
+   if (heroWidget && dragHandle) {
+     let isDragging = false;
+     let initialX, initialY;
+     let xOffset = 0;
+     let yOffset = 0;
+
+     dragHandle.addEventListener('mousedown', dragStart);
+     document.addEventListener('mouseup', dragEnd);
+     document.addEventListener('mousemove', drag);
+
+     function dragStart(e) {
+       // Only allow dragging on desktop
+       if (window.innerWidth <= 768) return;
+       
+       initialX = e.clientX - xOffset;
+       initialY = e.clientY - yOffset;
+       
+       if (e.target === dragHandle || dragHandle.contains(e.target)) {
+         isDragging = true;
+         heroWidget.style.transition = 'none';
+         document.body.style.userSelect = 'none'; // Prevent text selection while dragging
+       }
+     }
+
+     function dragEnd(e) {
+       if (!isDragging) return;
+       isDragging = false;
+       heroWidget.style.transition = '';
+       document.body.style.userSelect = '';
+     }
+
+     function drag(e) {
+       if (isDragging) {
+         e.preventDefault();
+         const currentX = e.clientX - initialX;
+         const currentY = e.clientY - initialY;
+         
+         xOffset = currentX;
+         yOffset = currentY;
+         
+         heroWidget.style.transform = `translate(${currentX}px, ${currentY}px)`;
+       }
+     }
+   }
 
    setupRetroSFX();
 
