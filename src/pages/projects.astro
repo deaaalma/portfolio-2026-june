@@ -525,17 +525,23 @@ import Navbar from '../components/astro/Navbar.astro';
     }, 300);
   }
 
-  const previewTriggers = document.querySelectorAll('.preview-btn');
-  previewTriggers.forEach(trigger => {
-    trigger.addEventListener('click', (e) => {
-      if (e.target.closest('a')) return;
-      e.stopPropagation();
-      const card = trigger.closest('.project-card');
-      if (card) openModal(card);
+    const previewBtns = document.querySelectorAll('.preview-btn');
+    previewBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const card = btn.closest('.project-card');
+        if (card) openModal(card);
+      });
     });
-  });
 
-  modalCloseBtn?.addEventListener('click', closeModal);
-  modalBackdrop?.addEventListener('click', closeModal);
+    // Fix for iOS Safari: adding a click listener makes the element "tappable",
+    // which triggers the CSS :hover state to show the buttons on mobile
+    const overlays = document.querySelectorAll('.preview-overlay');
+    overlays.forEach(overlay => {
+      overlay.addEventListener('click', () => {});
+    });
+
+    modalCloseBtn?.addEventListener('click', closeModal);
+    modalBackdrop?.addEventListener('click', closeModal);
   });
 </script>
