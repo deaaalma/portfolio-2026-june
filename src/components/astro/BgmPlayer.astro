@@ -1,6 +1,6 @@
 ---
 ---
-<div id="bgm-container" class="fixed bottom-[16px] md:bottom-[24px] right-[16px] md:right-[24px] z-50">
+<div id="bgm-container" transition:persist="bgm-player" class="fixed bottom-[16px] md:bottom-[24px] right-[16px] md:right-[24px] z-50">
     <!-- Tooltip -->
     <div class="absolute -top-[40px] right-0 bg-black text-white text-[12px] font-bold font-mono px-[12px] py-[6px] rounded-[4px] whitespace-nowrap opacity-0 transition-opacity duration-300 pointer-events-none" id="bgm-tooltip">
         BGM: Off
@@ -30,71 +30,79 @@
 </div>
 
 <script>
-    const bgmToggle = document.getElementById('bgm-toggle');
-    const bgmAudio = document.getElementById('bgm-audio') as HTMLAudioElement;
-    const iconUnmuted = document.getElementById('icon-unmuted');
-    const iconMuted = document.getElementById('icon-muted');
-    const tooltip = document.getElementById('bgm-tooltip');
-
+    // Variables declared outside so they can be reused across page loads
     let hasAttemptedAutoPlay = false;
 
-    // Show tooltip on hover
-    bgmToggle?.addEventListener('mouseenter', () => {
-        if(tooltip) tooltip.style.opacity = '1';
-    });
-    bgmToggle?.addEventListener('mouseleave', () => {
-        if(tooltip) tooltip.style.opacity = '0';
-    });
+    document.addEventListener('astro:page-load', () => {
+        const bgmToggle = document.getElementById('bgm-toggle');
+        const bgmAudio = document.getElementById('bgm-audio') as HTMLAudioElement;
+        const iconUnmuted = document.getElementById('icon-unmuted');
+        const iconMuted = document.getElementById('icon-muted');
+        const tooltip = document.getElementById('bgm-tooltip');
 
-    const updateUI = () => {
-        if (!bgmAudio.paused && bgmAudio.volume > 0) {
-            iconMuted?.classList.add('hidden');
-            iconUnmuted?.classList.remove('hidden');
-            if(tooltip) tooltip.innerText = 'BGM: On';
-            bgmToggle?.classList.replace('bg-[#ECA243]', 'bg-[var(--color-lime-pulse)]');
-        } else {
-            iconUnmuted?.classList.add('hidden');
-            iconMuted?.classList.remove('hidden');
-            if(tooltip) tooltip.innerText = 'BGM: Off';
-            bgmToggle?.classList.replace('bg-[var(--color-lime-pulse)]', 'bg-[#ECA243]');
-        }
-    };
+        if (!bgmToggle || !bgmAudio) return;
 
-    const tryAutoPlay = () => {
-        if (hasAttemptedAutoPlay) return;
-        hasAttemptedAutoPlay = true;
-        
-        if (bgmAudio && bgmAudio.paused) {
-            bgmAudio.volume = 0.2;
-            bgmAudio.play().then(() => {
+        // Show tooltip on hover
+        bgmToggle.addEventListener('mouseenter', () => {
+            if(tooltip) tooltip.style.opacity = '1';
+        });
+        bgmToggle.addEventListener('mouseleave', () => {
+            if(tooltip) tooltip.style.opacity = '0';
+        });
+
+        const updateUI = () => {
+            if (!bgmAudio.paused && bgmAudio.volume > 0) {
+                iconMuted?.classList.add('hidden');
+                iconUnmuted?.classList.remove('hidden');
+                if(tooltip) tooltip.innerText = 'BGM: On';
+                bgmToggle.classList.replace('bg-[#ECA243]', 'bg-[var(--color-lime-pulse)]');
+            } else {
+                iconUnmuted?.classList.add('hidden');
+                iconMuted?.classList.remove('hidden');
+                if(tooltip) tooltip.innerText = 'BGM: Off';
+                bgmToggle.classList.replace('bg-[var(--color-lime-pulse)]', 'bg-[#ECA243]');
+            }
+        };
+
+        const tryAutoPlay = () => {
+            if (hasAttemptedAutoPlay) return;
+            hasAttemptedAutoPlay = true;
+            
+            if (bgmAudio && bgmAudio.paused) {
+                bgmAudio.volume = 0.2;
+                bgmAudio.play().then(() => {
+                    updateUI();
+                }).catch(e => console.log("Autoplay blocked."));
+            }
+            document.removeEventListener('click', tryAutoPlay);
+        };
+
+        document.addEventListener('click', tryAutoPlay);
+
+        // Manual toggle
+        bgmToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            hasAttemptedAutoPlay = true;
+            
+            if (!bgmAudio.paused && bgmAudio.volume > 0) {
+                // Force pause and mute
+                bgmAudio.pause();
+                bgmAudio.volume = 0;
                 updateUI();
-            }).catch(e => console.log("Autoplay blocked."));
-        }
-        document.removeEventListener('click', tryAutoPlay);
-    };
+            } else {
+                // Force play and unmute
+                bgmAudio.volume = 0.2;
+                bgmAudio.play().then(() => {
+                    updateUI();
+                }).catch(e => console.error(e));
+            }
+        });
 
-    document.addEventListener('click', tryAutoPlay);
+        // Initialize UI state in case it's playing from a previous page
+        updateUI();
 
-    // Manual toggle
-    bgmToggle?.addEventListener('click', (e) => {
-        e.stopPropagation();
-        hasAttemptedAutoPlay = true;
-        
-        if (!bgmAudio.paused && bgmAudio.volume > 0) {
-            // Force pause and mute
-            bgmAudio.pause();
-            bgmAudio.volume = 0;
-            updateUI();
-        } else {
-            // Force play and unmute
-            bgmAudio.volume = 0.2;
-            bgmAudio.play().then(() => {
-                updateUI();
-            }).catch(e => console.error(e));
-        }
+        // Handle end of song or state changes from browser media controls
+        bgmAudio.addEventListener('pause', updateUI);
+        bgmAudio.addEventListener('play', updateUI);
     });
-
-    // Handle end of song or state changes from browser media controls
-    bgmAudio?.addEventListener('pause', updateUI);
-    bgmAudio?.addEventListener('play', updateUI);
 </script>

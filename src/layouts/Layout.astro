@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import BgmPlayer from '../components/astro/BgmPlayer.astro';
+import { ViewTransitions } from 'astro:transitions';
 import { Image } from 'astro:assets';
 import gmailPixel from '../assets/images/gmail-pixel.png';
 import linkedinPixel from '../assets/images/linkedin-pixel.png';
@@ -24,6 +25,7 @@ const { title } = Astro.props;
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+		<ViewTransitions />
 
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
@@ -124,36 +126,48 @@ const { title } = Astro.props;
 
 			gsap.registerPlugin(ScrollTrigger);
 
-			const lenis = new Lenis({
-				autoRaf: true,
-			});
+			let lenis;
 
-			lenis.on('scroll', ScrollTrigger.update);
+			document.addEventListener('astro:page-load', () => {
+				if (!lenis) {
+					lenis = new Lenis({
+						autoRaf: true,
+					});
 
-			gsap.ticker.add((time) => {
-				lenis.raf(time * 1000);
-			});
+					lenis.on('scroll', ScrollTrigger.update);
 
-			gsap.ticker.lagSmoothing(0);
+					gsap.ticker.add((time) => {
+						lenis.raf(time * 1000);
+					});
 
-			// Handle smooth scrolling for anchor links
-			document.querySelectorAll('a[href^="/#"], a[href^="#"]').forEach(anchor => {
-				anchor.addEventListener('click', function (e) {
-					const href = this.getAttribute('href');
-					const targetId = href.substring(href.indexOf('#'));
-					if (targetId === '#') return;
+					gsap.ticker.lagSmoothing(0);
+				}
+
+				ScrollTrigger.refresh();
+
+				// Handle smooth scrolling for anchor links
+				document.querySelectorAll('a[href^="/#"], a[href^="#"]').forEach(anchor => {
+					// Remove existing listener to prevent duplicates
+					const newAnchor = anchor.cloneNode(true);
+					anchor.parentNode.replaceChild(newAnchor, anchor);
 					
-					// Only smooth scroll if we are currently on the homepage
-					if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
-						const targetElement = document.querySelector(targetId);
-						if (targetElement) {
-							e.preventDefault();
-							lenis.scrollTo(targetElement, {
-								offset: -80, // offset for navbar
-								duration: 1.2
-							});
+					newAnchor.addEventListener('click', function (e) {
+						const href = this.getAttribute('href');
+						const targetId = href.substring(href.indexOf('#'));
+						if (targetId === '#') return;
+						
+						// Only smooth scroll if we are currently on the homepage
+						if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+							const targetElement = document.querySelector(targetId);
+							if (targetElement) {
+								e.preventDefault();
+								lenis.scrollTo(targetElement, {
+									offset: -80, // offset for navbar
+									duration: 1.2
+								});
+							}
 						}
-					}
+					});
 				});
 			});
 		</script>
