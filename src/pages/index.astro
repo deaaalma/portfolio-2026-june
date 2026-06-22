@@ -502,7 +502,7 @@ const optAssistant = await getImage({ src: assistant, format: 'webp', width: 100
 
     <!-- Lightbox Script -->
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
+      document.addEventListener('astro:page-load', () => {
         const carousels = document.querySelectorAll('.retro-carousel');
         
         // AGGRESSIVE PRELOADING
