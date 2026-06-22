@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-
+import BgmPlayer from '../components/astro/BgmPlayer.astro';
 import { ClientRouter } from 'astro:transitions';
 import { Image } from 'astro:assets';
 import gmailPixel from '../assets/images/gmail-pixel.png';
@@ -126,6 +126,7 @@ const { title } = Astro.props;
 			</div>
 		</div>
 
+		<BgmPlayer />
 		
 		<script>
 			import Lenis from '@studio-freight/lenis';

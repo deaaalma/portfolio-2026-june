@@ -39,10 +39,8 @@
 
         if (!bgmToggle || !bgmAudio) return;
 
-        const BGM_STATE_KEY = 'bgm_playing';
-
-        const updateUI = (isPlaying: boolean) => {
-            if (isPlaying) {
+        const updateUI = () => {
+            if (!bgmAudio.paused && bgmAudio.volume > 0) {
                 iconMuted?.classList.add('hidden');
                 iconUnmuted?.classList.remove('hidden');
                 if (tooltip) tooltip.innerText = 'BGM: On';
@@ -55,16 +53,10 @@
             }
         };
 
-        // Restore state from previous page navigation
-        const wasPlaying = sessionStorage.getItem(BGM_STATE_KEY) === 'true';
-        if (wasPlaying) {
-            bgmAudio.volume = 0.2;
-            bgmAudio.play().then(() => updateUI(true)).catch(() => updateUI(false));
-        } else {
-            updateUI(false);
-        }
+        // Always start in off state on page load/navigation
+        updateUI();
 
-        // Prevent attaching duplicate listeners on repeated page loads
+        // Prevent duplicate listeners
         if ((bgmToggle as any)._bgmInitialized) return;
         (bgmToggle as any)._bgmInitialized = true;
 
@@ -76,36 +68,22 @@
             if (tooltip) tooltip.style.opacity = '0';
         });
 
-        // Autoplay on first user interaction
-        const tryAutoPlay = () => {
-            if (sessionStorage.getItem(BGM_STATE_KEY) !== null) {
-                document.removeEventListener('click', tryAutoPlay);
-                return;
-            }
-            bgmAudio.volume = 0.2;
-            bgmAudio.play().then(() => {
-                sessionStorage.setItem(BGM_STATE_KEY, 'true');
-                updateUI(true);
-            }).catch(() => {});
-            document.removeEventListener('click', tryAutoPlay);
-        };
-        document.addEventListener('click', tryAutoPlay);
-
-        // Manual toggle
+        // Manual toggle — user decides when to play
         bgmToggle.addEventListener('click', (e) => {
             e.stopPropagation();
             if (!bgmAudio.paused && bgmAudio.volume > 0) {
                 bgmAudio.pause();
                 bgmAudio.volume = 0;
-                sessionStorage.setItem(BGM_STATE_KEY, 'false');
-                updateUI(false);
+                updateUI();
             } else {
                 bgmAudio.volume = 0.2;
                 bgmAudio.play().then(() => {
-                    sessionStorage.setItem(BGM_STATE_KEY, 'true');
-                    updateUI(true);
-                }).catch(e => console.error(e));
+                    updateUI();
+                }).catch(err => console.error(err));
             }
         });
+
+        bgmAudio.addEventListener('pause', updateUI);
+        bgmAudio.addEventListener('play', updateUI);
     });
 </script>

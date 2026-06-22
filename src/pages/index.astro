@@ -4,7 +4,6 @@ import Navbar from '../components/astro/Navbar.astro';
 import Hero from '../components/astro/Hero.astro';
 import Badge from '../components/astro/Badge.astro';
 import Button from '../components/astro/Button.astro';
-import BgmPlayer from '../components/astro/BgmPlayer.astro';
 
 import { Image, getImage } from 'astro:assets';
 import viskal1 from '../assets/images/viskal_1.jpg';
@@ -34,7 +33,6 @@ const optAssistant = await getImage({ src: assistant, format: 'webp', width: 100
 
 <Layout title="Putu Ayu Deanisa Alma Putri's Portfolio">
   <Navbar hiddenOnLoad={true} />
-  <BgmPlayer />
   
   <main>
     <Hero />
