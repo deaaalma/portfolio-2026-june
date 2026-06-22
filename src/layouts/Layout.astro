@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
 import BgmPlayer from '../components/astro/BgmPlayer.astro';
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 import { Image } from 'astro:assets';
 import gmailPixel from '../assets/images/gmail-pixel.png';
 import linkedinPixel from '../assets/images/linkedin-pixel.png';
@@ -25,7 +25,7 @@ const { title } = Astro.props;
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<ViewTransitions />
+		<ClientRouter />
 
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
