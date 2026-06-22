@@ -362,7 +362,7 @@ const optAssistant = await getImage({ src: assistant, format: 'webp', width: 100
               <!-- Card 3 (back) -->
               <div class="absolute inset-0"
                 style="transform: rotate(-4deg) translateX(-12px) translateY(10px); z-index: 1;">
-                <div class="proj-card-3 w-full h-full bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[5px_5px_0_#000] lg:group-hover/stack:-translate-x-40 lg:group-hover/stack:-translate-y-16 lg:group-hover/stack:shadow-[12px_12px_0_#000] lg:group-hover/stack:-rotate-12 transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] delay-[200ms] lg:delay-0 cursor-pointer flex flex-col" onclick="window.location.href='/projects'">
+                <a href="/projects" class="proj-card-3 w-full h-full bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[5px_5px_0_#000] lg:group-hover/stack:-translate-x-40 lg:group-hover/stack:-translate-y-16 lg:group-hover/stack:shadow-[12px_12px_0_#000] lg:group-hover/stack:-rotate-12 transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] delay-[200ms] lg:delay-0 cursor-pointer flex flex-col block decoration-none text-black">
                   <div class="w-full bg-[#fae9ff] border-b-[3px] border-[var(--color-carbon-black)] px-[12px] py-[8px] flex items-center gap-[6px]">
                     <div class="w-[10px] h-[10px] rounded-full bg-red-500 border-[1.5px] border-[var(--color-carbon-black)]"></div>
                     <div class="w-[10px] h-[10px] rounded-full bg-yellow-400 border-[1.5px] border-[var(--color-carbon-black)]"></div>
@@ -376,13 +376,13 @@ const optAssistant = await getImage({ src: assistant, format: 'webp', width: 100
                     <div class="h-[12px] bg-gray-200 border border-gray-300 mb-[6px] w-3/4"></div>
                     <div class="h-[10px] bg-gray-100 border border-gray-200 w-1/2"></div>
                   </div>
-                </div>
+                </a>
               </div>
 
               <!-- Card 2 (middle) -->
               <div class="absolute inset-0"
                 style="transform: rotate(-2deg) translateX(-5px) translateY(5px); z-index: 2;">
-                <div class="proj-card-2 w-full h-full bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[5px_5px_0_#000] lg:group-hover/stack:-translate-x-20 lg:group-hover/stack:-translate-y-8 lg:group-hover/stack:shadow-[10px_10px_0_#000] lg:group-hover/stack:-rotate-6 transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] delay-[100ms] lg:delay-0 cursor-pointer flex flex-col" onclick="window.location.href='/projects'">
+                <a href="/projects" class="proj-card-2 w-full h-full bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[5px_5px_0_#000] lg:group-hover/stack:-translate-x-20 lg:group-hover/stack:-translate-y-8 lg:group-hover/stack:shadow-[10px_10px_0_#000] lg:group-hover/stack:-rotate-6 transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] delay-[100ms] lg:delay-0 cursor-pointer flex flex-col block decoration-none text-black">
                   <div class="w-full bg-[#fca5a5] border-b-[3px] border-[var(--color-carbon-black)] px-[12px] py-[8px] flex items-center gap-[6px]">
                     <div class="w-[10px] h-[10px] rounded-full bg-red-500 border-[1.5px] border-[var(--color-carbon-black)]"></div>
                     <div class="w-[10px] h-[10px] rounded-full bg-yellow-400 border-[1.5px] border-[var(--color-carbon-black)]"></div>
@@ -396,12 +396,12 @@ const optAssistant = await getImage({ src: assistant, format: 'webp', width: 100
                     <div class="h-[12px] bg-gray-200 border border-gray-300 mb-[6px] w-3/4"></div>
                     <div class="h-[10px] bg-gray-100 border border-gray-200 w-1/2"></div>
                   </div>
-                </div>
+                </a>
               </div>
 
               <!-- Card 1 (front / top) — interactive hover -->
-              <div class="proj-card-1 absolute inset-0 bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[5px_5px_0_#000] lg:group-hover/stack:-translate-y-2 lg:group-hover/stack:shadow-[8px_12px_0_#000] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer group/front"
-                style="z-index: 3;" onclick="window.location.href='/projects'">
+              <a href="/projects" class="proj-card-1 absolute inset-0 bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[5px_5px_0_#000] lg:group-hover/stack:-translate-y-2 lg:group-hover/stack:shadow-[8px_12px_0_#000] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer group/front block decoration-none text-black"
+                style="z-index: 3;">
                 <div class="w-full bg-[#a3e635] border-b-[3px] border-[var(--color-carbon-black)] px-[12px] py-[8px] flex items-center gap-[6px]">
                   <div class="w-[10px] h-[10px] rounded-full bg-red-500 border-[1.5px] border-[var(--color-carbon-black)]"></div>
                   <div class="w-[10px] h-[10px] rounded-full bg-yellow-400 border-[1.5px] border-[var(--color-carbon-black)]"></div>
@@ -427,7 +427,7 @@ const optAssistant = await getImage({ src: assistant, format: 'webp', width: 100
                   </p>
                   <div class="font-mono text-[10px] text-gray-400 font-bold uppercase tracking-wider">Click to see all projects →</div>
                 </div>
-              </div>
+              </a>
 
             </div>
           </div>
