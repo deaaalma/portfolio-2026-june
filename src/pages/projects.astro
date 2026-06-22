@@ -42,17 +42,17 @@ import Navbar from '../components/astro/Navbar.astro';
           </div>
 
           <!-- Right: Box Filters -->
-          <div class="flex items-center gap-[0px] border-[3px] border-[var(--color-carbon-black)] w-fit shadow-[4px_4px_0_#000] bg-white">
+          <div class="flex items-center gap-[0px] border-[3px] border-[var(--color-carbon-black)] w-full md:w-fit shadow-[4px_4px_0_#000] bg-white overflow-x-auto hide-scrollbar">
             <button data-filter="all"
-              class="filter-btn active-filter px-[20px] py-[10px] font-mono font-black text-[12px] uppercase tracking-wider border-r-[3px] border-[var(--color-carbon-black)] transition-all hover:bg-[#a3e635]">
+              class="filter-btn active-filter px-[20px] py-[10px] font-mono font-black text-[12px] uppercase tracking-wider border-r-[3px] border-[var(--color-carbon-black)] transition-all hover:bg-[#a3e635] whitespace-nowrap">
               All (5)
             </button>
             <button data-filter="web-app"
-              class="filter-btn px-[20px] py-[10px] font-mono font-black text-[12px] uppercase tracking-wider border-r-[3px] border-[var(--color-carbon-black)] transition-all hover:bg-[#bfdbfe]">
+              class="filter-btn px-[20px] py-[10px] font-mono font-black text-[12px] uppercase tracking-wider border-r-[3px] border-[var(--color-carbon-black)] transition-all hover:bg-[#bfdbfe] whitespace-nowrap">
               Web App (4)
             </button>
             <button data-filter="mobile"
-              class="filter-btn px-[20px] py-[10px] font-mono font-black text-[12px] uppercase tracking-wider transition-all hover:bg-[#fca5a5]">
+              class="filter-btn px-[20px] py-[10px] font-mono font-black text-[12px] uppercase tracking-wider transition-all hover:bg-[#fca5a5] whitespace-nowrap">
               Mobile (1)
             </button>
           </div>

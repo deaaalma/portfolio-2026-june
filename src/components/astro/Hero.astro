@@ -75,10 +75,10 @@ import githubPixel from '../../assets/images/github-pixel.png';
   </div>
 
   <!-- Main Content Container -->
-  <div id="hero-main-container" class="relative max-w-[1200px] w-full mx-auto px-[24px] z-30 flex flex-col items-center mt-[100px] md:mt-[180px]">
+  <div id="hero-main-container" class="relative max-w-[1200px] w-full mx-auto px-[12px] md:px-[24px] z-30 flex flex-col items-center mt-[80px] md:mt-[180px]">
     
     <!-- Giant HELLO WORLD Mario Style -->
-    <h1 id="hello-world-title" class="text-center text-[70px] md:text-[140px] leading-[1.1] uppercase drop-shadow-[4px_4px_0_#000] flex flex-wrap justify-center gap-x-2 md:gap-x-4 mb-[40px] md:mb-[80px]" style="font-family: 'Mario', sans-serif; -webkit-text-stroke: 10px black; paint-order: stroke fill;">
+    <h1 id="hello-world-title" class="text-center text-[44px] sm:text-[56px] md:text-[140px] leading-[1.1] uppercase drop-shadow-[4px_4px_0_#000] flex flex-wrap justify-center gap-x-2 md:gap-x-4 mb-[40px] md:mb-[80px]" style="font-family: 'Mario', sans-serif; -webkit-text-stroke: 8px black; paint-order: stroke fill;">
       <div class="flex">
         <span class="text-[#E52521] hover:-translate-y-4 transition-transform cursor-pointer">H</span>
         <span class="text-[#049CD8] hover:-translate-y-4 transition-transform cursor-pointer">E</span>
@@ -105,54 +105,43 @@ import githubPixel from '../../assets/images/github-pixel.png';
 
     <!-- Restored Widget (Mockup Card) adapted for Portfolio (Initially Hidden) -->
     <!-- Restored Widget (Mockup Card) adapted for Portfolio (Initially Hidden) -->
-    <div id="hero-widget" class="absolute top-[160px] md:top-[220px] opacity-0 translate-y-[50px] pointer-events-none transition-all duration-1000 w-full max-w-[1200px] min-h-[500px] h-auto bg-[var(--color-fog)] border-[3px] border-[var(--color-carbon-black)] rounded-none shadow-[8px_8px_0_#000] overflow-visible flex flex-col mx-auto z-10 text-left">
+    <div id="hero-widget" class="absolute top-[160px] md:top-[220px] opacity-0 translate-y-[50px] pointer-events-none transition-all duration-1000 w-full max-w-[1200px] min-h-fit md:min-h-[500px] h-auto bg-[var(--color-fog)] border-[3px] border-[var(--color-carbon-black)] rounded-none shadow-[8px_8px_0_#000] overflow-visible flex flex-col mx-auto z-10 text-left">
       
-      <!-- Floating PNG Face Image with Tooltip -->
-      <a href="/cv_putu_ayu_deanisa.pdf" target="_blank" class="absolute bottom-[-40px] right-[20px] z-50 animate-float group block cursor-pointer">
-        <!-- Speech Bubble Tooltip -->
-        <div class="absolute top-[30px] left-1/2 -translate-x-1/2 bg-[var(--color-paper-white)] border-[3px] border-black px-[12px] py-[8px] shadow-[4px_4px_0_#000] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap z-50">
-            <span class="text-[14px] font-bold text-black font-mono tracking-tighter">Want to see my resume?</span>
-            <!-- Triangle pointer -->
-            <div class="absolute bottom-[-7px] left-[50%] -translate-x-1/2 w-[10px] h-[10px] bg-[var(--color-paper-white)] border-b-[3px] border-r-[3px] border-black transform rotate-45"></div>
-        </div>
-        
-        <Image src={faceImage} alt="Dea Alma" width={280} class="h-auto object-contain drop-shadow-[4px_4px_0_#000] group-hover:drop-shadow-[6px_6px_0_var(--color-lime-pulse)] transition-all duration-300" style="image-rendering: pixelated;" />
-      </a>
-
+      <!-- Face Image has been moved to panel-about for better mobile flow -->
       <!-- Widget Header (Floating Tag) -->
-      <div class="absolute top-[-38px] left-[-3px] bg-[#FBD000] border-[3px] border-black px-[16px] py-[4px] shadow-[4px_4px_0_#000] z-50 hover:-translate-y-1 transition-transform cursor-pointer">
-        <span class="text-[18px] tracking-wider text-black" style="font-family: 'Poppin', sans-serif;">ABOUT ME</span>
+      <div class="absolute top-[-32px] md:top-[-38px] left-[-3px] bg-[#FBD000] border-[3px] border-black px-[12px] md:px-[16px] py-[2px] md:py-[4px] shadow-[4px_4px_0_#000] z-50 hover:-translate-y-1 transition-transform cursor-pointer">
+        <span class="text-[14px] md:text-[18px] tracking-wider text-black" style="font-family: 'Poppin', sans-serif;">ABOUT ME</span>
       </div>
 
       <!-- Browser Chrome / Top Bar -->
       <div id="widget-drag-handle" class="flex items-center justify-between px-[16px] py-[8px] border-b-[3px] border-black bg-[var(--color-paper-white)] rounded-none cursor-move select-none">
         <div class="flex items-center gap-[16px]">
             <!-- Mac-style Window Controls -->
-            <div class="flex items-center gap-[8px]">
-              <span class="w-[14px] h-[14px] rounded-full bg-[#E52521] border-[1.5px] border-black"></span>
-              <span class="w-[14px] h-[14px] rounded-full bg-[#FBD000] border-[1.5px] border-black"></span>
-              <span class="w-[14px] h-[14px] rounded-full bg-[#43B047] border-[1.5px] border-black"></span>
+            <div class="flex items-center gap-[6px] md:gap-[8px]">
+              <span class="w-[10px] h-[10px] md:w-[14px] md:h-[14px] rounded-full bg-[#E52521] border-[1.5px] border-black"></span>
+              <span class="w-[10px] h-[10px] md:w-[14px] md:h-[14px] rounded-full bg-[#FBD000] border-[1.5px] border-black"></span>
+              <span class="w-[10px] h-[10px] md:w-[14px] md:h-[14px] rounded-full bg-[#43B047] border-[1.5px] border-black"></span>
             </div>
         </div>
-        <div class="flex items-center gap-[12px]">
-            <div id="retro-clock" class="text-[13px] font-bold font-mono tracking-widest text-black mt-[1px]">12:00 AM</div>
-            <div class="w-[24px] h-[24px] bg-[var(--color-lime-pulse)] border-2 border-black flex items-center justify-center shadow-[2px_2px_0_#000]">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        <div class="flex items-center gap-[8px] md:gap-[12px]">
+            <div id="retro-clock" class="text-[10px] md:text-[13px] font-bold font-mono tracking-widest text-black mt-[1px]">12:00 AM</div>
+            <div class="w-[20px] h-[20px] md:w-[24px] md:h-[24px] bg-[var(--color-lime-pulse)] border-2 border-black flex items-center justify-center shadow-[2px_2px_0_#000]">
+              <svg width="10" height="10" class="md:w-[12px] md:h-[12px]" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
             </div>
         </div>
       </div>
 
-      <div class="flex flex-1 overflow-hidden font-mono text-[var(--color-carbon-black)]">
+      <div class="flex flex-col md:flex-row flex-1 overflow-hidden font-mono text-[var(--color-carbon-black)]">
         <!-- Sidebar -->
-        <div class="w-[240px] border-r-[3px] border-[var(--color-carbon-black)] bg-[var(--color-paper-white)] flex flex-col p-[16px]">
-          <div class="flex flex-col gap-[12px] mb-[32px]" id="sidebar-nav">
-            <div id="nav-about" class="sidebar-btn active flex items-center gap-[8px] bg-[var(--color-lime-pulse)] px-[12px] py-[8px] rounded-none border-2 border-black font-bold text-[14px] shadow-[2px_2px_0_#000] cursor-pointer text-black transition-all" data-target="panel-about">
+        <div class="w-full md:w-[240px] border-b-[3px] md:border-b-0 md:border-r-[3px] border-[var(--color-carbon-black)] bg-[var(--color-paper-white)] flex flex-col p-[8px] md:p-[16px] shrink-0">
+          <div class="flex flex-row md:flex-col gap-[8px] md:gap-[12px] mb-0 md:mb-[32px] overflow-x-auto hide-scrollbar pb-[4px] md:pb-0" id="sidebar-nav">
+            <div id="nav-about" class="sidebar-btn active flex items-center gap-[6px] md:gap-[8px] bg-[var(--color-lime-pulse)] px-[10px] md:px-[12px] py-[6px] md:py-[8px] rounded-none border-2 border-black font-bold text-[12px] md:text-[14px] shadow-[2px_2px_0_#000] cursor-pointer text-black transition-all whitespace-nowrap flex-shrink-0" data-target="panel-about">
                 <span class="nav-indicator">></span> <span class="nav-text">About Me</span>
             </div>
-            <div id="nav-skills" class="sidebar-btn inactive flex items-center gap-[8px] px-[12px] py-[8px] text-[var(--color-slate)] font-bold text-[14px] hover:bg-white hover:border-2 hover:border-black hover:shadow-[2px_2px_0_#000] hover:text-black border-2 border-transparent rounded-none cursor-pointer transition-all" data-target="panel-skills">
+            <div id="nav-skills" class="sidebar-btn inactive flex items-center gap-[6px] md:gap-[8px] px-[10px] md:px-[12px] py-[6px] md:py-[8px] text-[var(--color-slate)] font-bold text-[12px] md:text-[14px] hover:bg-white hover:border-2 hover:border-black hover:shadow-[2px_2px_0_#000] hover:text-black border-2 border-transparent rounded-none cursor-pointer transition-all whitespace-nowrap flex-shrink-0" data-target="panel-skills">
                 <span class="nav-indicator opacity-0">></span> <span class="nav-text">My Skills</span>
             </div>
-            <div id="nav-education" class="sidebar-btn inactive flex items-center gap-[8px] px-[12px] py-[8px] text-[var(--color-slate)] font-bold text-[14px] hover:bg-white hover:border-2 hover:border-black hover:shadow-[2px_2px_0_#000] hover:text-black border-2 border-transparent rounded-none cursor-pointer transition-all" data-target="panel-education">
+            <div id="nav-education" class="sidebar-btn inactive flex items-center gap-[6px] md:gap-[8px] px-[10px] md:px-[12px] py-[6px] md:py-[8px] text-[var(--color-slate)] font-bold text-[12px] md:text-[14px] hover:bg-white hover:border-2 hover:border-black hover:shadow-[2px_2px_0_#000] hover:text-black border-2 border-transparent rounded-none cursor-pointer transition-all whitespace-nowrap flex-shrink-0" data-target="panel-education">
                 <span class="nav-indicator opacity-0">></span> <span class="nav-text">Education</span>
             </div>
           </div>
@@ -161,41 +150,54 @@ import githubPixel from '../../assets/images/github-pixel.png';
         </div>
 
         <!-- Main Content -->
-        <div class="flex-1 bg-[var(--color-fog)] p-[40px] relative overflow-x-hidden">
+        <div class="flex-1 bg-[var(--color-fog)] p-[16px] md:p-[40px] relative overflow-x-hidden">
           <!-- Panel: About Me -->
           <div id="panel-about" class="content-panel flex flex-col h-fit w-full">
-            <div class="flex items-center justify-between mb-[16px]">
-                <h2 class="text-[36px] font-bold tracking-tight type-target" style="font-family: 'Chalkboard', cursive;">Hello! I'm Dea Alma</h2>
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-[16px] gap-[12px]">
+                <h2 class="text-[24px] md:text-[36px] font-bold tracking-tight type-target leading-tight" style="font-family: 'Chalkboard', cursive;">Hello! I'm Dea Alma</h2>
                 <div class="flex items-center gap-[8px] md:gap-[12px] mr-0 md:mr-[24px] relative z-20">
                     <span class="text-[12px] font-bold text-[var(--color-slate)] animate-pulse hidden md:inline">● ONLINE</span>
                     <button id="hire-me-btn" onclick="document.getElementById('hire-me-modal').classList.remove('hidden'); document.getElementById('hire-me-modal').classList.add('flex');" class="border-[2px] border-[var(--color-carbon-black)] px-[12px] md:px-[16px] py-[8px] rounded-none text-[12px] md:text-[14px] bg-[var(--color-lime-pulse)] shadow-[3px_3px_0_#000] font-bold hover:translate-y-[2px] hover:shadow-[1px_1px_0_#000] transition-all active:brightness-90">Hire Me</button>
                 </div>
             </div>
             
-            <div class="flex flex-col gap-[32px] max-w-[540px] relative z-20">
-                <!-- Bio Text (No Box) -->
-                <div>
-                    <p class="text-[16px] leading-[1.7] text-[var(--color-slate)] font-medium type-target">
-                        6th-semester Information Technology student with experience in business systems and web applications. Familiar with ERP environments through Odoo system support and interested in how technology improves business processes and customer operations.
-                    </p>
+            <div class="flex flex-col gap-[24px] md:gap-[32px] max-w-[540px] relative z-20">
+                <!-- Bio Text and Face Image Container -->
+                <div class="flex flex-row items-end justify-between gap-[12px] md:block w-full">
+                    <!-- Bio Text -->
+                    <div class="flex-1">
+                        <p class="text-[12px] md:text-[16px] leading-[1.5] md:leading-[1.7] text-[var(--color-slate)] font-medium type-target w-full">
+                            6th-semester Information Technology student with experience in business systems and web applications. Familiar with ERP environments through Odoo system support and interested in how technology improves business processes and customer operations.
+                        </p>
+                    </div>
+                    
+                    <!-- Face Image (Inline on mobile, Absolute on Desktop) -->
+                    <a href="/cv_putu_ayu_deanisa.pdf" target="_blank" class="relative md:absolute md:bottom-[-40px] md:right-[20px] shrink-0 block cursor-pointer z-50 hover:-translate-y-2 transition-transform duration-300 animate-float">
+                        <!-- Speech Bubble Tooltip -->
+                        <div class="absolute top-[0px] md:top-[30px] left-1/2 -translate-x-1/2 bg-[var(--color-paper-white)] border-[2px] md:border-[3px] border-black px-[8px] md:px-[12px] py-[4px] md:py-[8px] shadow-[2px_2px_0_#000] md:shadow-[4px_4px_0_#000] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap z-50">
+                            <span class="text-[9px] md:text-[14px] font-bold text-black font-mono tracking-tighter">Want to see my resume?</span>
+                            <div class="absolute bottom-[-6px] md:bottom-[-7px] left-[50%] -translate-x-1/2 w-[8px] md:w-[10px] h-[8px] md:h-[10px] bg-[var(--color-paper-white)] border-b-[2px] md:border-b-[3px] border-r-[2px] md:border-r-[3px] border-black transform rotate-45"></div>
+                        </div>
+                        <Image src={faceImage} alt="Dea Alma" width={280} class="block w-[100px] sm:w-[130px] md:w-[280px] h-auto object-contain drop-shadow-[2px_2px_0_#000] md:drop-shadow-[4px_4px_0_#000] group-hover:drop-shadow-[4px_4px_0_var(--color-lime-pulse)] md:group-hover:drop-shadow-[6px_6px_0_var(--color-lime-pulse)] transition-all duration-300" style="image-rendering: pixelated;" />
+                    </a>
                 </div>
                 
                 <!-- Details Row -->
-                <div class="grid grid-cols-3 gap-[16px]">
+                <div class="grid grid-cols-3 gap-[6px] md:gap-[16px] pb-[40px] md:pb-0 w-full">
                     <!-- Current GPA -->
-                    <div class="border-[3px] border-black bg-[var(--color-amber-spark)] p-[16px] shadow-[4px_4px_0_#000] flex flex-col justify-center">
-                        <span class="text-[11px] font-bold text-gray-800 mb-[6px] font-mono uppercase tracking-widest">Current GPA</span>
-                        <span class="text-[16px] font-bold tracking-tight whitespace-nowrap">3.83 / 4.00</span>
+                    <div class="border-[2px] md:border-[3px] border-black bg-[var(--color-amber-spark)] p-[6px] md:p-[16px] shadow-[2px_2px_0_#000] md:shadow-[4px_4px_0_#000] flex flex-col justify-center">
+                        <span class="text-[8px] md:text-[11px] font-bold text-gray-800 mb-[2px] md:mb-[6px] font-mono uppercase tracking-widest leading-[1.1]">GPA</span>
+                        <span class="text-[10px] sm:text-[12px] md:text-[16px] font-bold tracking-tight whitespace-normal md:whitespace-nowrap leading-[1.2]">3.83/4.00</span>
                     </div>
                     <!-- Location -->
-                    <div class="border-[3px] border-black bg-[#fae9ff] p-[16px] shadow-[4px_4px_0_#000] flex flex-col justify-center">
-                        <span class="text-[11px] font-bold text-gray-600 mb-[6px] font-mono uppercase tracking-widest">Location</span>
-                        <span class="text-[16px] font-bold tracking-tight whitespace-nowrap">Bali, Indonesia</span>
+                    <div class="border-[2px] md:border-[3px] border-black bg-[#fae9ff] p-[6px] md:p-[16px] shadow-[2px_2px_0_#000] md:shadow-[4px_4px_0_#000] flex flex-col justify-center">
+                        <span class="text-[8px] md:text-[11px] font-bold text-gray-600 mb-[2px] md:mb-[6px] font-mono uppercase tracking-widest leading-[1.1]">Location</span>
+                        <span class="text-[10px] sm:text-[12px] md:text-[16px] font-bold tracking-tight whitespace-normal md:whitespace-nowrap leading-[1.2]">Bali, ID</span>
                     </div>
                     <!-- Education -->
-                    <div class="border-[3px] border-black bg-[#d2fae5] p-[16px] shadow-[4px_4px_0_#000] flex flex-col justify-center">
-                        <span class="text-[11px] font-bold text-gray-600 mb-[6px] font-mono uppercase tracking-widest">Education</span>
-                        <span class="text-[16px] font-bold tracking-tight whitespace-nowrap">Udayana Univ.</span>
+                    <div class="border-[2px] md:border-[3px] border-black bg-[#d2fae5] p-[6px] md:p-[16px] shadow-[2px_2px_0_#000] md:shadow-[4px_4px_0_#000] flex flex-col justify-center">
+                        <span class="text-[8px] md:text-[11px] font-bold text-gray-600 mb-[2px] md:mb-[6px] font-mono uppercase tracking-widest leading-[1.1]">Education</span>
+                        <span class="text-[10px] sm:text-[12px] md:text-[16px] font-bold tracking-tight whitespace-normal md:whitespace-nowrap leading-[1.2]">Udayana U.</span>
                     </div>
                 </div>
             </div>
@@ -203,95 +205,95 @@ import githubPixel from '../../assets/images/github-pixel.png';
 
           <!-- Panel: My Skills -->
           <div id="panel-skills" class="content-panel hidden flex flex-col h-fit w-full">
-             <div class="flex items-center justify-between mb-[24px]">
-                <h2 class="text-[36px] font-bold tracking-tight type-target" style="font-family: 'Chalkboard', cursive;">My Skills</h2>
+             <div class="flex items-center justify-between mb-[16px] md:mb-[24px]">
+                <h2 class="text-[20px] md:text-[36px] font-bold tracking-tight type-target leading-tight" style="font-family: 'Chalkboard', cursive;">My Skills</h2>
              </div>
              
              <!-- Grid of Retro Folders -->
-             <div class="grid grid-cols-3 gap-y-[32px] gap-x-[16px] max-w-[540px] relative z-20 mt-[8px]">
+             <div class="grid grid-cols-3 gap-y-[20px] md:gap-y-[32px] gap-x-[10px] md:gap-x-[16px] max-w-[540px] relative z-20 mt-[8px]">
                 
                 <!-- Frontend -->
-                <div class="skill-folder flex flex-col items-center gap-2 w-full group cursor-pointer" data-title="Frontend" data-skills="React, Astro, TypeScript, JavaScript, HTML, CSS">
-                    <div class="relative w-[80px] h-[60px] group-hover:-translate-y-2 transition-transform drop-shadow-[4px_4px_0_#000]">
-                        <div class="absolute top-[-8px] left-[-2px] w-[30px] h-[12px] bg-[#ECA243] border-t-[3px] border-l-[3px] border-r-[3px] border-black"></div>
-                        <div class="absolute bottom-0 left-0 w-[80px] h-[60px] bg-[#ECA243] border-[3px] border-black"></div>
+                <div class="skill-folder flex flex-col items-center gap-1 md:gap-2 w-full group cursor-pointer" data-title="Frontend" data-skills="React, Astro, TypeScript, JavaScript, HTML, CSS">
+                    <div class="relative w-[50px] h-[38px] md:w-[80px] md:h-[60px] group-hover:-translate-y-2 transition-transform drop-shadow-[2px_2px_0_#000] md:drop-shadow-[4px_4px_0_#000]">
+                        <div class="absolute top-[-5px] md:top-[-8px] left-[-2px] w-[20px] md:w-[30px] h-[8px] md:h-[12px] bg-[#ECA243] border-t-[2px] md:border-t-[3px] border-l-[2px] md:border-l-[3px] border-r-[2px] md:border-r-[3px] border-black"></div>
+                        <div class="absolute bottom-0 left-0 w-[50px] md:w-[80px] h-[38px] md:h-[60px] bg-[#ECA243] border-[2px] md:border-[3px] border-black"></div>
                         <!-- Paper sticking out -->
-                        <div class="absolute bottom-[4px] left-[10px] w-[54px] h-[50px] bg-white border-[3px] border-black group-hover:translate-y-[-24px] group-hover:-rotate-6 transition-all duration-300 z-10 p-[4px] overflow-hidden">
-                            <p class="text-[7px] leading-[1.2] font-bold text-black font-mono">React<br/>Astro<br/>TS/JS<br/>HTML/CSS</p>
+                        <div class="absolute bottom-[2px] md:bottom-[4px] left-[6px] md:left-[10px] w-[34px] md:w-[54px] h-[30px] md:h-[50px] bg-white border-[2px] md:border-[3px] border-black group-hover:translate-y-[-12px] md:group-hover:translate-y-[-24px] group-hover:-rotate-6 transition-all duration-300 z-10 p-[2px] md:p-[4px] overflow-hidden">
+                            <p class="text-[5px] md:text-[7px] leading-[1.2] font-bold text-black font-mono">React<br/>Astro<br/>TS/JS<br/>HTML/CSS</p>
                         </div>
-                        <div class="absolute bottom-0 left-0 w-[80px] h-[45px] bg-[#F4B85E] border-[3px] border-black z-20 shadow-[inset_2px_2px_0_rgba(255,255,255,0.4)]"></div>
+                        <div class="absolute bottom-0 left-0 w-[50px] md:w-[80px] h-[28px] md:h-[45px] bg-[#F4B85E] border-[2px] md:border-[3px] border-black z-20 shadow-[inset_1px_1px_0_rgba(255,255,255,0.4)] md:shadow-[inset_2px_2px_0_rgba(255,255,255,0.4)]"></div>
                     </div>
-                    <span class="font-mono text-[13px] font-bold text-black tracking-tighter mt-1 px-[4px] border-[2px] border-transparent group-hover:bg-blue-600 group-hover:text-white group-hover:border-dotted group-hover:border-white">Frontend</span>
+                    <span class="font-mono text-[9px] md:text-[13px] font-bold text-black tracking-tighter mt-1 px-[2px] md:px-[4px] border-[2px] border-transparent group-hover:bg-blue-600 group-hover:text-white group-hover:border-dotted group-hover:border-white">Frontend</span>
                 </div>
 
                 <!-- Backend -->
-                <div class="skill-folder flex flex-col items-center gap-2 w-full group cursor-pointer" data-title="Backend" data-skills="PHP, Laravel, Express">
-                    <div class="relative w-[80px] h-[60px] group-hover:-translate-y-2 transition-transform drop-shadow-[4px_4px_0_#000]">
-                        <div class="absolute top-[-8px] left-[-2px] w-[30px] h-[12px] bg-[#ECA243] border-t-[3px] border-l-[3px] border-r-[3px] border-black"></div>
-                        <div class="absolute bottom-0 left-0 w-[80px] h-[60px] bg-[#ECA243] border-[3px] border-black"></div>
+                <div class="skill-folder flex flex-col items-center gap-1 md:gap-2 w-full group cursor-pointer" data-title="Backend" data-skills="PHP, Laravel, Express">
+                    <div class="relative w-[50px] h-[38px] md:w-[80px] md:h-[60px] group-hover:-translate-y-2 transition-transform drop-shadow-[2px_2px_0_#000] md:drop-shadow-[4px_4px_0_#000]">
+                        <div class="absolute top-[-5px] md:top-[-8px] left-[-2px] w-[20px] md:w-[30px] h-[8px] md:h-[12px] bg-[#ECA243] border-t-[2px] md:border-t-[3px] border-l-[2px] md:border-l-[3px] border-r-[2px] md:border-r-[3px] border-black"></div>
+                        <div class="absolute bottom-0 left-0 w-[50px] md:w-[80px] h-[38px] md:h-[60px] bg-[#ECA243] border-[2px] md:border-[3px] border-black"></div>
                         <!-- Paper sticking out -->
-                        <div class="absolute bottom-[4px] left-[10px] w-[54px] h-[50px] bg-white border-[3px] border-black group-hover:translate-y-[-24px] group-hover:-rotate-6 transition-all duration-300 z-10 p-[4px] overflow-hidden">
-                            <p class="text-[7px] leading-[1.2] font-bold text-black font-mono">Laravel<br/>Express<br/>PHP</p>
+                        <div class="absolute bottom-[2px] md:bottom-[4px] left-[6px] md:left-[10px] w-[34px] md:w-[54px] h-[30px] md:h-[50px] bg-white border-[2px] md:border-[3px] border-black group-hover:translate-y-[-12px] md:group-hover:translate-y-[-24px] group-hover:-rotate-6 transition-all duration-300 z-10 p-[2px] md:p-[4px] overflow-hidden">
+                            <p class="text-[5px] md:text-[7px] leading-[1.2] font-bold text-black font-mono">Laravel<br/>Express<br/>PHP</p>
                         </div>
-                        <div class="absolute bottom-0 left-0 w-[80px] h-[45px] bg-[#F4B85E] border-[3px] border-black z-20 shadow-[inset_2px_2px_0_rgba(255,255,255,0.4)]"></div>
+                        <div class="absolute bottom-0 left-0 w-[50px] md:w-[80px] h-[28px] md:h-[45px] bg-[#F4B85E] border-[2px] md:border-[3px] border-black z-20 shadow-[inset_1px_1px_0_rgba(255,255,255,0.4)] md:shadow-[inset_2px_2px_0_rgba(255,255,255,0.4)]"></div>
                     </div>
-                    <span class="font-mono text-[13px] font-bold text-black tracking-tighter mt-1 px-[4px] border-[2px] border-transparent group-hover:bg-blue-600 group-hover:text-white group-hover:border-dotted group-hover:border-white">Backend</span>
+                    <span class="font-mono text-[9px] md:text-[13px] font-bold text-black tracking-tighter mt-1 px-[2px] md:px-[4px] border-[2px] border-transparent group-hover:bg-blue-600 group-hover:text-white group-hover:border-dotted group-hover:border-white">Backend</span>
                 </div>
 
                 <!-- Mobile -->
-                <div class="skill-folder flex flex-col items-center gap-2 w-full group cursor-pointer" data-title="Mobile" data-skills="Kotlin, Java, Flutter">
-                    <div class="relative w-[80px] h-[60px] group-hover:-translate-y-2 transition-transform drop-shadow-[4px_4px_0_#000]">
-                        <div class="absolute top-[-8px] left-[-2px] w-[30px] h-[12px] bg-[#ECA243] border-t-[3px] border-l-[3px] border-r-[3px] border-black"></div>
-                        <div class="absolute bottom-0 left-0 w-[80px] h-[60px] bg-[#ECA243] border-[3px] border-black"></div>
+                <div class="skill-folder flex flex-col items-center gap-1 md:gap-2 w-full group cursor-pointer" data-title="Mobile" data-skills="Kotlin, Java, Flutter">
+                    <div class="relative w-[50px] h-[38px] md:w-[80px] md:h-[60px] group-hover:-translate-y-2 transition-transform drop-shadow-[2px_2px_0_#000] md:drop-shadow-[4px_4px_0_#000]">
+                        <div class="absolute top-[-5px] md:top-[-8px] left-[-2px] w-[20px] md:w-[30px] h-[8px] md:h-[12px] bg-[#ECA243] border-t-[2px] md:border-t-[3px] border-l-[2px] md:border-l-[3px] border-r-[2px] md:border-r-[3px] border-black"></div>
+                        <div class="absolute bottom-0 left-0 w-[50px] md:w-[80px] h-[38px] md:h-[60px] bg-[#ECA243] border-[2px] md:border-[3px] border-black"></div>
                         <!-- Paper sticking out -->
-                        <div class="absolute bottom-[4px] left-[10px] w-[54px] h-[50px] bg-white border-[3px] border-black group-hover:translate-y-[-24px] group-hover:-rotate-6 transition-all duration-300 z-10 p-[4px] overflow-hidden">
-                            <p class="text-[7px] leading-[1.2] font-bold text-black font-mono">Flutter<br/>Kotlin<br/>Java</p>
+                        <div class="absolute bottom-[2px] md:bottom-[4px] left-[6px] md:left-[10px] w-[34px] md:w-[54px] h-[30px] md:h-[50px] bg-white border-[2px] md:border-[3px] border-black group-hover:translate-y-[-12px] md:group-hover:translate-y-[-24px] group-hover:-rotate-6 transition-all duration-300 z-10 p-[2px] md:p-[4px] overflow-hidden">
+                            <p class="text-[5px] md:text-[7px] leading-[1.2] font-bold text-black font-mono">Flutter<br/>Kotlin<br/>Java</p>
                         </div>
-                        <div class="absolute bottom-0 left-0 w-[80px] h-[45px] bg-[#F4B85E] border-[3px] border-black z-20 shadow-[inset_2px_2px_0_rgba(255,255,255,0.4)]"></div>
+                        <div class="absolute bottom-0 left-0 w-[50px] md:w-[80px] h-[28px] md:h-[45px] bg-[#F4B85E] border-[2px] md:border-[3px] border-black z-20 shadow-[inset_1px_1px_0_rgba(255,255,255,0.4)] md:shadow-[inset_2px_2px_0_rgba(255,255,255,0.4)]"></div>
                     </div>
-                    <span class="font-mono text-[13px] font-bold text-black tracking-tighter mt-1 px-[4px] border-[2px] border-transparent group-hover:bg-blue-600 group-hover:text-white group-hover:border-dotted group-hover:border-white">Mobile</span>
+                    <span class="font-mono text-[9px] md:text-[13px] font-bold text-black tracking-tighter mt-1 px-[2px] md:px-[4px] border-[2px] border-transparent group-hover:bg-blue-600 group-hover:text-white group-hover:border-dotted group-hover:border-white">Mobile</span>
                 </div>
                 
                 <!-- Databases -->
-                <div class="skill-folder flex flex-col items-center gap-2 w-full group cursor-pointer" data-title="Databases" data-skills="MySQL, PostgreSQL, MongoDB">
-                    <div class="relative w-[80px] h-[60px] group-hover:-translate-y-2 transition-transform drop-shadow-[4px_4px_0_#000]">
-                        <div class="absolute top-[-8px] left-[-2px] w-[30px] h-[12px] bg-[#ECA243] border-t-[3px] border-l-[3px] border-r-[3px] border-black"></div>
-                        <div class="absolute bottom-0 left-0 w-[80px] h-[60px] bg-[#ECA243] border-[3px] border-black"></div>
+                <div class="skill-folder flex flex-col items-center gap-1 md:gap-2 w-full group cursor-pointer" data-title="Databases" data-skills="MySQL, PostgreSQL, MongoDB">
+                    <div class="relative w-[50px] h-[38px] md:w-[80px] md:h-[60px] group-hover:-translate-y-2 transition-transform drop-shadow-[2px_2px_0_#000] md:drop-shadow-[4px_4px_0_#000]">
+                        <div class="absolute top-[-5px] md:top-[-8px] left-[-2px] w-[20px] md:w-[30px] h-[8px] md:h-[12px] bg-[#ECA243] border-t-[2px] md:border-t-[3px] border-l-[2px] md:border-l-[3px] border-r-[2px] md:border-r-[3px] border-black"></div>
+                        <div class="absolute bottom-0 left-0 w-[50px] md:w-[80px] h-[38px] md:h-[60px] bg-[#ECA243] border-[2px] md:border-[3px] border-black"></div>
                         <!-- Paper sticking out -->
-                        <div class="absolute bottom-[4px] left-[10px] w-[54px] h-[50px] bg-white border-[3px] border-black group-hover:translate-y-[-24px] group-hover:-rotate-6 transition-all duration-300 z-10 p-[4px] overflow-hidden">
-                            <p class="text-[7px] leading-[1.2] font-bold text-black font-mono">PostgreSQL<br/>MySQL<br/>MongoDB</p>
+                        <div class="absolute bottom-[2px] md:bottom-[4px] left-[6px] md:left-[10px] w-[34px] md:w-[54px] h-[30px] md:h-[50px] bg-white border-[2px] md:border-[3px] border-black group-hover:translate-y-[-12px] md:group-hover:translate-y-[-24px] group-hover:-rotate-6 transition-all duration-300 z-10 p-[2px] md:p-[4px] overflow-hidden">
+                            <p class="text-[5px] md:text-[7px] leading-[1.2] font-bold text-black font-mono">PostgreSQL<br/>MySQL<br/>MongoDB</p>
                         </div>
-                        <div class="absolute bottom-0 left-0 w-[80px] h-[45px] bg-[#F4B85E] border-[3px] border-black z-20 shadow-[inset_2px_2px_0_rgba(255,255,255,0.4)]"></div>
+                        <div class="absolute bottom-0 left-0 w-[50px] md:w-[80px] h-[28px] md:h-[45px] bg-[#F4B85E] border-[2px] md:border-[3px] border-black z-20 shadow-[inset_1px_1px_0_rgba(255,255,255,0.4)] md:shadow-[inset_2px_2px_0_rgba(255,255,255,0.4)]"></div>
                     </div>
-                    <span class="font-mono text-[13px] font-bold text-black tracking-tighter mt-1 px-[4px] border-[2px] border-transparent group-hover:bg-blue-600 group-hover:text-white group-hover:border-dotted group-hover:border-white">Databases</span>
+                    <span class="font-mono text-[9px] md:text-[13px] font-bold text-black tracking-tighter mt-1 px-[2px] md:px-[4px] border-[2px] border-transparent group-hover:bg-blue-600 group-hover:text-white group-hover:border-dotted group-hover:border-white">Databases</span>
                 </div>
 
                 <!-- Data -->
-                <div class="skill-folder flex flex-col items-center gap-2 w-full group cursor-pointer" data-title="Data Science" data-skills="Python">
-                    <div class="relative w-[80px] h-[60px] group-hover:-translate-y-2 transition-transform drop-shadow-[4px_4px_0_#000]">
-                        <div class="absolute top-[-8px] left-[-2px] w-[30px] h-[12px] bg-[#ECA243] border-t-[3px] border-l-[3px] border-r-[3px] border-black"></div>
-                        <div class="absolute bottom-0 left-0 w-[80px] h-[60px] bg-[#ECA243] border-[3px] border-black"></div>
+                <div class="skill-folder flex flex-col items-center gap-1 md:gap-2 w-full group cursor-pointer" data-title="Data Science" data-skills="Python">
+                    <div class="relative w-[50px] h-[38px] md:w-[80px] md:h-[60px] group-hover:-translate-y-2 transition-transform drop-shadow-[2px_2px_0_#000] md:drop-shadow-[4px_4px_0_#000]">
+                        <div class="absolute top-[-5px] md:top-[-8px] left-[-2px] w-[20px] md:w-[30px] h-[8px] md:h-[12px] bg-[#ECA243] border-t-[2px] md:border-t-[3px] border-l-[2px] md:border-l-[3px] border-r-[2px] md:border-r-[3px] border-black"></div>
+                        <div class="absolute bottom-0 left-0 w-[50px] md:w-[80px] h-[38px] md:h-[60px] bg-[#ECA243] border-[2px] md:border-[3px] border-black"></div>
                         <!-- Paper sticking out -->
-                        <div class="absolute bottom-[4px] left-[10px] w-[54px] h-[50px] bg-white border-[3px] border-black group-hover:translate-y-[-24px] group-hover:-rotate-6 transition-all duration-300 z-10 p-[4px] overflow-hidden">
-                            <p class="text-[7px] leading-[1.2] font-bold text-black font-mono">Python<br/>Data<br/>Analysis</p>
+                        <div class="absolute bottom-[2px] md:bottom-[4px] left-[6px] md:left-[10px] w-[34px] md:w-[54px] h-[30px] md:h-[50px] bg-white border-[2px] md:border-[3px] border-black group-hover:translate-y-[-12px] md:group-hover:translate-y-[-24px] group-hover:-rotate-6 transition-all duration-300 z-10 p-[2px] md:p-[4px] overflow-hidden">
+                            <p class="text-[5px] md:text-[7px] leading-[1.2] font-bold text-black font-mono">Python<br/>Data<br/>Analysis</p>
                         </div>
-                        <div class="absolute bottom-0 left-0 w-[80px] h-[45px] bg-[#F4B85E] border-[3px] border-black z-20 shadow-[inset_2px_2px_0_rgba(255,255,255,0.4)]"></div>
+                        <div class="absolute bottom-0 left-0 w-[50px] md:w-[80px] h-[28px] md:h-[45px] bg-[#F4B85E] border-[2px] md:border-[3px] border-black z-20 shadow-[inset_1px_1px_0_rgba(255,255,255,0.4)] md:shadow-[inset_2px_2px_0_rgba(255,255,255,0.4)]"></div>
                     </div>
-                    <span class="font-mono text-[13px] font-bold text-black tracking-tighter mt-1 px-[4px] border-[2px] border-transparent group-hover:bg-blue-600 group-hover:text-white group-hover:border-dotted group-hover:border-white">Data</span>
+                    <span class="font-mono text-[9px] md:text-[13px] font-bold text-black tracking-tighter mt-1 px-[2px] md:px-[4px] border-[2px] border-transparent group-hover:bg-blue-600 group-hover:text-white group-hover:border-dotted group-hover:border-white">Data</span>
                 </div>
 
                 <!-- Tools -->
-                <div class="skill-folder flex flex-col items-center gap-2 w-full group cursor-pointer" data-title="Development Tools" data-skills="VSCode, Git, GitHub, Laragon">
-                    <div class="relative w-[80px] h-[60px] group-hover:-translate-y-2 transition-transform drop-shadow-[4px_4px_0_#000]">
-                        <div class="absolute top-[-8px] left-[-2px] w-[30px] h-[12px] bg-[#ECA243] border-t-[3px] border-l-[3px] border-r-[3px] border-black"></div>
-                        <div class="absolute bottom-0 left-0 w-[80px] h-[60px] bg-[#ECA243] border-[3px] border-black"></div>
+                <div class="skill-folder flex flex-col items-center gap-1 md:gap-2 w-full group cursor-pointer" data-title="Development Tools" data-skills="VSCode, Git, GitHub, Laragon">
+                    <div class="relative w-[50px] h-[38px] md:w-[80px] md:h-[60px] group-hover:-translate-y-2 transition-transform drop-shadow-[2px_2px_0_#000] md:drop-shadow-[4px_4px_0_#000]">
+                        <div class="absolute top-[-5px] md:top-[-8px] left-[-2px] w-[20px] md:w-[30px] h-[8px] md:h-[12px] bg-[#ECA243] border-t-[2px] md:border-t-[3px] border-l-[2px] md:border-l-[3px] border-r-[2px] md:border-r-[3px] border-black"></div>
+                        <div class="absolute bottom-0 left-0 w-[50px] md:w-[80px] h-[38px] md:h-[60px] bg-[#ECA243] border-[2px] md:border-[3px] border-black"></div>
                         <!-- Paper sticking out -->
-                        <div class="absolute bottom-[4px] left-[10px] w-[54px] h-[50px] bg-white border-[3px] border-black group-hover:translate-y-[-24px] group-hover:-rotate-6 transition-all duration-300 z-10 p-[4px] overflow-hidden">
-                            <p class="text-[7px] leading-[1.2] font-bold text-black font-mono">Git/GitHub<br/>VSCode<br/>Laragon</p>
+                        <div class="absolute bottom-[2px] md:bottom-[4px] left-[6px] md:left-[10px] w-[34px] md:w-[54px] h-[30px] md:h-[50px] bg-white border-[2px] md:border-[3px] border-black group-hover:translate-y-[-12px] md:group-hover:translate-y-[-24px] group-hover:-rotate-6 transition-all duration-300 z-10 p-[2px] md:p-[4px] overflow-hidden">
+                            <p class="text-[5px] md:text-[7px] leading-[1.2] font-bold text-black font-mono">Git/GitHub<br/>VSCode<br/>Laragon</p>
                         </div>
-                        <div class="absolute bottom-0 left-0 w-[80px] h-[45px] bg-[#F4B85E] border-[3px] border-black z-20 shadow-[inset_2px_2px_0_rgba(255,255,255,0.4)]"></div>
+                        <div class="absolute bottom-0 left-0 w-[50px] md:w-[80px] h-[28px] md:h-[45px] bg-[#F4B85E] border-[2px] md:border-[3px] border-black z-20 shadow-[inset_1px_1px_0_rgba(255,255,255,0.4)] md:shadow-[inset_2px_2px_0_rgba(255,255,255,0.4)]"></div>
                     </div>
-                    <span class="font-mono text-[13px] font-bold text-black tracking-tighter mt-1 px-[4px] border-[2px] border-transparent group-hover:bg-blue-600 group-hover:text-white group-hover:border-dotted group-hover:border-white">Tools</span>
+                    <span class="font-mono text-[9px] md:text-[13px] font-bold text-black tracking-tighter mt-1 px-[2px] md:px-[4px] border-[2px] border-transparent group-hover:bg-blue-600 group-hover:text-white group-hover:border-dotted group-hover:border-white">Tools</span>
                 </div>
 
              </div>
@@ -299,59 +301,59 @@ import githubPixel from '../../assets/images/github-pixel.png';
 
           <!-- Panel: Education & Organizations -->
           <div id="panel-education" class="content-panel hidden flex flex-col h-fit w-full pb-[20px]">
-             <div class="flex items-center justify-between mb-[24px]">
-                <h2 class="text-[36px] font-bold tracking-tight type-target" style="font-family: 'Chalkboard', cursive;">Education & Organizations</h2>
+             <div class="flex items-center justify-between mb-[16px] md:mb-[24px]">
+                <h2 class="text-[20px] md:text-[36px] font-bold tracking-tight type-target leading-tight" style="font-family: 'Chalkboard', cursive;">Education & Organizations</h2>
              </div>
              
              <!-- Timeline Container -->
-             <div class="relative border-l-[3px] border-[var(--color-carbon-black)] ml-[12px] z-20 flex flex-col gap-[20px] max-w-[440px]">
+             <div class="relative border-l-[2px] md:border-l-[3px] border-[var(--color-carbon-black)] ml-[8px] md:ml-[12px] z-20 flex flex-col gap-[16px] md:gap-[20px] max-w-[440px]">
                 
                 <!-- Education Item -->
-                <div class="relative ml-[24px] group cursor-default">
+                <div class="relative ml-[16px] md:ml-[24px] group cursor-default">
                     <!-- Timeline Dot -->
-                    <div class="absolute w-[12px] h-[12px] bg-[#FBD000] border-[2px] border-black rounded-full -left-[31.5px] top-[4px] group-hover:bg-[var(--color-lime-pulse)] group-hover:scale-150 transition-all duration-300"></div>
+                    <div class="absolute w-[8px] h-[8px] md:w-[12px] md:h-[12px] bg-[#FBD000] border-[2px] border-black rounded-full -left-[21px] md:-left-[31.5px] top-[4px] group-hover:bg-[var(--color-lime-pulse)] group-hover:scale-150 transition-all duration-300"></div>
                     <!-- Content -->
                     <div class="group-hover:translate-x-1 transition-transform duration-300">
-                        <div class="flex justify-between items-start">
-                            <h3 class="font-bold text-[16px] text-black leading-tight">Bachelor of Information Technology</h3>
-                            <span class="text-black font-mono text-[11px] font-bold whitespace-nowrap ml-[8px]">Sept '23 - Now</span>
+                        <div class="flex flex-col md:flex-row justify-start md:justify-between items-start md:items-center">
+                            <h3 class="font-bold text-[14px] md:text-[16px] text-black leading-tight">Bachelor of Information Technology</h3>
+                            <span class="text-black font-mono text-[10px] md:text-[11px] font-bold whitespace-nowrap ml-0 md:ml-[8px] mt-[2px] md:mt-0 opacity-70 md:opacity-100">Sept '23 - Now</span>
                         </div>
-                        <p class="text-[12px] font-bold text-gray-500 font-mono mb-[4px] uppercase tracking-wider">Udayana University | GPA: 3.83/4.00</p>
-                        <p class="text-[13px] text-gray-800 leading-[1.5] max-w-[380px]">
+                        <p class="text-[10px] md:text-[12px] font-bold text-gray-500 font-mono mb-[2px] md:mb-[4px] uppercase tracking-wider mt-[4px] md:mt-0">Udayana University | GPA: 3.83/4.00</p>
+                        <p class="text-[11px] md:text-[13px] text-gray-800 leading-[1.4] md:leading-[1.5] max-w-[380px]">
                             <span class="font-bold text-black">Relevant Coursework:</span> Software Engineering, CRM/ERP Development, Blockchain, Digital Economy, Database Systems.
                         </p>
                     </div>
                 </div>
 
                 <!-- Organization Item 1 -->
-                <div class="relative ml-[24px] group cursor-default">
+                <div class="relative ml-[16px] md:ml-[24px] group cursor-default">
                     <!-- Timeline Dot -->
-                    <div class="absolute w-[12px] h-[12px] bg-[#049CD8] border-[2px] border-black rounded-full -left-[31.5px] top-[4px] group-hover:bg-[var(--color-lime-pulse)] group-hover:scale-150 transition-all duration-300"></div>
+                    <div class="absolute w-[8px] h-[8px] md:w-[12px] md:h-[12px] bg-[#049CD8] border-[2px] border-black rounded-full -left-[21px] md:-left-[31.5px] top-[4px] group-hover:bg-[var(--color-lime-pulse)] group-hover:scale-150 transition-all duration-300"></div>
                     <!-- Content -->
                     <div class="group-hover:translate-x-1 transition-transform duration-300">
-                        <div class="flex justify-between items-start">
-                            <h3 class="font-bold text-[16px] text-black leading-tight">Technology Artisan</h3>
-                            <span class="text-black font-mono text-[11px] font-bold whitespace-nowrap ml-[8px]">Jan '25 - Dec '25</span>
+                        <div class="flex flex-col md:flex-row justify-start md:justify-between items-start md:items-center">
+                            <h3 class="font-bold text-[14px] md:text-[16px] text-black leading-tight">Technology Artisan</h3>
+                            <span class="text-black font-mono text-[10px] md:text-[11px] font-bold whitespace-nowrap ml-0 md:ml-[8px] mt-[2px] md:mt-0 opacity-70 md:opacity-100">Jan '25 - Dec '25</span>
                         </div>
-                        <p class="text-[12px] font-bold text-gray-500 font-mono mb-[4px] uppercase tracking-wider">Business & Technology Staff</p>
-                        <p class="text-[13px] text-gray-800 leading-[1.5] max-w-[380px]">
+                        <p class="text-[10px] md:text-[12px] font-bold text-gray-500 font-mono mb-[2px] md:mb-[4px] uppercase tracking-wider mt-[4px] md:mt-0">Business & Technology Staff</p>
+                        <p class="text-[11px] md:text-[13px] text-gray-800 leading-[1.4] md:leading-[1.5] max-w-[380px]">
                             Responsible for analyzing tech-business strategies and supporting operational planning.
                         </p>
                     </div>
                 </div>
 
                 <!-- Organization Item 2 -->
-                <div class="relative ml-[24px] group cursor-default">
+                <div class="relative ml-[16px] md:ml-[24px] group cursor-default">
                     <!-- Timeline Dot -->
-                    <div class="absolute w-[12px] h-[12px] bg-[#E52521] border-[2px] border-black rounded-full -left-[31.5px] top-[4px] group-hover:bg-[var(--color-lime-pulse)] group-hover:scale-150 transition-all duration-300"></div>
+                    <div class="absolute w-[8px] h-[8px] md:w-[12px] md:h-[12px] bg-[#E52521] border-[2px] border-black rounded-full -left-[21px] md:-left-[31.5px] top-[4px] group-hover:bg-[var(--color-lime-pulse)] group-hover:scale-150 transition-all duration-300"></div>
                     <!-- Content -->
                     <div class="group-hover:translate-x-1 transition-transform duration-300">
-                        <div class="flex justify-between items-start">
-                            <h3 class="font-bold text-[16px] text-black leading-tight">IT Student Association</h3>
-                            <span class="text-black font-mono text-[11px] font-bold whitespace-nowrap ml-[8px]">Jan '25 - Dec '25</span>
+                        <div class="flex flex-col md:flex-row justify-start md:justify-between items-start md:items-center">
+                            <h3 class="font-bold text-[14px] md:text-[16px] text-black leading-tight">IT Student Association</h3>
+                            <span class="text-black font-mono text-[10px] md:text-[11px] font-bold whitespace-nowrap ml-0 md:ml-[8px] mt-[2px] md:mt-0 opacity-70 md:opacity-100">Jan '25 - Dec '25</span>
                         </div>
-                        <p class="text-[12px] font-bold text-gray-500 font-mono mb-[4px] uppercase tracking-wider">Practicum Division Staff</p>
-                        <p class="text-[13px] text-gray-800 leading-[1.5] max-w-[380px]">
+                        <p class="text-[10px] md:text-[12px] font-bold text-gray-500 font-mono mb-[2px] md:mb-[4px] uppercase tracking-wider mt-[4px] md:mt-0">Practicum Division Staff</p>
+                        <p class="text-[11px] md:text-[13px] text-gray-800 leading-[1.4] md:leading-[1.5] max-w-[380px]">
                             Facilitated laboratory activities and supported academic programs for fellow students.
                         </p>
                     </div>
@@ -705,8 +707,13 @@ import githubPixel from '../../assets/images/github-pixel.png';
    };
 
    // Run typing effect for the default open panel on initial page load
-   runPanelTypingEffect('panel-about');
-
+   if (window.innerWidth > 768) {
+       runPanelTypingEffect('panel-about');
+   } else {
+       // On mobile, skip typing effect and show text instantly
+       const panel = document.getElementById('panel-about');
+       if (panel) panel.setAttribute('data-typed', 'true');
+   }
    // Retro Sound Effects (Synthesized)
    const setupRetroSFX = () => {
        let audioCtx = null;
