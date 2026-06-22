@@ -409,124 +409,102 @@ import Navbar from '../components/astro/Navbar.astro';
 
 <script>
   document.addEventListener('astro:page-load', () => {
-  // ========== FILTER LOGIC ==========
-  const filterBtns = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
-  const projectCards = document.querySelectorAll<HTMLElement>('.project-card');
-  const emptyState = document.getElementById('empty-state');
+    // ========== FILTER LOGIC ==========
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    const emptyState = document.getElementById('empty-state');
 
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const filter = btn.dataset.filter;
-
-      // Update active tab style
-      filterBtns.forEach(b => b.classList.remove('active-filter'));
-      btn.classList.add('active-filter');
-
-      let visibleCount = 0;
-
-      projectCards.forEach(card => {
-        const category = card.dataset.category;
-        if (filter === 'all' || category === filter) {
-          card.classList.remove('hidden-card');
-          card.style.display = '';
-          visibleCount++;
-        } else {
-          card.classList.add('hidden-card');
-          card.style.display = 'none';
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        filterBtns.forEach(b => b.classList.remove('active-filter'));
+        btn.classList.add('active-filter');
+        let visibleCount = 0;
+        projectCards.forEach(card => {
+          const category = card.dataset.category;
+          if (filter === 'all' || category === filter) {
+            card.classList.remove('hidden-card');
+            card.style.display = '';
+            visibleCount++;
+          } else {
+            card.classList.add('hidden-card');
+            card.style.display = 'none';
+          }
+        });
+        if (emptyState) {
+          emptyState.style.display = visibleCount === 0 ? 'flex' : 'none';
         }
       });
-
-      if (emptyState) {
-        emptyState.style.display = visibleCount === 0 ? 'flex' : 'none';
-      }
     });
-  });
 
-  // ========== MODAL LOGIC ==========
-  const modal = document.getElementById('project-modal');
-  const modalBackdrop = document.getElementById('modal-backdrop');
-  const modalContent = document.getElementById('modal-content');
-  const modalCloseBtn = document.getElementById('modal-close-btn');
+    // ========== MODAL LOGIC ==========
+    const modal = document.getElementById('project-modal');
+    const modalBackdrop = document.getElementById('modal-backdrop');
+    const modalContent = document.getElementById('modal-content');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
 
-  const previewBtns = document.querySelectorAll('.preview-btn');
+    function openModal(card) {
+      if (!modal) return;
+      const title = card.querySelector('h2')?.innerText || 'Project';
+      const desc = card.querySelector('p')?.innerText || '';
+      const categoryEl = card.querySelector('.flex.items-center.justify-between span:first-child');
+      const categoryTxt = categoryEl?.innerText || 'App';
+      const categoryBgMatch = categoryEl?.className.match(/bg-\[([^\]]+)\]/);
+      const categoryBg = categoryBgMatch ? categoryBgMatch[1] : '#bfdbfe';
+      const tags = Array.from(card.querySelectorAll('.flex-wrap span')).map(span => span.outerHTML).join('');
+      const filenameEl = card.querySelector('.font-mono');
+      const filenameTxt = filenameEl?.innerText || 'project.exe';
+      const linkEls = Array.from(card.querySelectorAll('a[href]'));
+      const linksHtml = linkEls.map(a => a.outerHTML).join('');
+      const cardImg = card.querySelector('img');
+      const modalPlaceholder = document.getElementById('modal-placeholder');
+      const modalImg = document.getElementById('modal-img');
 
-  function openModal(card) {
-    if (!modal) return;
-    
-    // Extract data from card
-    const title = card.querySelector('h2')?.innerText || 'Project';
-    const desc = card.querySelector('p')?.innerText || '';
-    const categoryEl = card.querySelector('.flex.items-center.justify-between span:first-child');
-    const categoryTxt = categoryEl?.innerText || 'App';
-    const categoryBgMatch = categoryEl?.className.match(/bg-\[([^\]]+)\]/);
-    const categoryBg = categoryBgMatch ? categoryBgMatch[1] : '#bfdbfe';
+      if (cardImg) {
+        modalImg.src = cardImg.src;
+        modalImg.alt = cardImg.alt;
+        modalImg.classList.remove('hidden');
+        modalPlaceholder.classList.add('hidden');
+      } else {
+        modalImg.src = '';
+        modalImg.classList.add('hidden');
+        modalPlaceholder.classList.remove('hidden');
+      }
 
-    const tags = Array.from(card.querySelectorAll('.flex-wrap span')).map(span => span.outerHTML).join('');
-    
-    const filenameEl = card.querySelector('.font-mono.text-\\[11px\\]') || card.querySelector('.font-mono');
-    const filenameTxt = filenameEl?.innerText || 'project.exe';
+      document.getElementById('modal-title').innerText = title;
+      document.getElementById('modal-desc').innerText = desc;
+      document.getElementById('modal-filename').innerText = filenameTxt;
+      const modalCat = document.getElementById('modal-category');
+      modalCat.innerText = categoryTxt;
+      modalCat.className = 'border-[2px] border-[var(--color-carbon-black)] px-[10px] py-[4px] font-mono text-[10px] font-black uppercase tracking-wider shadow-[2px_2px_0_#000] transition-colors duration-300';
+      modalCat.style.backgroundColor = categoryBg;
+      document.getElementById('modal-header').style.backgroundColor = categoryBg;
+      document.getElementById('modal-image-container').style.backgroundColor = categoryBg + '40';
+      document.getElementById('modal-tags').innerHTML = tags;
+      document.getElementById('modal-actions').innerHTML = linksHtml;
 
-    // Extract action links (Live Demo / GitHub), excluding Preview button itself
-    const linkEls = Array.from(card.querySelectorAll('a[href]'));
-    const linksHtml = linkEls.map(a => a.outerHTML).join('');
-
-    // Extract Image
-    const cardImg = card.querySelector('img');
-    const modalPlaceholder = document.getElementById('modal-placeholder');
-    const modalImg = document.getElementById('modal-img');
-
-    if (cardImg) {
-      modalImg.src = cardImg.src;
-      modalImg.alt = cardImg.alt;
-      modalImg.classList.remove('hidden');
-      modalPlaceholder.classList.add('hidden');
-    } else {
-      modalImg.src = '';
-      modalImg.classList.add('hidden');
-      modalPlaceholder.classList.remove('hidden');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          modalBackdrop.classList.remove('opacity-0');
+          modalContent.classList.remove('scale-95', 'opacity-0');
+        });
+      });
     }
 
-    // Populate Modal
-    document.getElementById('modal-title').innerText = title;
-    document.getElementById('modal-desc').innerText = desc;
-    document.getElementById('modal-filename').innerText = filenameTxt;
-    
-    const modalCat = document.getElementById('modal-category');
-    modalCat.innerText = categoryTxt;
-    modalCat.className = `border-[2px] border-[var(--color-carbon-black)] px-[10px] py-[4px] font-mono text-[10px] font-black uppercase tracking-wider shadow-[2px_2px_0_#000] transition-colors duration-300`;
-    modalCat.style.backgroundColor = categoryBg;
+    function closeModal() {
+      if (!modal) return;
+      modalBackdrop.classList.add('opacity-0');
+      modalContent.classList.add('scale-95', 'opacity-0');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }, 300);
+    }
 
-    document.getElementById('modal-header').style.backgroundColor = categoryBg;
-    document.getElementById('modal-image-container').style.backgroundColor = categoryBg + '40'; // 40 hex opacity
-
-    document.getElementById('modal-tags').innerHTML = tags;
-    document.getElementById('modal-actions').innerHTML = linksHtml;
-
-    // Show Modal
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-    
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        modalBackdrop.classList.remove('opacity-0');
-        modalContent.classList.remove('scale-95', 'opacity-0');
-      });
-    });
-  }
-
-  function closeModal() {
-    if (!modal) return;
-    modalBackdrop.classList.add('opacity-0');
-    modalContent.classList.add('scale-95', 'opacity-0');
-    
-    setTimeout(() => {
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-    }, 300);
-  }
-
-    const previewBtns = document.querySelectorAll('.preview-btn');
-    previewBtns.forEach(btn => {
+    // Desktop: preview button inside hover overlay
+    document.querySelectorAll('.preview-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
         const card = btn.closest('.project-card');
@@ -534,14 +512,24 @@ import Navbar from '../components/astro/Navbar.astro';
       });
     });
 
-    // Fix for iOS Safari: adding a click listener makes the element "tappable",
-    // which triggers the CSS :hover state to show the buttons on mobile
-    const overlays = document.querySelectorAll('.preview-overlay');
-    overlays.forEach(overlay => {
-      overlay.addEventListener('click', () => {});
-    });
+    // Mobile: tap on image area directly opens modal
+    const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
+    if (isTouchDevice) {
+      document.querySelectorAll('.project-card').forEach(card => {
+        // The image container is the parent of the preview-overlay
+        const imageContainer = card.querySelector('.preview-overlay')?.parentElement;
+        if (imageContainer) {
+          imageContainer.addEventListener('click', (e) => {
+            if (e.target.closest('a')) return; // allow real links through
+            e.stopPropagation();
+            openModal(card);
+          });
+        }
+      });
+    }
 
     modalCloseBtn?.addEventListener('click', closeModal);
     modalBackdrop?.addEventListener('click', closeModal);
   });
 </script>
+
