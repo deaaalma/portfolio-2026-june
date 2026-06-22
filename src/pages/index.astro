@@ -52,14 +52,14 @@ const optAssistant = await getImage({ src: assistant, format: 'webp', width: 100
 
         <!-- Snake Timeline Container (Retro OS Theme - Side Photo Restored) -->
         <div class="relative py-[8px] max-w-[1400px] mx-auto">
-          <!-- Left Spine (Mobile only) -->
-          <div class="block lg:hidden absolute left-[20px] top-[24px] bottom-[24px] w-[6px] bg-[var(--color-carbon-black)] z-0"></div>
+          <!-- Left Spine (Mobile only) - Hidden for horizontal scroll -->
+          <div class="hidden absolute left-[20px] top-[24px] bottom-[24px] w-[6px] bg-[var(--color-carbon-black)] z-0"></div>
 
           <!-- Grid Container -->
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-[40px] lg:gap-y-[80px] lg:gap-x-[160px] relative z-10 ml-[48px] lg:ml-0">
+          <div class="flex overflow-x-auto snap-x snap-mandatory lg:grid lg:grid-cols-2 gap-[24px] lg:gap-y-[80px] lg:gap-x-[160px] relative z-10 ml-0 -mx-[24px] px-[24px] lg:mx-0 lg:px-0 pb-[24px] lg:pb-0 hide-scrollbar" style="-webkit-overflow-scrolling: touch; scrollbar-width: none;">
           
             <!-- Card 1: Jan - Mar 2026 (Top Left) -->
-            <div class="scroll-reveal opacity-0 translate-y-[60px] transition-all duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] relative w-full bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[4px_4px_0_#000] hover:-translate-y-1 hover:shadow-[6px_6px_0_#000] transition-all group flex flex-col order-1 lg:order-1">
+            <div class="scroll-reveal opacity-0 translate-y-[60px] transition-all duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] relative min-w-[85vw] sm:min-w-[400px] lg:min-w-0 w-full snap-center bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[4px_4px_0_#000] hover:-translate-y-1 hover:shadow-[6px_6px_0_#000] transition-all group flex flex-col order-1 lg:order-1">
               
               <!-- Window Title Bar -->
               <div class="w-full bg-[#e0f2fe] border-b-[3px] border-[var(--color-carbon-black)] px-[12px] py-[8px] flex justify-between items-center">
@@ -73,15 +73,15 @@ const optAssistant = await getImage({ src: assistant, format: 'webp', width: 100
               </div>
 
               <div class="p-[20px] flex flex-col justify-between flex-1">
-                <!-- Mobile Pin -->
-                <div class="block lg:hidden absolute left-[-38px] top-[27px] w-[20px] h-[20px] bg-[#e0f2fe] border-[2px] border-[var(--color-carbon-black)] rounded-full shadow-[2px_2px_0_#000] z-20 group-hover:bg-[#ECA243] transition-colors"></div>
-                <div class="block lg:hidden absolute left-[-28px] top-[34px] w-[28px] h-[6px] bg-[var(--color-carbon-black)] z-10"></div>
+                <!-- Mobile Pin (Hidden for horizontal scroll) -->
+                <div class="hidden absolute left-[-38px] top-[27px] w-[20px] h-[20px] bg-[#e0f2fe] border-[2px] border-[var(--color-carbon-black)] rounded-full shadow-[2px_2px_0_#000] z-20 group-hover:bg-[#ECA243] transition-colors"></div>
+                <div class="hidden absolute left-[-28px] top-[34px] w-[28px] h-[6px] bg-[var(--color-carbon-black)] z-10"></div>
                 
                 <!-- Desktop Horizontal Connection to Card 2 -->
                 <div class="hidden lg:block absolute right-[-160px] top-[34px] w-[160px] h-[6px] bg-[var(--color-carbon-black)] z-10"></div>
                 <div class="hidden lg:block absolute right-[-90px] top-[27px] w-[20px] h-[20px] bg-[#fca5a5] border-[2.5px] border-[var(--color-carbon-black)] rounded-full shadow-[2px_2px_0_#000] z-20 group-hover:scale-110 transition-transform"></div>
 
-                <div>
+                <div class="flex-1 flex flex-col">
                   <div class="flex flex-col xl:flex-row justify-between items-start mb-[10px] gap-[6px]">
                     <div>
                       <h3 class="text-[20px] md:text-[24px] font-black tracking-tight leading-[1.2] mb-[2px]" style="font-family: 'Chalkboard', cursive;">Odoo & Web App Assistant</h3>
@@ -92,15 +92,15 @@ const optAssistant = await getImage({ src: assistant, format: 'webp', width: 100
                     </div>
                   </div>
                   
-                  <div class="flex flex-col xl:flex-row gap-[16px] items-center xl:items-start mb-[16px]">
-                    <ul class="list-disc ml-[16px] text-[12px] md:text-[13px] leading-[1.5] font-medium font-mono text-[var(--color-carbon-black)] flex-1 flex flex-col gap-1.5">
+                  <div class="flex flex-col-reverse xl:flex-row gap-[16px] items-center xl:items-start mb-[16px] flex-1">
+                    <ul class="list-disc ml-[16px] text-[12px] md:text-[13px] leading-[1.5] font-medium font-mono text-[var(--color-carbon-black)] flex-1 flex flex-col gap-1.5 w-full">
                       <li>Maintained the Odoo ERP system and assisted in configuring HR and Attendance modules for internal operations.</li>
                       <li>Managed website updates using WordPress, including publishing content and improving basic SEO.</li>
                       <li>Created promotional flyer designs to support marketing activities.</li>
                     </ul>
                     
                     <!-- Retro Image Viewer (Carousel) -->
-                    <div class="retro-carousel w-[160px] h-[180px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105" data-images={JSON.stringify([optViskal1.src, optViskal2.src, optViskal3.src])} data-titles={JSON.stringify(["viskal_1.jpg", "viskal_2.jpg", "viskal_3.jpg"])} data-index="2">
+                    <div class="retro-carousel w-full h-[200px] xl:w-[160px] xl:h-[180px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105" data-images={JSON.stringify([optViskal1.src, optViskal2.src, optViskal3.src])} data-titles={JSON.stringify(["viskal_1.jpg", "viskal_2.jpg", "viskal_3.jpg"])} data-index="2">
                       <div class="border-b-[2.5px] border-[var(--color-carbon-black)] bg-gray-200 p-[2px] px-[4px] flex justify-between items-center">
                         <span class="text-[8px] font-mono border-[1.5px] border-[var(--color-carbon-black)] px-1 bg-[#d8b4fe] hidden sm:block">CLICK</span>
                         <span class="carousel-title text-[8px] font-mono font-bold uppercase truncate max-w-[70px]">viskal_3.jpg</span>
@@ -122,7 +122,7 @@ const optAssistant = await getImage({ src: assistant, format: 'webp', width: 100
             </div>
 
             <!-- Card 2: Sep - Dec 2025 (Top Right) -->
-            <div class="scroll-reveal opacity-0 translate-y-[60px] transition-all duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] delay-100 relative w-full bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[4px_4px_0_#000] hover:-translate-y-1 hover:shadow-[6px_6px_0_#000] transition-all group flex flex-col order-2 lg:order-2">
+            <div class="scroll-reveal opacity-0 translate-y-[60px] transition-all duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] delay-100 relative min-w-[85vw] sm:min-w-[400px] lg:min-w-0 w-full snap-center bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[4px_4px_0_#000] hover:-translate-y-1 hover:shadow-[6px_6px_0_#000] transition-all group flex flex-col order-2 lg:order-2">
               
               <!-- Window Title Bar -->
               <div class="w-full bg-[#fef3c8] border-b-[3px] border-[var(--color-carbon-black)] px-[12px] py-[8px] flex justify-between items-center">
@@ -137,14 +137,14 @@ const optAssistant = await getImage({ src: assistant, format: 'webp', width: 100
 
               <div class="p-[20px] flex flex-col justify-between flex-1">
                 <!-- Mobile Pin -->
-                <div class="block lg:hidden absolute left-[-38px] top-[27px] w-[20px] h-[20px] bg-[#fef3c8] border-[2px] border-[var(--color-carbon-black)] rounded-full shadow-[2px_2px_0_#000] z-20 group-hover:bg-[#ECA243] transition-colors"></div>
-                <div class="block lg:hidden absolute left-[-28px] top-[34px] w-[28px] h-[6px] bg-[var(--color-carbon-black)] z-10"></div>
+                <div class="hidden absolute left-[-38px] top-[27px] w-[20px] h-[20px] bg-[#fef3c8] border-[2px] border-[var(--color-carbon-black)] rounded-full shadow-[2px_2px_0_#000] z-20 group-hover:bg-[#ECA243] transition-colors"></div>
+                <div class="hidden absolute left-[-28px] top-[34px] w-[28px] h-[6px] bg-[var(--color-carbon-black)] z-10"></div>
                 
                 <!-- Desktop Vertical Connection to Card 3 -->
                 <div class="hidden lg:block absolute left-1/2 bottom-[-80px] w-[6px] h-[80px] bg-[var(--color-carbon-black)] -translate-x-1/2 z-10"></div>
                 <div class="hidden lg:block absolute left-1/2 bottom-[-50px] w-[20px] h-[20px] bg-[#fbbf25] border-[2.5px] border-[var(--color-carbon-black)] rounded-full shadow-[2px_2px_0_#000] -translate-x-1/2 z-20 group-hover:scale-110 transition-transform"></div>
 
-                <div>
+                <div class="flex-1 flex flex-col">
                   <div class="flex flex-col xl:flex-row justify-between items-start mb-[10px] gap-[6px]">
                     <div>
                       <h3 class="text-[20px] md:text-[24px] font-black tracking-tight leading-[1.2] mb-[2px]" style="font-family: 'Chalkboard', cursive;">Coding Mentor</h3>
@@ -155,14 +155,14 @@ const optAssistant = await getImage({ src: assistant, format: 'webp', width: 100
                     </div>
                   </div>
                   
-                  <div class="flex flex-col xl:flex-row gap-[16px] items-center xl:items-start mb-[16px]">
-                    <ul class="list-disc ml-[16px] text-[12px] md:text-[13px] leading-[1.5] font-medium font-mono text-[var(--color-carbon-black)] flex-1 flex flex-col gap-1.5">
+                  <div class="flex flex-col-reverse xl:flex-row gap-[16px] items-center xl:items-start mb-[16px] flex-1">
+                    <ul class="list-disc ml-[16px] text-[12px] md:text-[13px] leading-[1.5] font-medium font-mono text-[var(--color-carbon-black)] flex-1 flex flex-col gap-1.5 w-full">
                       <li>Designed a structured coding curriculum introducing fundamental algorithms and logical thinking using Scratch.</li>
                       <li>Evaluated students' code to identify logic errors and guided them through the debugging process.</li>
                     </ul>
                     
                     <!-- Retro Image Viewer (Carousel) -->
-                    <div class="retro-carousel w-[160px] h-[180px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105" data-images={JSON.stringify([optCoding1.src, optCoding2.src, optCoding3.src])} data-titles={JSON.stringify(["coding mentor_1.jpg", "coding_mentor_2.jpg", "coding mentor-3.jpg"])} data-index="2">
+                    <div class="retro-carousel w-full h-[200px] xl:w-[160px] xl:h-[180px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105" data-images={JSON.stringify([optCoding1.src, optCoding2.src, optCoding3.src])} data-titles={JSON.stringify(["coding mentor_1.jpg", "coding_mentor_2.jpg", "coding mentor-3.jpg"])} data-index="2">
                       <div class="border-b-[2.5px] border-[var(--color-carbon-black)] bg-gray-200 p-[2px] px-[4px] flex justify-between items-center">
                         <span class="text-[8px] font-mono border-[1.5px] border-[var(--color-carbon-black)] px-1 bg-[#d8b4fe] hidden sm:block">CLICK</span>
                         <span class="carousel-title text-[8px] font-mono font-bold uppercase truncate max-w-[70px]">coding mentor-3.jpg</span>
@@ -183,7 +183,7 @@ const optAssistant = await getImage({ src: assistant, format: 'webp', width: 100
             </div>
 
             <!-- Card 3: Apr - Jun 2025 (Bottom Right) -->
-            <div class="scroll-reveal opacity-0 translate-y-[60px] transition-all duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] delay-[200ms] relative w-full bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[4px_4px_0_#000] hover:-translate-y-1 hover:shadow-[6px_6px_0_#000] transition-all group flex flex-col order-3 lg:order-4">
+            <div class="scroll-reveal opacity-0 translate-y-[60px] transition-all duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] delay-[200ms] relative min-w-[85vw] sm:min-w-[400px] lg:min-w-0 w-full snap-center bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[4px_4px_0_#000] hover:-translate-y-1 hover:shadow-[6px_6px_0_#000] transition-all group flex flex-col order-3 lg:order-4">
               
               <!-- Window Title Bar -->
               <div class="w-full bg-[#d2fae5] border-b-[3px] border-[var(--color-carbon-black)] px-[12px] py-[8px] flex justify-between items-center">
@@ -198,14 +198,14 @@ const optAssistant = await getImage({ src: assistant, format: 'webp', width: 100
 
               <div class="p-[20px] flex flex-col justify-between flex-1">
                 <!-- Mobile Pin -->
-                <div class="block lg:hidden absolute left-[-38px] top-[27px] w-[20px] h-[20px] bg-[#d2fae5] border-[2px] border-[var(--color-carbon-black)] rounded-full shadow-[2px_2px_0_#000] z-20 group-hover:bg-[#ECA243] transition-colors"></div>
-                <div class="block lg:hidden absolute left-[-28px] top-[34px] w-[28px] h-[6px] bg-[var(--color-carbon-black)] z-10"></div>
+                <div class="hidden absolute left-[-38px] top-[27px] w-[20px] h-[20px] bg-[#d2fae5] border-[2px] border-[var(--color-carbon-black)] rounded-full shadow-[2px_2px_0_#000] z-20 group-hover:bg-[#ECA243] transition-colors"></div>
+                <div class="hidden absolute left-[-28px] top-[34px] w-[28px] h-[6px] bg-[var(--color-carbon-black)] z-10"></div>
                 
                 <!-- Desktop Horizontal Connection to Card 4 -->
                 <div class="hidden lg:block absolute left-[-160px] top-[34px] w-[160px] h-[6px] bg-[var(--color-carbon-black)] z-10"></div>
                 <div class="hidden lg:block absolute left-[-90px] top-[27px] w-[20px] h-[20px] bg-[#a3e635] border-[2.5px] border-[var(--color-carbon-black)] rounded-full shadow-[2px_2px_0_#000] z-20 group-hover:scale-110 transition-transform"></div>
 
-                <div>
+                <div class="flex-1 flex flex-col">
                   <div class="flex flex-col xl:flex-row justify-between items-start mb-[10px] gap-[6px]">
                     <div>
                       <h3 class="text-[20px] md:text-[24px] font-black tracking-tight leading-[1.2] mb-[2px]" style="font-family: 'Chalkboard', cursive;">Network Assistant</h3>
@@ -216,13 +216,13 @@ const optAssistant = await getImage({ src: assistant, format: 'webp', width: 100
                     </div>
                   </div>
                   
-                  <div class="flex flex-col xl:flex-row gap-[16px] items-center xl:items-start mb-[16px]">
-                    <ul class="list-disc ml-[16px] text-[12px] md:text-[13px] leading-[1.5] font-medium font-mono text-[var(--color-carbon-black)] flex-1 flex flex-col gap-1.5">
+                  <div class="flex flex-col-reverse xl:flex-row gap-[16px] items-center xl:items-start mb-[16px] flex-1">
+                    <ul class="list-disc ml-[16px] text-[12px] md:text-[13px] leading-[1.5] font-medium font-mono text-[var(--color-carbon-black)] flex-1 flex flex-col gap-1.5 w-full">
                       <li>Facilitated network lab sessions and diagnosed connectivity issues using Cisco Packet Tracer and Linux.</li>
                       <li>Mentored first-year students in understanding network protocols and topology design.</li>
                     </ul>
                     
-                    <div class="retro-carousel w-[160px] h-[180px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105" data-images={JSON.stringify([optPracticum.src])} data-titles={JSON.stringify(["lab.jpg"])} data-index="0">
+                    <div class="retro-carousel w-full h-[200px] xl:w-[160px] xl:h-[180px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105" data-images={JSON.stringify([optPracticum.src])} data-titles={JSON.stringify(["lab.jpg"])} data-index="0">
                       <div class="border-b-[2.5px] border-[var(--color-carbon-black)] bg-gray-200 p-[2px] px-[4px] flex justify-between items-center">
                         <span class="text-[8px] font-mono border-[1.5px] border-[var(--color-carbon-black)] px-1 bg-[#d8b4fe] hidden sm:block">CLICK</span>
                         <span class="carousel-title text-[8px] font-mono font-bold uppercase truncate max-w-[70px]">lab.jpg</span>
@@ -243,7 +243,7 @@ const optAssistant = await getImage({ src: assistant, format: 'webp', width: 100
             </div>
 
             <!-- Card 4: Jul - Aug 2023 (Bottom Left) -->
-            <div class="scroll-reveal opacity-0 translate-y-[60px] transition-all duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] delay-[300ms] relative w-full bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[4px_4px_0_#000] hover:-translate-y-1 hover:shadow-[6px_6px_0_#000] transition-all group flex flex-col order-4 lg:order-3">
+            <div class="scroll-reveal opacity-0 translate-y-[60px] transition-all duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] delay-[300ms] relative min-w-[85vw] sm:min-w-[400px] lg:min-w-0 w-full snap-center bg-[var(--color-paper-white)] border-[3px] border-[var(--color-carbon-black)] shadow-[4px_4px_0_#000] hover:-translate-y-1 hover:shadow-[6px_6px_0_#000] transition-all group flex flex-col order-4 lg:order-3">
               
               <!-- Window Title Bar -->
               <div class="w-full bg-[#fae9ff] border-b-[3px] border-[var(--color-carbon-black)] px-[12px] py-[8px] flex justify-between items-center">
@@ -258,12 +258,12 @@ const optAssistant = await getImage({ src: assistant, format: 'webp', width: 100
 
               <div class="p-[20px] flex flex-col justify-between flex-1">
                 <!-- Mobile Pin -->
-                <div class="block lg:hidden absolute left-[-38px] top-[27px] w-[20px] h-[20px] bg-[#fae9ff] border-[2px] border-[var(--color-carbon-black)] rounded-full shadow-[2px_2px_0_#000] z-20 group-hover:bg-[#ECA243] transition-colors"></div>
-                <div class="block lg:hidden absolute left-[-28px] top-[34px] w-[28px] h-[6px] bg-[var(--color-carbon-black)] z-10"></div>
+                <div class="hidden absolute left-[-38px] top-[27px] w-[20px] h-[20px] bg-[#fae9ff] border-[2px] border-[var(--color-carbon-black)] rounded-full shadow-[2px_2px_0_#000] z-20 group-hover:bg-[#ECA243] transition-colors"></div>
+                <div class="hidden absolute left-[-28px] top-[34px] w-[28px] h-[6px] bg-[var(--color-carbon-black)] z-10"></div>
                 
                 <!-- No Desktop Pin because it's the end of the snake! -->
 
-                <div>
+                <div class="flex-1 flex flex-col">
                   <div class="flex flex-col xl:flex-row justify-between items-start mb-[10px] gap-[6px]">
                     <div>
                       <h3 class="text-[20px] md:text-[24px] font-black tracking-tight leading-[1.2] mb-[2px]" style="font-family: 'Chalkboard', cursive;">Accounting Staff</h3>
@@ -274,13 +274,13 @@ const optAssistant = await getImage({ src: assistant, format: 'webp', width: 100
                     </div>
                   </div>
                   
-                  <div class="flex flex-col xl:flex-row gap-[16px] items-center xl:items-start mb-[16px]">
-                    <ul class="list-disc ml-[16px] text-[12px] md:text-[13px] leading-[1.5] font-medium font-mono text-[var(--color-carbon-black)] flex-1 flex flex-col gap-1.5">
+                  <div class="flex flex-col-reverse xl:flex-row gap-[16px] items-center xl:items-start mb-[16px] flex-1">
+                    <ul class="list-disc ml-[16px] text-[12px] md:text-[13px] leading-[1.5] font-medium font-mono text-[var(--color-carbon-black)] flex-1 flex flex-col gap-1.5 w-full">
                       <li>Conducted rigorous data entry and verification for financial records, ensuring high accuracy.</li>
                       <li>Assisted senior staff in cross-checking reports to identify discrepancies.</li>
                     </ul>
                     
-                    <div class="retro-carousel w-[160px] h-[180px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105" data-images={JSON.stringify([optAssistant.src])} data-titles={JSON.stringify(["biasa.jpg"])} data-index="0">
+                    <div class="retro-carousel w-full h-[200px] xl:w-[160px] xl:h-[180px] flex-shrink-0 bg-[var(--color-paper-white)] border-[2.5px] border-[var(--color-carbon-black)] shadow-[3px_3px_0_#000] flex flex-col mt-[4px] xl:mt-0 transition-transform group-hover:scale-105" data-images={JSON.stringify([optAssistant.src])} data-titles={JSON.stringify(["biasa.jpg"])} data-index="0">
                       <div class="border-b-[2.5px] border-[var(--color-carbon-black)] bg-gray-200 p-[2px] px-[4px] flex justify-between items-center">
                         <span class="text-[8px] font-mono border-[1.5px] border-[var(--color-carbon-black)] px-1 bg-[#d8b4fe] hidden sm:block">CLICK</span>
                         <span class="carousel-title text-[8px] font-mono font-bold uppercase truncate max-w-[70px]">biasa.jpg</span>
