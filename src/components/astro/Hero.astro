@@ -151,6 +151,17 @@ import githubPixel from '../../assets/images/github-pixel.png';
 
         <!-- Main Content -->
         <div class="flex-1 bg-[var(--color-fog)] p-[16px] md:p-[40px] relative overflow-x-hidden">
+          
+          <!-- Global Face Image (Desktop Only - Absolute) -->
+          <a href="/cv_putu_ayu_deanisa.pdf" target="_blank" class="hidden md:block absolute bottom-[-40px] right-[20px] shrink-0 cursor-pointer z-50 hover:-translate-y-2 transition-transform duration-300 animate-float">
+              <!-- Speech Bubble Tooltip -->
+              <div class="absolute top-[30px] left-1/2 -translate-x-1/2 bg-[var(--color-paper-white)] border-[3px] border-black px-[12px] py-[8px] shadow-[4px_4px_0_#000] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap z-50">
+                  <span class="text-[14px] font-bold text-black font-mono tracking-tighter">Want to see my resume?</span>
+                  <div class="absolute bottom-[-7px] left-[50%] -translate-x-1/2 w-[10px] h-[10px] bg-[var(--color-paper-white)] border-b-[3px] border-r-[3px] border-black transform rotate-45"></div>
+              </div>
+              <Image src={faceImage} alt="Dea Alma" width={280} class="block w-[280px] h-auto object-contain drop-shadow-[4px_4px_0_#000] group-hover:drop-shadow-[6px_6px_0_var(--color-lime-pulse)] transition-all duration-300" style="image-rendering: pixelated;" />
+          </a>
+
           <!-- Panel: About Me -->
           <div id="panel-about" class="content-panel flex flex-col h-fit w-full">
             <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-[16px] gap-[12px]">
@@ -171,14 +182,14 @@ import githubPixel from '../../assets/images/github-pixel.png';
                         </p>
                     </div>
                     
-                    <!-- Face Image (Inline on mobile, Absolute on Desktop) -->
-                    <a href="/cv_putu_ayu_deanisa.pdf" target="_blank" class="relative md:absolute md:bottom-[-40px] md:right-[20px] shrink-0 block cursor-pointer z-50 hover:-translate-y-2 transition-transform duration-300 animate-float">
+                    <!-- Face Image (Mobile Only - Inline) -->
+                    <a href="/cv_putu_ayu_deanisa.pdf" target="_blank" class="relative md:hidden shrink-0 block cursor-pointer z-50 hover:-translate-y-2 transition-transform duration-300 animate-float">
                         <!-- Speech Bubble Tooltip -->
-                        <div class="absolute top-[0px] md:top-[30px] left-1/2 -translate-x-1/2 bg-[var(--color-paper-white)] border-[2px] md:border-[3px] border-black px-[8px] md:px-[12px] py-[4px] md:py-[8px] shadow-[2px_2px_0_#000] md:shadow-[4px_4px_0_#000] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap z-50">
-                            <span class="text-[9px] md:text-[14px] font-bold text-black font-mono tracking-tighter">Want to see my resume?</span>
-                            <div class="absolute bottom-[-6px] md:bottom-[-7px] left-[50%] -translate-x-1/2 w-[8px] md:w-[10px] h-[8px] md:h-[10px] bg-[var(--color-paper-white)] border-b-[2px] md:border-b-[3px] border-r-[2px] md:border-r-[3px] border-black transform rotate-45"></div>
+                        <div class="absolute top-[0px] left-1/2 -translate-x-1/2 bg-[var(--color-paper-white)] border-[2px] border-black px-[8px] py-[4px] shadow-[2px_2px_0_#000] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap z-50">
+                            <span class="text-[9px] font-bold text-black font-mono tracking-tighter">Want to see my resume?</span>
+                            <div class="absolute bottom-[-6px] left-[50%] -translate-x-1/2 w-[8px] h-[8px] bg-[var(--color-paper-white)] border-b-[2px] border-r-[2px] border-black transform rotate-45"></div>
                         </div>
-                        <Image src={faceImage} alt="Dea Alma" width={280} class="block w-[100px] sm:w-[130px] md:w-[280px] h-auto object-contain drop-shadow-[2px_2px_0_#000] md:drop-shadow-[4px_4px_0_#000] group-hover:drop-shadow-[4px_4px_0_var(--color-lime-pulse)] md:group-hover:drop-shadow-[6px_6px_0_var(--color-lime-pulse)] transition-all duration-300" style="image-rendering: pixelated;" />
+                        <Image src={faceImage} alt="Dea Alma" width={130} class="block w-[100px] sm:w-[130px] h-auto object-contain drop-shadow-[2px_2px_0_#000] group-hover:drop-shadow-[4px_4px_0_var(--color-lime-pulse)] transition-all duration-300" style="image-rendering: pixelated;" />
                     </a>
                 </div>
                 
